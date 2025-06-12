@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://will1990ww.github.io/mailboxlock/sitemap.xml
+Sitemap: https://www.letterboxlock.sg/sitemap.xml
