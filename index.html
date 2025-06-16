@@ -26,7 +26,7 @@
   <meta name="twitter:description" content="Battery-free, password & key (SGD 55), smart battery-powered (SGD 60) locks. Install & unlock service."/>
   <meta name="twitter:image"       content="https://yourdomain.com/og-image.jpg"/>
 
-  <!-- Google Analytics (replace GA_MEASUREMENT_ID) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
   <script>
     window.dataLayer = window.dataLayer||[];
@@ -44,33 +44,21 @@
         "name":"Battery-Free Mailbox Lock",
         "image":"https://yourdomain.com/battery-free-mailbox-lock.jpg",
         "description":"Fully mechanical, no batteries required. Tamper-resistant, maintenance-free. Fits HDB & condos.",
-        "offers":{
-          "@type":"Offer","url":"https://yourdomain.com/#order",
-          "priceCurrency":"SGD","price":"50.00",
-          "availability":"https://schema.org/InStock"
-        }
+        "offers":{"@type":"Offer","url":"https://yourdomain.com/#order","priceCurrency":"SGD","price":"50.00","availability":"https://schema.org/InStock"}
       },
       {
         "@type":"Product","@id":"https://yourdomain.com/#codekey",
         "name":"Password & Key Mailbox Lock",
         "image":"https://yourdomain.com/password-and-key-mailbox-lock.jpg",
         "description":"Open by passcode; key acts as backup if you forget. Code can be reset easily.",
-        "offers":{
-          "@type":"Offer","url":"https://yourdomain.com/#order",
-          "priceCurrency":"SGD","price":"55.00",
-          "availability":"https://schema.org/InStock"
-        }
+        "offers":{"@type":"Offer","url":"https://yourdomain.com/#order","priceCurrency":"SGD","price":"55.00","availability":"https://schema.org/InStock"}
       },
       {
         "@type":"Product","@id":"https://yourdomain.com/#battery",
         "name":"Battery-Powered Smart Mailbox Lock",
         "image":"https://yourdomain.com/battery-powered-smart-mailbox-lock.jpg",
         "description":"Battery-powered smart lock with PIN code, remote notifications & usage logs.",
-        "offers":{
-          "@type":"Offer","url":"https://yourdomain.com/#order",
-          "priceCurrency":"SGD","price":"60.00",
-          "availability":"https://schema.org/InStock"
-        }
+        "offers":{"@type":"Offer","url":"https://yourdomain.com/#order","priceCurrency":"SGD","price":"60.00","availability":"https://schema.org/InStock"}
       },
       {
         "@type":"FAQPage","mainEntity":[
@@ -89,6 +77,12 @@
   <!-- LazySizes for lazy-loading -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
 
+  <!-- Preload first few sample images -->
+  <link rel="preload" as="image" href="images/sample-project-01.jpg"/>
+  <link rel="preload" as="image" href="images/sample-project-02.jpg"/>
+  <link rel="preload" as="image" href="images/sample-project-03.jpg"/>
+  <link rel="preload" as="image" href="images/sample-project-04.jpg"/>
+
   <!-- Fonts & CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -96,44 +90,34 @@
 
   <style>
     :root { --logo-size: 60px; }
-    .header-logo { width: var(--logo-size); height: auto; object-fit: contain; }
-
     * { box-sizing: border-box; }
     body { margin: 0; font-family: 'Inter', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
     a { color: #0077cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
-
     header { background: #000; color: #fff; padding: 1rem; text-align: center; }
-    header img.header-logo { vertical-align: middle; margin-right: .5rem; }
-
+    header img.header-logo { vertical-align: middle; margin-right: .5rem; width: var(--logo-size); }
     main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
     h2 { font-size: 1.5rem; margin-bottom: 1rem; border-bottom: 2px solid #ddd; color: #222; }
-
     .product { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,.05); margin-bottom: 2rem; display: flex; flex-direction: column; }
     @media(min-width:600px){ .product { flex-direction: row; } }
     .product img { width: 100%; max-width: 240px; object-fit: cover; }
     .product-content { padding: 1rem; }
     .product-content h3 { margin: 0 0 .5rem; color: #222; }
     .product-content p { margin: 0; color: #555; }
-
     form { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.05); margin-bottom: 2rem; }
     form label { display: block; margin-bottom: .3rem; font-weight: 600; }
     form input, form select { width: 100%; padding: .9rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px; }
     form button { width: 100%; padding: .8rem; background: #0077cc; color: #fff; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; transition: background .3s; }
     form button:hover { background: #005fa3; }
-
     .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 1rem; margin-bottom: 2rem; }
     .gallery img { width: 100%; border-radius: 8px; object-fit: cover; }
-
     .faq div { margin-bottom: 1.2rem; }
     .faq strong { display: block; margin-bottom: .3rem; }
-
     footer { background: #eee; text-align: center; padding: 2rem 1rem; font-size: .9rem; }
     footer a { color: #0077cc; }
     footer a:hover { text-decoration: underline; }
   </style>
 
-  <!-- Form Logic -->
   <script>
     function updateColorField() {
       const type = document.getElementById('lockType').value;
@@ -151,6 +135,7 @@
         color.value = '';
       }
     }
+
     function sendFormToWhatsApp() {
       const n = document.getElementById('name').value.trim();
       const p = document.getElementById('phone').value.trim();
@@ -171,9 +156,34 @@
       window.open(`https://wa.me/6583417888?text=${encodeURIComponent(msg)}`, '_blank');
       return false;
     }
-    document.addEventListener('DOMContentLoaded', updateColorField);
-  </script>
 
+    async function loadTrending() {
+      const apiKey = 'AIzaSyAvMGEWUF4vufTURdf9Sg3XZ5S0ObXP60k';
+      const cx     = '17f13fffb843243c8';
+      const q      = encodeURIComponent('Singapore mailbox lock');
+      const url    = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${q}&num=5`;
+      try {
+        const res  = await fetch(url);
+        const data = await res.json();
+        const ul   = document.getElementById('articles-list');
+        ul.innerHTML = '';
+        (data.items || []).forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a><p>${item.snippet}</p>`;
+          ul.appendChild(li);
+        });
+        if (!data.items) ul.innerHTML = '<li>No articles found.</li>';
+      } catch (e) {
+        document.getElementById('articles-list').innerHTML = '<li>Error loading articles.</li>';
+        console.error(e);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateColorField();
+      loadTrending();
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -214,32 +224,25 @@
       <form onsubmit="return sendFormToWhatsApp();">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" required/>
-
         <label for="phone">Phone Number</label>
         <input type="text" id="phone" name="phone" required/>
-
         <label for="address">Address</label>
         <input type="text" id="address" name="address" required/>
-
         <label for="unit">Unit Number</label>
         <input type="text" id="unit" name="unit" required/>
-
         <label for="qty">Quantity</label>
         <input type="number" id="qty" name="qty" min="1" value="1" required/>
-
         <label for="lockType">Select Lock Type (price includes installation)</label>
         <select id="lockType" name="lockType" onchange="updateColorField()" required>
           <option value="battery-free">Battery-Free Lock (SGD 50 incl. install)</option>
           <option value="code-key">Password & Key Lock (SGD 55 incl. install)</option>
           <option value="battery">Smart Battery Lock (SGD 60 incl. install)</option>
         </select>
-
         <label for="unlockService">Unlocking Service (Optional)</label>
         <select id="unlockService" name="unlockService">
           <option value="no">No unlocking service</option>
           <option value="yes">Add unlocking service (SGD 25)</option>
         </select>
-
         <label for="color">Color (Battery-Free & Password & Key only)</label>
         <select id="color" name="color" required>
           <option value="">– Select Color –</option>
@@ -247,17 +250,182 @@
           <option value="white">White</option>
           <option value="grey">Grey</option>
         </select>
-
         <button type="submit">Place Order via WhatsApp</button>
       </form>
     </section>
 
     <!-- Sample Projects -->
-    <section id="sample-projects">
+    <section id="sample-projects" itemscope itemtype="https://schema.org/ImageGallery">
       <h2>Sample Projects</h2>
       <div class="gallery">
-        <!-- images… -->
+        <!-- Figures 01–16 -->
+        <!-- Copy/paste and adjust caption if needed -->
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org/ImageObject">
+          <a href="images/sample-project-01.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-01.jpg" itemprop="thumbnail"
+                 alt="Sample Project 01 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 01 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org/ImageObject">
+          <a href="images/sample-project-02.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-02.jpg" itemprop="thumbnail"
+                 alt="Sample Project 02 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 02 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org/ImageObject">
+          <a href="images/sample-project-03.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-03.jpg" itemprop="thumbnail"
+                 alt="Sample Project 03 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 03 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org/ImageObject">
+          <a href="images/sample-project-04.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-04.jpg" itemprop="thumbnail"
+                 alt="Sample Project 04 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 04 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org/ImageObject">
+          <a href="images/sample-project-05.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-05.jpg" itemprop="thumbnail"
+                 alt="Sample Project 05 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 05 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org/ImageObject">
+          <a href="images/sample-project-06.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-06.jpg" itemprop="thumbnail"
+                 alt="Sample Project 06 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 06 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org/ImageObject">
+          <a href="images/sample-project-07.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-07.jpg" itemprop="thumbnail"
+                 alt="Sample Project 07 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 07 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org/ImageObject">
+          <a href="images/sample-project-08.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-08.jpg" itemprop="thumbnail"
+                 alt="Sample Project 08 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 08 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org/ImageObject">
+          <a href="images/sample-project-09.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-09.jpg" itemprop="thumbnail"
+                 alt="Sample Project 09 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 09 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org/ImageObject">
+          <a href="images/sample-project-10.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-10.jpg" itemprop="thumbnail"
+                 alt="Sample Project 10 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 10 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org/ImageObject">
+          <a href="images/sample-project-11.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-11.jpg" itemprop="thumbnail"
+                 alt="Sample Project 11 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 11 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org<ImageObject">
+          <a href="images/sample-project-12.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-12.jpg" itemprop="thumbnail"
+                 alt="Sample Project 12 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 12 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org<ImageObject">
+          <a href="images/sample-project-13.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-13.jpg" itemprop="thumbnail"
+                 alt="Sample Project 13 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 13 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org<ImageObject">
+          <a href="images/sample-project-14.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-14.jpg" itemprop="thumbnail"
+                 alt="Sample Project 14 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 14 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org<ImageObject">
+          <a href="images/sample-project-15.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-15.jpg" itemprop="thumbnail"
+                 alt="Sample Project 15 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 15 – Mailbox lock installation
+          </figcaption>
+        </figure>
+        <figure itemscope itemprop="associatedMedia" itemtype="https://schema.org<ImageObject">
+          <a href="images/sample-project-16.jpg" itemprop="contentUrl" data-size="800x600">
+            <img src="images/sample-project-16.jpg" itemprop="thumbnail"
+                 alt="Sample Project 16 – Mailbox lock installation" loading="lazy"/>
+          </a>
+          <figcaption itemprop="caption description">
+            Sample Project 16 – Mailbox lock installation
+          </figcaption>
+        </figure>
       </div>
+
+      <!-- noscript fallback for crawlers without JS -->
+      <noscript>
+        <style>.gallery img{display:inline-block;}</style>
+        <img src="images/sample-project-01.jpg" alt="Sample Project 01"/>
+        <img src="images/sample-project-02.jpg" alt="Sample Project 02"/>
+        <img src="images/sample-project-03.jpg" alt="Sample Project 03"/>
+        <img src="images/sample-project-04.jpg" alt="Sample Project 04"/>
+        <img src="images/sample-project-05.jpg" alt="Sample Project 05"/>
+        <img src="images/sample-project-06.jpg" alt="Sample Project 06"/>
+        <img src="images/sample-project-07.jpg" alt="Sample Project 07"/>
+        <img src="images/sample-project-08.jpg" alt="Sample Project 08"/>
+        <img src="images/sample-project-09.jpg" alt="Sample Project 09"/>
+        <img src="images/sample-project-10.jpg" alt="Sample Project 10"/>
+        <img src="images/sample-project-11.jpg" alt="Sample Project 11"/>
+        <img src="images/sample-project-12.jpg" alt="Sample Project 12"/>
+        <img src="images/sample-project-13.jpg" alt="Sample Project 13"/>
+        <img src="images/sample-project-14.jpg" alt="Sample Project 14"/>
+        <img src="images/sample-project-15.jpg" alt="Sample Project 15"/>
+        <img src="images/sample-project-16.jpg" alt="Sample Project 16"/>
+      </noscript>
     </section>
 
     <!-- FAQs -->
@@ -274,59 +442,16 @@
     <!-- Trending Articles -->
     <section id="trending-articles">
       <h2>Trending Articles on Singapore Mailbox Locks</h2>
-      <ul id="articles-list">
-        <li>Loading…</li>
-      </ul>
+      <ul id="articles-list"><li>Loading…</li></ul>
     </section>
 
-    <!-- Hot Search Trends (Singapore) -->
+    <!-- Hot Search Trends -->
     <aside id="trending-keywords">
       <h2>Hot Search Trends (Singapore)</h2>
-      <iframe
-        src="https://trends.google.com/trends/embed/dailytrends?geo=SG&hl=en&tz=-480"
-    width="100%"
-    height="400"
-    frameborder="0"
-    scrolling="no">
-      </iframe>
+      <iframe src="https://trends.google.com/trends/embed/dailytrends?geo=SG&hl=en&tz=-480"
+              width="100%" height="400" frameborder="0" scrolling="no"></iframe>
     </aside>
   </main>
 
   <footer>
-    <p>Visit our <a href="https://www.carousell.sg/u/carosalesg/?tab=reviews" target="_blank">Carousell page</a> for reviews.</p>
-    <p>This site is for product info only. Individual results may vary. Installation terms apply. No data shared without consent. Google Ads compliant.</p>
-  </footer>
-
-  <!-- loadTrending Script -->
-  <script>
-    async function loadTrending() {
-      const apiKey = 'AIzaSyAvMGEWUF4vufTURdf9Sg3XZ5S0ObXP60k';
-      const cx     = '17f13fffb843243c8';
-      const q      = encodeURIComponent('Singapore mailbox lock');
-      const url    = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${q}&num=5`;
-      try {
-        const res  = await fetch(url);
-        const data = await res.json();
-        const ul   = document.getElementById('articles-list');
-        ul.innerHTML = '';
-        (data.items || []).forEach(item => {
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>
-                          <p>${item.snippet}</p>`;
-          ul.appendChild(li);
-        });
-        if (!data.items) {
-          document.getElementById('articles-list').innerHTML = '<li>No articles found.</li>';
-        }
-      } catch (e) {
-        document.getElementById('articles-list').innerHTML = '<li>Error loading articles.</li>';
-        console.error(e);
-      }
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      loadTrending();
-      updateColorField();
-    });
-  </script>
-</body>
-</html>
+    <p>
