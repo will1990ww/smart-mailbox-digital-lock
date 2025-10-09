@@ -334,12 +334,11 @@
     .testimonial footer { background: none; text-align: right; padding: 0.5rem 0 0 0; font-size: 0.9rem; font-weight: 600; font-style: normal; }
     
     /* --- Mobile Floating Buttons --- */
-    .mobile-fab-buttons { display: flex; position: fixed; bottom: 15px; right: 15px; z-index: 1001; gap: 10px; }
+    .mobile-fab-buttons { display: flex; position: fixed; bottom: 15px; right: 15px; z-index: 1001; }
     .fab-btn { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; color: white; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-decoration: none; transition: transform 0.2s ease; }
     .fab-btn:hover { transform: scale(1.1); }
     .fab-btn img { width: 32px; height: 32px; }
     .whatsapp-btn { background-color: #25D366; }
-    .call-btn { background-color: var(--primary-color); }
 
     /* --- Responsive Design --- */
     @media (min-width: 600px) {
@@ -655,9 +654,6 @@
   </footer>
 
   <div class="mobile-fab-buttons">
-    <a href="tel:+6583417888" class="fab-btn call-btn" aria-label="Call Us">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Phone_communication_icon.svg" alt="Call Icon" />
-    </a>
     <a href="https://wa.me/6583417888?text=Hello%20LetterboxLock.sg%2C%20I%20would%20like%20to%20enquire%20about%20your%20digital%20lock%20services." class="fab-btn whatsapp-btn" target="_blank" aria-label="Chat with us on WhatsApp">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" />
     </a>
@@ -693,7 +689,7 @@
       const q = parseInt(document.getElementById('qty').value, 10);
       const t = document.getElementById('lockType').value;
       const s = document.getElementById('unlockService').value;
-      const c = document.getElementById('color').value || 'N/A';
+      const c = document.getElementById('color').value || 'NA';
 	  
 	  let price = 0;
       let label = '';
