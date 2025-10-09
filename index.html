@@ -294,52 +294,70 @@
   </script>
 
   <style>
-    :root { --logo-size: 60px; }
+    :root { 
+      --logo-size: 60px; 
+      --primary-color: #0077cc;
+      --primary-hover: #005fa3;
+    }
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; font-family: 'Inter', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
-    a { color: #0077cc; text-decoration: none; }
+    a { color: var(--primary-color); text-decoration: none; }
     a:hover { text-decoration: underline; }
     header { background: #000; color: #fff; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 1000; }
     .logo-container { width: var(--logo-size); height: var(--logo-size); background-color: red; display: flex; align-items: center; justify-content: center; margin-right: 0.5rem; }
     .logo-container img { max-width: 100%; max-height: 100%; }
     header h1 { margin: 0; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
     nav { margin-top: 0.5rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
-    nav a { color: #fff; background: #0077cc; padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s; }
-    nav a:hover { background: #005fa3; }
+    nav a { color: #fff; background: var(--primary-color); padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s; }
+    nav a:hover { background: var(--primary-hover); }
     main { max-width: 960px; margin: 1rem auto; padding: 0 1rem; }
     h2 { font-size: 1.5rem; margin: 2rem 0 1rem 0; border-bottom: 2px solid #ddd; color: #222; }
     .product { background: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.05); margin-bottom: 1rem; display: flex; flex-direction: column; overflow: hidden; }
     .product img { width: 100%; height: auto; object-fit: cover; }
     .product-content { padding: 1rem; }
-    @media (min-width:600px) {
-      .product { flex-direction: row; }
-      .product img { max-width: 240px; height: 100%; }
-    }
     form { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.05); margin-bottom: 1rem; }
     fieldset { border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; border-radius: 6px; }
     legend { font-weight: 600; padding: 0 0.5rem; }
     form label { display: block; margin-bottom: 0.3rem; font-weight: 600; }
     form input, form select { width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; }
-    form button { width: 100%; padding: 0.75rem; background: #0077cc; color: #fff; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; transition: background 0.3s; }
-    form button:hover { background: #005fa3; }
+    form button { width: 100%; padding: 0.75rem; background: var(--primary-color); color: #fff; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; transition: background 0.3s; font-weight: bold; }
+    form button:hover { background: var(--primary-hover); }
     .gallery { display: grid; gap: 0.5rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 2rem; }
-    .gallery img { width: 100%; border-radius: 6px; object-fit: cover; display: block; }
+    .gallery img { width: 100%; height: 100%; border-radius: 6px; object-fit: cover; display: block; }
     dl { margin: 0; }
     dt { font-weight: 600; margin-top: 1rem; }
     dd { margin: 0 0 1rem 1rem; }
-    footer { background: #eee; text-align: center; padding: 1rem; font-size: 0.9rem; }
-    footer a { color: #0077cc; }
-    footer a:hover { text-decoration: underline; }
-
+    footer { background: #eee; text-align: center; padding: 1rem; font-size: 0.9rem; margin-bottom: 80px; /* Space for floating buttons */ }
     .testimonials { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.05); margin-bottom: 1rem; }
-    .testimonial { border-left: 4px solid #0077cc; padding-left: 1rem; margin-bottom: 1rem; }
+    .testimonial { border-left: 4px solid var(--primary-color); padding-left: 1rem; margin-bottom: 1rem; }
     .testimonial p { margin: 0; font-style: italic; }
     .testimonial footer { background: none; text-align: right; padding: 0.5rem 0 0 0; font-size: 0.9rem; font-weight: 600; font-style: normal; }
+    
+    /* --- Mobile Floating Buttons --- */
+    .mobile-fab-buttons { display: flex; position: fixed; bottom: 15px; right: 15px; z-index: 1001; gap: 10px; }
+    .fab-btn { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; color: white; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-decoration: none; transition: transform 0.2s ease; }
+    .fab-btn:hover { transform: scale(1.1); }
+    .fab-btn img { width: 32px; height: 32px; }
+    .whatsapp-btn { background-color: #25D366; }
+    .call-btn { background-color: var(--primary-color); }
 
-    @media (max-width:480px) {
+    /* --- Responsive Design --- */
+    @media (min-width: 600px) {
+      .product { flex-direction: row; }
+      .product img { max-width: 240px; }
+    }
+    @media (max-width: 768px) {
+      .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+      header h1 { font-size: 1.1rem; }
+    }
+    @media (max-width: 480px) {
       nav a { font-size: 0.8rem; padding: 0.4rem 0.6rem; }
       header h1 { flex-direction: column; }
       .logo-container { margin: 0 0 0.5rem 0; }
+      main { padding: 0 0.75rem; }
+      h2 { font-size: 1.3rem; }
+      form { padding: 1rem; }
+      .gallery { gap: 0.25rem; }
     }
   </style>
 
@@ -535,27 +553,27 @@
       <div class="gallery" itemscope itemtype="https://schema.org/ImageGallery">
         <figure itemscope itemtype="https://schema.org/ImageObject" itemprop="associatedMedia">
           <a href="sample-project-01.jpg" itemprop="contentUrl" data-size="800x600">
-            <img src="sample-project-01.jpg" itemprop="thumbnail" alt="Singapore HDB digital mailbox lock installation in Ang Mo Kio" loading="lazy"/>
+            <img class="lazyload" data-src="sample-project-01.jpg" itemprop="thumbnail" alt="Singapore HDB digital mailbox lock installation in Ang Mo Kio"/>
           </a>
-          <figcaption itemprop="caption description">Singapore HDB digital mailbox lock installation in Ang Mo Kio</figcaption>
+          <figcaption itemprop="caption description">HDB Digital Lock (Ang Mo Kio)</figcaption>
         </figure>
         <figure itemscope itemtype="https://schema.org/ImageObject" itemprop="associatedMedia">
           <a href="sample-project-02.jpg" itemprop="contentUrl" data-size="800x600">
-            <img src="sample-project-02.jpg" itemprop="thumbnail" alt="Condo digital letterbox lock installation in Tampines, Singapore" loading="lazy"/>
+            <img class="lazyload" data-src="sample-project-02.jpg" itemprop="thumbnail" alt="Condo digital letterbox lock installation in Tampines, Singapore"/>
           </a>
-          <figcaption itemprop="caption description">Condo digital letterbox lock installation in Tampines, Singapore</figcaption>
+          <figcaption itemprop="caption description">Condo Letterbox Lock (Tampines)</figcaption>
          </figure>
         <figure itemscope itemtype="https://schema.org/ImageObject" itemprop="associatedMedia">
           <a href="sample-project-03.jpg" itemprop="contentUrl" data-size="800x600">
-            <img src="sample-project-03.jpg" itemprop="thumbnail" alt="Smart battery-powered mailbox lock install in Yishun, Singapore" loading="lazy"/>
+            <img class="lazyload" data-src="sample-project-03.jpg" itemprop="thumbnail" alt="Smart battery-powered mailbox lock install in Yishun, Singapore"/>
           </a>
-          <figcaption itemprop="caption description">Smart battery-powered mailbox lock install in Yishun, Singapore</figcaption>
+          <figcaption itemprop="caption description">Smart Mailbox Lock (Yishun)</figcaption>
         </figure>
         <figure itemscope itemtype="https://schema.org/ImageObject" itemprop="associatedMedia">
           <a href="sample-project-04.jpg" itemprop="contentUrl" data-size="800x600">
-            <img src="sample-project-04.jpg" itemprop="thumbnail" alt="Password & key digital mailbox lock installation in Bedok HDB, Singapore" loading="lazy"/>
+            <img class="lazyload" data-src="sample-project-04.jpg" itemprop="thumbnail" alt="Password & key digital mailbox lock installation in Bedok HDB, Singapore"/>
           </a>
-          <figcaption itemprop="caption description">Password & key digital mailbox lock installation in Bedok HDB, Singapore</figcaption>
+          <figcaption itemprop="caption description">Password & Key Lock (Bedok)</figcaption>
         </figure>
       </div>
     </section>
@@ -635,6 +653,15 @@
     <p>© 2025 LetterboxLock.sg – All rights reserved.</p>
     <p><strong>Available islandwide – Hougang, Tampines, Bukit Merah, Jurong, Yishun, Bedok, Sengkang, Punggol & more.</strong></p>
   </footer>
+
+  <div class="mobile-fab-buttons">
+    <a href="tel:+6583417888" class="fab-btn call-btn" aria-label="Call Us">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Phone_communication_icon.svg" alt="Call Icon" />
+    </a>
+    <a href="https://wa.me/6583417888?text=Hello%20LetterboxLock.sg%2C%20I%20would%20like%20to%20enquire%20about%20your%20digital%20lock%20services." class="fab-btn whatsapp-btn" target="_blank" aria-label="Chat with us on WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" />
+    </a>
+  </div>
 
   <script>
     function updateColorField() {
@@ -718,38 +745,4 @@
     });
   </script>
 </body>
-<style>
-  .whatsapp-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #25D366;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    transition: transform 0.3s;
-  }
-  .whatsapp-icon:hover {
-    transform: scale(1.1);
-  }
-  .whatsapp-icon img {
-    width: 35px;
-    height: 35px;
-  }
-</style>
-
-<a
-  href="https://wa.me/6583417888?text=Hello%20LetterboxLock.sg%2C%20I%20would%20like%20to%20enquire%20about%20your%20digital%20lock%20services."
-  class="whatsapp-icon"
-  target="_blank"
-  aria-label="Chat with us on WhatsApp"
->
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" />
-</a>
 </html>
