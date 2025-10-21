@@ -40,7 +40,7 @@
   <noscript>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
+      stylesheet"
     />
   </noscript>
 
@@ -299,6 +299,9 @@
       --primary-color: #0077cc;
       --primary-hover: #005fa3;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; font-family: 'Inter', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
     a { color: var(--primary-color); text-decoration: none; }
@@ -312,9 +315,49 @@
     nav a:hover { background: var(--primary-hover); }
     main { max-width: 960px; margin: 1rem auto; padding: 0 1rem; }
     h2 { font-size: 1.5rem; margin: 2rem 0 1rem 0; border-bottom: 2px solid #ddd; color: #222; }
-    .product { background: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.05); margin-bottom: 1rem; display: flex; flex-direction: column; overflow: hidden; }
-    .product img { width: 100%; height: auto; object-fit: cover; }
-    .product-content { padding: 1rem; }
+    
+    .product {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,.05);
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      display: flex;
+      gap: 1.5rem;
+      /* Default align-items: stretch; makes columns equal height */
+    }
+    .product-column {
+      flex: 1; /* Makes all 3 columns equal width */
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-details {
+        justify-content: space-between; /* Pushes button to bottom */
+    }
+    .product-details p {
+        flex-grow: 1; /* Allows description to fill remaining space */
+    }
+
+    /* This is the key change for equal height and no black bars */
+    .product-image img, 
+    .product-video video {
+      width: 100%;
+      height: 100%; /* Fills the vertical space of the column */
+      object-fit: cover; /* Crops to fit, removing black bars */
+      display: block;
+      border-radius: 6px;
+    }
+     .product-video video {
+        background-color: #000; /* Fallback color while video loads */
+    }
+    /* End of key change */
+
+    .order-btn { 
+        display: block; text-decoration: none; padding: 12px 15px; border-radius: 5px; text-align: center; font-weight: 600; cursor: pointer; transition: background-color 0.3s; width: 100%; background-color: var(--primary-color); color: #fff; border: 1px solid var(--primary-color); margin-top: 1rem; 
+    }
+    .order-btn:hover { background-color: var(--primary-hover); }
+
     form { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.05); margin-bottom: 1rem; }
     fieldset { border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; border-radius: 6px; }
     legend { font-weight: 600; padding: 0 0.5rem; }
@@ -327,25 +370,26 @@
     dl { margin: 0; }
     dt { font-weight: 600; margin-top: 1rem; }
     dd { margin: 0 0 1rem 1rem; }
-    footer { background: #eee; text-align: center; padding: 1rem; font-size: 0.9rem; margin-bottom: 80px; /* Space for floating buttons */ }
+    footer { background: #eee; text-align: center; padding: 1rem; font-size: 0.9rem; margin-bottom: 80px; }
     .testimonials { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.05); margin-bottom: 1rem; }
     .testimonial { border-left: 4px solid var(--primary-color); padding-left: 1rem; margin-bottom: 1rem; }
     .testimonial p { margin: 0; font-style: italic; }
     .testimonial footer { background: none; text-align: right; padding: 0.5rem 0 0 0; font-size: 0.9rem; font-weight: 600; font-style: normal; }
-    
-    /* --- Mobile Floating Buttons --- */
     .mobile-fab-buttons { display: flex; position: fixed; bottom: 15px; right: 15px; z-index: 1001; }
     .fab-btn { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; color: white; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-decoration: none; transition: transform 0.2s ease; }
     .fab-btn:hover { transform: scale(1.1); }
     .fab-btn img { width: 32px; height: 32px; }
     .whatsapp-btn { background-color: #25D366; }
 
-    /* --- Responsive Design --- */
-    @media (min-width: 600px) {
-      .product { flex-direction: row; }
-      .product img { max-width: 240px; }
-    }
     @media (max-width: 768px) {
+      .product {
+        flex-direction: column; /* Stack columns vertically on mobile */
+        gap: 1rem;
+      }
+      .product-video video, 
+      .product-image img {
+         height: auto; /* Reset height for natural flow on mobile */
+      }
       .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
       header h1 { font-size: 1.1rem; }
     }
@@ -393,70 +437,119 @@
   
     <section id="products" aria-labelledby="products-title">
       <h2 id="products-title">Our Digital, Smart & Mechanical Mailbox Locks</h2>
+      
       <article id="product-mechanical" class="product" itemscope itemtype="https://schema.org/Product">
-        <img
-          data-src="battery-free-mailbox-lock.jpg"
-          alt="Battery-Free Mechanical Mailbox Lock for HDB & Condos in Singapore"
-          class="lazyload"
-          itemprop="image"
-        />
-        <div class="product-content">
+        <div class="product-column product-image">
+          <img
+            data-src="battery-free-mailbox-lock.jpg"
+            alt="Battery-Free Mechanical Mailbox Lock for HDB & Condos in Singapore"
+            class="lazyload"
+            itemprop="image"
+          />
+        </div>
+        <div class="product-column product-details">
           <h3 itemprop="name">Battery-Free Mechanical Mailbox Lock (SGD 50 incl. install)</h3>
           <p itemprop="description">Fully mechanical—no batteries needed. Our best-selling lock is known for its superior quality and long-lasting durability. The perfect, reliable, and maintenance-free solution for everyone.</p>
-          <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-            <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="50">50</span>
-            <link itemprop="availability" href="https://schema.org/InStock" />In Stock
+          <div>
+            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="50">50</span>
+              <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
+            </div>
+            <a href="#order" class="order-btn">Order Now</a>
           </div>
         </div>
+        <div class="product-column product-video">
+          <video width="100%" controls preload="metadata" playsinline>
+              <source src="video_1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
       </article>
+
       <article id="product-password" class="product" itemscope itemtype="https://schema.org/Product">
-        <img
-          data-src="password-and-key-mailbox-lock.jpg"
-          alt="Password & Key Digital Mailbox Lock for Singapore HDB & Condos"
-          class="lazyload"
-          itemprop="image"
-        />
-        <div class="product-content">
+        <div class="product-column product-image">
+          <img
+            data-src="password-and-key-mailbox-lock.jpg"
+            alt="Password & Key Digital Mailbox Lock for Singapore HDB & Condos"
+            class="lazyload"
+            itemprop="image"
+          />
+        </div>
+        <div class="product-column product-details">
           <h3 itemprop="name">Password & Key Mailbox Lock with Backup Key (SGD 55 incl. install)</h3>
           <p itemprop="description">Enjoy convenient passcode entry with a physical key for backup. Since it's fully mechanical, there are no batteries to worry about. Built with top quality materials for long-lasting security and peace of mind.</p>
-          <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-            <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="55">55</span>
-            <link itemprop="availability" href="https://schema.org/InStock" />In Stock
+          <div>
+            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="55">55</span>
+              <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
+            </div>
+            <a href="#order" class="order-btn">Order Now</a>
           </div>
         </div>
+        <div class="product-column product-video">
+          <video width="100%" controls preload="metadata" playsinline>
+              <source src="video_2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
       </article>
-	  <article id="product-zinc-alloy" class="product" itemscope itemtype="https://schema.org/Product">
-        <img
-          data-src="zinc-alloy-mechanical-code-lock.jpg"
-          alt="Zinc Alloy Mechanical Code Lock with Enlarged Numbers"
-          class="lazyload"
-          itemprop="image"
-        />
-        <div class="product-content">
+
+      <article id="product-zinc-alloy" class="product" itemscope itemtype="https://schema.org/Product">
+        <div class="product-column product-image">
+          <img
+            data-src="zinc-alloy-mechanical-code-lock.jpg"
+            alt="Zinc Alloy Mechanical Code Lock with Enlarged Numbers"
+            class="lazyload"
+            itemprop="image"
+          />
+        </div>
+        <div class="product-column product-details">
           <h3 itemprop="name">Zinc Alloy Mechanical Code Lock (SGD 65 incl. install)</h3>
           <p itemprop="description">Made from a better and more durable zinc alloy material, this mechanical lock features enlarged turn wheels for easy operation. If you forget the password, it can be easily found and reset. Available in Silver color.</p>
-          <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-            <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="65">65</span>
-            <link itemprop="availability" href="https://schema.org/InStock" />In Stock
+          <div>
+            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="65">65</span>
+              <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
+            </div>
+            <a href="#order" class="order-btn">Order Now</a>
           </div>
         </div>
+        <div class="product-column product-video">
+          <video width="100%" controls preload="metadata" playsinline>
+              <source src="video_3.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
       </article>
+
       <article id="product-smart" class="product" itemscope itemtype="https://schema.org/Product">
-        <img
-          data-src="battery-powered-smart-mailbox-lock.jpg"
-          alt="Smart Battery-Powered Digital Mailbox Lock for HDB & Condo"
-          class="lazyload"
-          itemprop="image"
-        />
-        <div class="product-content">
+        <div class="product-column product-image">
+          <img
+            data-src="battery-powered-smart-mailbox-lock.jpg"
+            alt="Smart Battery-Powered Digital Mailbox Lock for HDB & Condo"
+            class="lazyload"
+            itemprop="image"
+          />
+        </div>
+        <div class="product-column product-details">
           <h3 itemprop="name">Smart Battery-Powered Digital Mailbox Lock (SGD 60 incl. install)</h3>
           <p itemprop="description">Upgrade to a modern smart lock. Get PIN access with a battery life of over 12 months, it's the perfect high-tech solution for your home.</p>
-          <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-            <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="60">60</span>
-            <link itemprop="availability" href="https://schema.org/InStock" />In Stock
+          <div>
+            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="60">60</span>
+              <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
+            </div>
+            <a href="#order" class="order-btn">Order Now</a>
           </div>
         </div>
+        <div class="product-column product-video">
+          <video width="100%" controls preload="metadata" playsinline>
+              <source src="video_4.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
       </article>
+
     </section>
 
     <section id="order" aria-labelledby="order-title">
@@ -665,19 +758,18 @@
       const colorSelect = document.getElementById('color');
       const greyOption = colorSelect.querySelector('option[value="grey"]');
       
-      // Default state: enabled with all options
       colorSelect.disabled = false;
       greyOption.disabled = false;
 
       if (type === 'code-key') {
         greyOption.disabled = true;
-        if (colorSelect.value === 'grey') colorSelect.value = ''; // Reset if grey was selected
+        if (colorSelect.value === 'grey') colorSelect.value = '';
       } else if (type === 'battery') {
         colorSelect.disabled = true;
-        colorSelect.value = ''; // No color option
+        colorSelect.value = '';
       } else if (type === 'zinc-alloy') {
-        colorSelect.value = 'silver'; // Automatically select silver
-        colorSelect.disabled = true; // Lock the selection
+        colorSelect.value = 'silver';
+        colorSelect.disabled = true;
       }
     }
 
