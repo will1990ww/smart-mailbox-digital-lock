@@ -298,6 +298,7 @@
       --logo-size: 60px; 
       --primary-color: #0077cc;
       --primary-hover: #005fa3;
+      --highlight-color: #dc3545; /* Red for price */
     }
     html {
       scroll-behavior: smooth;
@@ -321,39 +322,63 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,.05);
       margin-bottom: 1.5rem;
-      overflow: hidden; /* Prevent content overflow */
+      overflow: hidden; 
     }
     .product-media {
-        display: flex; /* Place image and video side-by-side */
-        background-color: #eee; /* Light background for the media area */
+        display: flex; 
+        background-color: #eee; 
     }
-    .product-media > div { /* Target the image and video containers */
-        flex: 1; /* Make image and video columns equal width */
-        min-width: 0; /* Prevent flex items from overflowing */
-        aspect-ratio: 16 / 9; /* Enforce a 16:9 aspect ratio */
-        overflow: hidden; /* Hide anything outside this aspect ratio */
+    .product-media > div { 
+        flex: 1; 
+        min-width: 0; 
+        aspect-ratio: 1 / 1; /* Make it square, adjust ratio if needed e.g., 16/9 */
+        overflow: hidden; 
     }
    
     .product-media img,
     .product-media video {
        width: 100%;
-       height: 100%; /* Make media fill the container height */
-       object-fit: cover; /* Cover the area, crop if needed, no black bars */
-       display: block; /* Remove extra space below media */
+       height: 100%; 
+       object-fit: cover; /* CHANGED back to cover to fill and crop */
+       display: block; 
     }
      .product-media video {
-        background-color: #000; /* Black background while video loads */
+        background-color: #000; 
      }
 
     .product-details {
         padding: 1rem;
     }
     .product-details h3 { margin-top: 0; }
-    .product-details .offer-info { margin-top: 1rem; margin-bottom: 1rem; display: block; }
-
+    .product-actions {
+        display: flex;
+        justify-content: space-between; /* Space out price and button */
+        align-items: center; /* Vertically align them */
+        margin-top: 1rem; 
+        gap: 1rem; /* Add gap between price and button */
+    }
+    .offer-info { 
+        display: block; 
+        font-weight: bold;
+    }
+    .offer-highlight {
+        color: var(--highlight-color); /* Apply highlight color */
+    }
 
     .order-btn { 
-        display: block; text-decoration: none; padding: 12px 15px; border-radius: 5px; text-align: center; font-weight: 600; cursor: pointer; transition: background-color 0.3s; width: 100%; background-color: var(--primary-color); color: #fff; border: 1px solid var(--primary-color); margin-top: 1rem; 
+        display: block; 
+        text-decoration: none; 
+        padding: 10px 20px; /* Adjusted padding */
+        border-radius: 5px; 
+        text-align: center; 
+        font-weight: 600; 
+        cursor: pointer; 
+        transition: background-color 0.3s; 
+        background-color: var(--primary-color); 
+        color: #fff; 
+        border: 1px solid var(--primary-color); 
+        white-space: nowrap; /* Prevent button text wrapping */
+        flex-shrink: 0; /* Prevent button from shrinking */
     }
     .order-btn:hover { background-color: var(--primary-hover); }
 
@@ -381,20 +406,19 @@
     .whatsapp-btn { background-color: #25D366; }
 
     /* --- Responsive --- */
-     @media (max-width: 600px) { /* Adjust breakpoint as needed */
-       .product-media {
-         /* Optional: Stack media on very small screens if preferred */
-         /* flex-direction: column; */
-       }
-        .product-media > div {
-            aspect-ratio: auto; /* Let height adjust naturally on mobile */
-            /* Maybe reduce gap if stacking */
-             /* gap: 0.5rem; */
+     @media (max-width: 600px) { 
+        .product-media {
+            /* flex-direction: column; Optional: Stack on small screens */
         }
-        .product-media img,
-        .product-media video {
-            object-fit: contain; /* Show full media on mobile, may add bars */
-            height: auto; /* Let height adjust */
+        .product-media > div {
+            /* aspect-ratio: auto; Let height adjust if stacking */
+        }
+        .product-actions {
+             flex-direction: column; /* Stack price and button vertically on mobile */
+             align-items: flex-start; /* Align items to the start */
+        }
+        .order-btn {
+             width: 100%; /* Make button full width on mobile */
         }
      }
 
@@ -467,11 +491,13 @@
         <div class="product-details">
           <h3 itemprop="name">Battery-Free Mechanical Mailbox Lock (SGD 50 incl. install)</h3>
           <p itemprop="description">Fully mechanical—no batteries needed. Our best-selling lock is known for its superior quality and long-lasting durability. The perfect, reliable, and maintenance-free solution for everyone.</p>
-          <span class="offer-info" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-            <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="50">50</span>
-            <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
-          </span>
-          <a href="#order" class="order-btn">Order Now</a>
+          <div class="product-actions">
+              <span class="offer-info offer-highlight" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="50">50</span>
+                <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
+              </span>
+              <a href="#order" class="order-btn">Order Now</a>
+          </div>
         </div>
       </article>
 
@@ -495,11 +521,13 @@
         <div class="product-details">
           <h3 itemprop="name">Password & Key Mailbox Lock with Backup Key (SGD 55 incl. install)</h3>
           <p itemprop="description">Enjoy convenient passcode entry with a physical key for backup. Since it's fully mechanical, there are no batteries to worry about. Built with top quality materials for long-lasting security and peace of mind.</p>
-          <span class="offer-info" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-            <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="55">55</span>
-            <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
-          </span>
-          <a href="#order" class="order-btn">Order Now</a>
+           <div class="product-actions">
+              <span class="offer-info offer-highlight" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="55">55</span>
+                <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
+              </span>
+              <a href="#order" class="order-btn">Order Now</a>
+           </div>
         </div>
       </article>
 
@@ -523,11 +551,13 @@
         <div class="product-details">
           <h3 itemprop="name">Zinc Alloy Mechanical Code Lock (SGD 65 incl. install)</h3>
           <p itemprop="description">Made from a better and more durable zinc alloy material, this mechanical lock features enlarged turn wheels for easy operation. If you forget the password, it can be easily found and reset. Available in Silver color.</p>
-          <span class="offer-info" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-            <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="65">65</span>
-            <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
-          </span>
-          <a href="#order" class="order-btn">Order Now</a>
+          <div class="product-actions">
+              <span class="offer-info offer-highlight" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="65">65</span>
+                <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
+              </span>
+              <a href="#order" class="order-btn">Order Now</a>
+          </div>
         </div>
       </article>
 
@@ -551,11 +581,13 @@
         <div class="product-details">
           <h3 itemprop="name">Smart Battery-Powered Digital Mailbox Lock (SGD 60 incl. install)</h3>
           <p itemprop="description">Upgrade to a modern smart lock. Get PIN access with a battery life of over 12 months, it's the perfect high-tech solution for your home.</p>
-          <span class="offer-info" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-            <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="60">60</span>
-            <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
-          </span>
-          <a href="#order" class="order-btn">Order Now</a>
+          <div class="product-actions">
+              <span class="offer-info offer-highlight" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="60">60</span>
+                <link itemprop="availability" href="https://schema.org/InStock" /> In Stock
+              </span>
+              <a href="#order" class="order-btn">Order Now</a>
+          </div>
         </div>
       </article>
 
