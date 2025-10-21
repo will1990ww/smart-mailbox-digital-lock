@@ -325,33 +325,24 @@
     }
     .product-media {
         display: flex; /* Place image and video side-by-side */
-        background-color: #f0f0f0; /* Optional background for media area */
+        background-color: #eee; /* Light background for the media area */
     }
-    .product-media > div {
+    .product-media > div { /* Target the image and video containers */
         flex: 1; /* Make image and video columns equal width */
         min-width: 0; /* Prevent flex items from overflowing */
-        position: relative;
-         /* Aspect ratio padding-top trick for consistent height, adjust 56.25% as needed */
-         /* padding-top: 56.25%; /* 16:9 Aspect Ratio */
-         /* height: 0;  */
-         
-         /* Alternative: fixed height */
-         /* height: 250px; Remove padding-top if using this */
+        aspect-ratio: 16 / 9; /* Enforce a 16:9 aspect ratio */
+        overflow: hidden; /* Hide anything outside this aspect ratio */
     }
    
     .product-media img,
     .product-media video {
-       /* position: absolute; */
-       /* top: 0; */
-       /* left: 0; */
        width: 100%;
-       height: 100%;
+       height: 100%; /* Make media fill the container height */
        object-fit: cover; /* Cover the area, crop if needed, no black bars */
-       display: block;
-       border-radius: 0; /* Remove radius if inside */
+       display: block; /* Remove extra space below media */
     }
      .product-media video {
-        background-color: #000; /* Fallback */
+        background-color: #000; /* Black background while video loads */
      }
 
     .product-details {
@@ -390,11 +381,22 @@
     .whatsapp-btn { background-color: #25D366; }
 
     /* --- Responsive --- */
-    /* Keep side-by-side media even on smaller screens as requested */
-    /* Optional: uncomment below if you want media to stack on very small screens */
-    /* @media (max-width: 480px) { */
-      /* .product-media { flex-direction: column; } */
-    /* } */
+     @media (max-width: 600px) { /* Adjust breakpoint as needed */
+       .product-media {
+         /* Optional: Stack media on very small screens if preferred */
+         /* flex-direction: column; */
+       }
+        .product-media > div {
+            aspect-ratio: auto; /* Let height adjust naturally on mobile */
+            /* Maybe reduce gap if stacking */
+             /* gap: 0.5rem; */
+        }
+        .product-media img,
+        .product-media video {
+            object-fit: contain; /* Show full media on mobile, may add bars */
+            height: auto; /* Let height adjust */
+        }
+     }
 
     @media (max-width: 768px) {
       .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
