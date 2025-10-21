@@ -324,22 +324,28 @@
       padding: 1rem;
       display: flex;
       gap: 1.5rem;
-      /* Default align-items: stretch; makes columns equal height */
+      align-items: stretch; /* Ensures all columns in the product row are equal height */
     }
     .product-column {
-      flex: 1; /* Makes all 3 columns equal width */
-      min-width: 0;
       display: flex;
       flex-direction: column;
+      min-width: 0; /* Allows content to shrink */
+    }
+    .product-image {
+        flex: 1; /* Image column takes 1 part of available space */
     }
     .product-details {
+        flex: 1.5; /* Text column takes 1.5 parts, making it slightly wider */
         justify-content: space-between; /* Pushes button to bottom */
     }
     .product-details p {
         flex-grow: 1; /* Allows description to fill remaining space */
     }
+    .product-video {
+        flex: 1; /* Video column takes 1 part, equal to image */
+    }
 
-    /* This is the key change for equal height and no black bars */
+    /* Key styles for equal height and no black bars */
     .product-image img, 
     .product-video video {
       width: 100%;
@@ -351,7 +357,7 @@
      .product-video video {
         background-color: #000; /* Fallback color while video loads */
     }
-    /* End of key change */
+    /* End of key changes */
 
     .order-btn { 
         display: block; text-decoration: none; padding: 12px 15px; border-radius: 5px; text-align: center; font-weight: 600; cursor: pointer; transition: background-color 0.3s; width: 100%; background-color: var(--primary-color); color: #fff; border: 1px solid var(--primary-color); margin-top: 1rem; 
@@ -381,14 +387,20 @@
     .fab-btn img { width: 32px; height: 32px; }
     .whatsapp-btn { background-color: #25D366; }
 
+    /* Mobile specific styles (below 768px) */
     @media (max-width: 768px) {
       .product {
         flex-direction: column; /* Stack columns vertically on mobile */
         gap: 1rem;
       }
+      .product-image, .product-details, .product-video {
+        flex: unset; /* Remove flex sizing on mobile */
+        width: 100%; /* Make each column take full width */
+      }
       .product-video video, 
       .product-image img {
          height: auto; /* Reset height for natural flow on mobile */
+         object-fit: contain; /* Use contain for full image/video on mobile, no cropping */
       }
       .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
       header h1 { font-size: 1.1rem; }
