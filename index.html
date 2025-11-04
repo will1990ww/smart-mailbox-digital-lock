@@ -69,41 +69,113 @@
     "@graph": [
       {
         "@type": "LocalBusiness",
-        "name": "LetterboxLock.sg - Digital & Smart Mailbox Locks", /* Schema Name Optimized */
+        "name": "LetterboxLock.sg - Digital & Smart Mailbox Locks", 
         "image": "https://www.letterboxlock.sg/lion-logo-left.png",
         "address": { "@type": "PostalAddress", "streetAddress": "Blk 123, Bukit Merah Lane", "addressLocality": "Bukit Merah", "addressRegion": "Singapore", "postalCode": "536197", "addressCountry": "SG" },
         "telephone": "+65 8341 7888",
         "openingHours": "Mo–Su 10:00–19:00",
         "url": "https://www.letterboxlock.sg",
-        /* Schema Description Optimized */
         "description": "Singapore's #1 specialist for Digital Letterbox Lock and Smart Mailbox Lock installation & replacement services for HDB & Condos. Offering keyless solutions and 24/7 emergency unlocking.", 
         "brand": "LetterboxLock.sg",
         "priceRange": "SGD 50 - 65",
-        "areaServed": [ { "@type": "AdministrativeArea", "name": "Singapore" }, /* ... other areas ... */ ],
+        "areaServed": [ { "@type": "AdministrativeArea", "name": "Singapore" }, { "@type": "AdministrativeArea", "name": "Ang Mo Kio" }, { "@type": "AdministrativeArea", "name": "Tampines" }, { "@type": "AdministrativeArea", "name": "Yishun" }, { "@type": "AdministrativeArea", "name": "Hougang" }, { "@type": "AdministrativeArea", "name": "Bedok" }, { "@type": "AdministrativeArea", "name": "Woodlands" }, { "@type": "AdministrativeArea", "name": "Bukit Merah" }, { "@type": "AdministrativeArea", "name": "Jurong" }, { "@type": "AdministrativeArea", "name": "Sengkang" }, { "@type": "AdministrativeArea", "name": "Punggol" } ],
         "hasMap": "https://www.google.com/maps/search/?api=1&query=LetterboxLock.sg+Singapore",
-        "slogan": "Upgrade to Singapore's Best Digital & Smart Mailbox Locks", /* Slogan Optimized */
+        "slogan": "Upgrade to Singapore's Best Digital & Smart Mailbox Locks", 
         "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "190" },
-        "review": [ /* Existing reviews + Carousell examples... */ ]
+        "review": [
+          { "@type": "Review", "author": {"@type": "Person", "name": "Brenda Tan"}, "datePublished": "2025-08-15", "reviewRating": {"@type": "Rating", "ratingValue": "5"}, "reviewBody": "Excellent service! The technician arrived on time and replaced my HDB mailbox lock in under 20 minutes. The new digital lock is so convenient. Highly recommended!" },
+          { "@type": "Review", "author": {"@type": "Person", "name": "Rajesh Kumar"}, "datePublished": "2025-08-12", "reviewRating": {"@type": "Rating", "ratingValue": "5"}, "reviewBody": "Lost my keys and was locked out of my condo letterbox. Called them for their emergency unlock service. They were fast, professional, and the price was very reasonable. Thank you!" },
+          { "@type": "Review", "author": {"@type": "Person", "name": "User_ABC"}, "datePublished": "2025-09-01", "reviewRating": {"@type": "Rating", "ratingValue": "5"}, "reviewBody": "Very responsive seller on Carousell! Installation of the digital letterbox lock was quick and fuss-free. Lock works perfectly.", "publisher": {"@type": "Organization", "name": "Carousell"} },
+          { "@type": "Review", "author": {"@type": "Person", "name": "Buyer_XYZ"}, "datePublished": "2025-08-28", "reviewRating": {"@type": "Rating", "ratingValue": "5"}, "reviewBody": "Good quality digital lock for my HDB mailbox. Cheaper than other places. Recommended seller from Carousell.", "publisher": {"@type": "Organization", "name": "Carousell"} }
+        ]
       },
-      { "@type": "BreadcrumbList", /* ... unchanged ... */ },
-      { "@type": "ItemList", "name": "Digital, Smart & Mechanical Mailbox Lock Products", /* ... unchanged ... */ },
-      { "@type": "WebSite", /* ... unchanged ... */ },
-      { /* Schema Service Optimized */
-        "@type": "Service", "serviceType": "Digital Mailbox Lock Installation", "name": "Digital & Smart Mailbox Lock Installation Singapore", "description": "Professional installation service for keyless, digital, and smart locks on HDB and condo letterboxes across Singapore.", "provider": { "@type": "LocalBusiness", "name": "LetterboxLock.sg" }, "areaServed": { "@type": "AdministrativeArea", "name": "Singapore" } 
+      { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.letterboxlock.sg/" }, { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.letterboxlock.sg/#products" }, { "@type": "ListItem", "position": 3, "name": "Order", "item": "https://www.letterboxlock.sg/#order" }, { "@type": "ListItem", "position": 4, "name": "Services", "item": "https://www.letterboxlock.sg/#our-services" }, { "@type": "ListItem", "position": 5, "name": "FAQs", "item": "https://www.letterboxlock.sg/#faq" } ] },
+      {
+        "@type": "ItemList",
+        "name": "Digital, Smart & Mechanical Mailbox Lock Products",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Product",
+              "url": "https://www.letterboxlock.sg/#product-mechanical",
+              "name": "Battery-Free Mechanical Mailbox Lock",
+              "description": "A reliable, tamper-resistant, and maintenance-free lock for HDB & condo mailboxes. No batteries required.",
+              "image": "https://www.letterboxlock.sg/battery-free-mailbox-lock.jpg",
+              "sku": "LBL-MECH-BF",
+              "brand": {"@type": "Brand", "name": "LetterboxLock.sg"},
+              "offers": { "@type": "Offer", "price": "50", "priceCurrency": "SGD", "availability": "https://schema.org/InStock" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Product",
+              "url": "https://www.letterboxlock.sg/#product-password",
+              "name": "Password & Key Mailbox Lock",
+              "description": "Offers passcode entry and a physical backup key for password retrieval.",
+              "image": "https://www.letterboxlock.sg/password-and-key-mailbox-lock.jpg",
+              "sku": "LBL-MECH-PK",
+              "brand": {"@type": "Brand", "name": "LetterboxLock.sg"},
+              "offers": { "@type": "Offer", "price": "55", "priceCurrency": "SGD", "availability": "https://schema.org/InStock" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Product",
+              "url": "https://www.letterboxlock.sg/#product-zinc-alloy",
+              "name": "Zinc Alloy Mechanical Code Lock",
+              "description": "Durable zinc alloy lock with enlarged turn wheels. Features a password retrieval mechanism.",
+              "image": "https://www.letterboxlock.sg/zinc-alloy-mechanical-code-lock.jpg",
+              "sku": "LBL-MECH-ZINC",
+              "brand": {"@type": "Brand", "name": "LetterboxLock.sg"},
+              "offers": { "@type": "Offer", "price": "65", "priceCurrency": "SGD", "availability": "https://schema.org/InStock" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Product",
+              "url": "https://www.letterboxlock.sg/#product-smart",
+              "name": "Smart Battery-Powered Digital Mailbox Lock",
+              "description": "Modern PIN access lock with a long battery life of over 12 months.",
+              "image": "https://www.letterboxlock.sg/battery-powered-smart-mailbox-lock.jpg",
+              "sku": "LBL-SMART-BATT",
+              "brand": {"@type": "Brand", "name": "LetterboxLock.sg"},
+              "offers": { "@type": "Offer", "price": "60", "priceCurrency": "SGD", "availability": "https://schema.org/InStock" }
+            }
+          }
+        ]
       },
-      { /* Schema Service Optimized */
-        "@type": "Service", "serviceType": "Mailbox Lock Replacement", "name": "HDB & Condo Mailbox Lock Replacement Service", "description": "Expert mailbox lock replacement for Singapore residents, including upgrades from standard locks to secure digital and smart options.", "provider": { "@type": "LocalBusiness", "name": "LetterboxLock.sg" }, "areaServed": { "@type": "AdministrativeArea", "name": "Singapore" } 
-      },
-      { "@type": "Service", "serviceType": "Emergency Mailbox Locksmith", /* ... unchanged ... */ }
+      { "@type": "WebSite", "name": "LetterboxLock.sg", "url": "https://www.letterboxlock.sg/", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://www.letterboxlock.sg/search?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+      { "@type": "Service", "serviceType": "Digital Mailbox Lock Installation", "name": "Digital & Smart Mailbox Lock Installation Singapore", "description": "Professional installation service for keyless, digital, and smart locks on HDB and condo letterboxes across Singapore.", "provider": { "@type": "LocalBusiness", "name": "LetterboxLock.sg" }, "areaServed": { "@type": "AdministrativeArea", "name": "Singapore" } },
+      { "@type": "Service", "serviceType": "Mailbox Lock Replacement", "name": "HDB & Condo Mailbox Lock Replacement Service", "description": "Expert mailbox lock replacement for Singapore residents, including upgrades from standard locks to secure digital and smart options.", "provider": { "@type": "LocalBusiness", "name": "LetterboxLock.sg" }, "areaServed": { "@type": "AdministrativeArea", "name": "Singapore" } },
+      { "@type": "Service", "serviceType": "Emergency Mailbox Locksmith", "name": "Singapore Emergency Mailbox Locksmith Service", "description": "24/7 emergency mailbox unlocking, code resetting, and lost key solutions.", "provider": { "@type": "LocalBusiness", "name": "LetterboxLock.sg" }, "areaServed": { "@type": "AdministrativeArea", "name": "Singapore" } }
     ]
   }
   </script>
   
   <script type="application/ld+json">
-  { /* FAQPage Schema remains the same */ }
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What should I do if I lost my HDB letterbox key?", "acceptedAnswer": { "@type": "Answer", "text": "If you've lost your HDB letterbox key, don't worry. Contact our 24/7 emergency service. We can either unlock your existing letterbox for a SGD 25 fee, or we can replace the entire lock with a new digital one, which includes the unlocking service. This is often the best time to upgrade to a keyless solution." } },
+      {"@type": "Question", "name": "How much does it cost to change a mailbox lock in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Our prices for changing a mailbox lock start from just SGD 50. This price includes the new lock and the full installation service. If your current lock is locked and you've lost the key, an additional SGD 25 unlocking fee applies." } },
+      {"@type": "Question", "name": "Are your digital locks better than the original SingPost locks?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, our digital locks offer significant advantages over standard SingPost locks. They provide keyless convenience (no more lost keys), are built with more durable materials to resist rust and tampering, and offer a more modern and secure solution for your mail." } },
+      {"@type": "Question", "name": "Do your digital mailbox locks require batteries?", "acceptedAnswer": { "@type": "Answer", "text": "Our most popular password and key models are fully mechanical and do not require batteries. Our smart lock model uses AA batteries that last for over 12 months." } },
+      {"@type": "Question", "name": "How long until my new lock is installed?", "acceptedAnswer": { "@type": "Answer", "text": "We offer fast service across Singapore. Our standard lead time for installation is just 1–2 business days after you confirm your order." } },
+      {"@type": "Question", "name": "Are your digital locks compatible with all HDB letterboxes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, our locks are designed to be fully compatible with all standard HDB and condo letterboxes in Singapore. We can also accommodate custom sizes if required." } }
+    ]
+  }
   </script>
 
- <style>
+  <style>
     :root { 
       --logo-size: 60px; 
       --primary-color: #0077cc;
@@ -127,6 +199,20 @@
     main { max-width: 960px; margin: 1rem auto; padding: 0 1rem; }
     h2 { font-size: 1.5rem; margin: 2rem 0 1rem 0; border-bottom: 2px solid #ddd; color: #222; }
     
+    /* --- Animation for Order Button --- */
+    @keyframes shine {
+      0%   { background-color: var(--primary-color); color: #fff; transform: scale(1); }
+      25%  { background-color: #ffc107; color: #000; transform: scale(1.05); } /* Yellow */
+      50%  { background-color: #28a745; color: #fff; transform: scale(1.1); } /* Green */
+      75%  { background-color: #dc3545; color: #fff; transform: scale(1.05); } /* Red */
+      100% { background-color: var(--primary-color); color: #fff; transform: scale(1); }
+    }
+    #nav-order-link {
+      animation: shine 2.5s infinite linear;
+      font-weight: bold;
+    }
+    /* --- End of Animation --- */
+    
     .product {
       background: #fff;
       border-radius: 8px;
@@ -149,7 +235,7 @@
     .product-media video {
        width: 100%;
        height: 100%; 
-       object-fit: cover; /* Cover & Crop to fill */
+       object-fit: cover; 
        display: block; 
     }
      .product-media video {
@@ -177,7 +263,6 @@
     .offer-highlight {
         color: var(--highlight-color); 
     }
-
     .order-btn { 
         display: inline-block; 
         text-decoration: none; 
@@ -195,7 +280,6 @@
         font-size: 0.95em; 
     }
     .order-btn:hover { background-color: var(--primary-hover); }
-
     form { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.05); margin-bottom: 1rem; }
     fieldset { border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; border-radius: 6px; }
     legend { font-weight: 600; padding: 0 0.5rem; }
@@ -219,21 +303,11 @@
     .fab-btn:hover { transform: scale(1.1); }
     .fab-btn img { width: 32px; height: 32px; }
     .whatsapp-btn { background-color: #25D366; }
-
-    /* --- Responsive --- */
-     @media (max-width: 600px) { 
-        .product-media > div {
-            aspect-ratio: 16 / 9; /* Use 16:9 on mobile */
-        }
-        .product-actions {
-             flex-direction: column; 
-             align-items: flex-start; 
-        }
-        .order-btn {
-             width: 100%; 
-        }
-     }
-
+    @media (max-width: 600px) { 
+        .product-media > div { aspect-ratio: 16 / 9; }
+        .product-actions { flex-direction: column; align-items: flex-start; }
+        .order-btn { width: 100%; }
+    }
     @media (max-width: 768px) {
       .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
       header h1 { font-size: 1.1rem; }
@@ -266,8 +340,8 @@
     </h1>
     <nav>
       <a href="#products">Products</a>
-      <a href="#order">Order</a>
-      <a href="#projects">Projects</a>
+      <a href="#order" id="nav-order-link">Order</a>
+      <a href="#our-services">Services</a>
       <a href="#faq">FAQs</a>
       <a href="#reviews">Reviews</a>
       <a href="#articles">Helpful Articles</a>
@@ -276,7 +350,8 @@
 
   <main>
     <section id="intro" aria-labelledby="intro-title">
-      <h2 id="intro-title" style="display:none;">Singapore's Premier Digital Letterbox Lock Installation & Replacement</h2> <p>Need a **Digital Letterbox Lock** or **Smart Mailbox Lock** in Singapore? Upgrade from old keys! We specialize in fast, affordable **installation** and **replacement** for all HDB & condo letterboxes. Choose a secure, keyless **digital mailbox lock** today!</p>
+      <h2 id="intro-title" style="display:none;">Singapore's Premier Digital Letterbox Lock Installation & Replacement</h2>
+      <p>Need a **Digital Letterbox Lock** or **Smart Mailbox Lock** in Singapore? Upgrade from old keys! We specialize in fast, affordable **installation** and **replacement** for all HDB & condo letterboxes. Choose a secure, keyless **digital mailbox lock** today!</p>
     </section>
   
     <section id="products" aria-labelledby="products-title">
@@ -357,7 +432,6 @@
           </div>
         </div>
       </article>
-
     </section>
 
     <section id="order" aria-labelledby="order-title">
@@ -403,11 +477,26 @@
       </form>
     </section>
 
-    <section>
-       <h2>Islandwide Digital Mailbox Lock Service in Singapore</h2>
-       <p>We provide professional digital mailbox and smart letterbox lock installation and replacement services throughout all of Singapore. We serve all HDB estates including <strong>Ang Mo Kio, Tampines, Yishun, Hougang, Bedok, Woodlands, Bukit Merah, Jurong, Sengkang, Punggol</strong> and more.</p>
-    </section>
+    <section id="our-services" aria-labelledby="our-services-title">
+      <h2 id="our-services-title">Our Service Coverage & Keywords</h2>
+      <p>We are your one-stop solution for all mailbox lock needs in Singapore. Our services are designed to enhance your security and convenience, covering every common issue you might face with your HDB or condo letterbox.</p>
+      
+      <h3>Our Key Services Include:</h3>
+      <ul>
+        <li><strong>Digital Letterbox Lock Installation</strong></li>
+        <li><strong>Smart Mailbox Lock Upgrades</strong></li>
+        <li><strong>HDB Letterbox Lock Replacement</strong></li>
+        <li><strong>Condo Mailbox Lock Change</strong></li>
+        <li><strong>Keyless Mailbox Lock Fitting</strong></li>
+        <li><strong>Password & PIN Code Lock Setup</strong></li>
+      </ul>
     
+      <h3>Common Problems We Solve:</h3>
+      <p>We provide fast solutions if you have **lost your HDB letterbox key**, your **mailbox lock is spoiled**, the **key is stuck**, or you **cannot open your mailbox**. Our 24/7 emergency unlock service is available to help you regain access and secure your mail.</p>
+    
+      <h3>Full Islandwide Service Coverage</h3>
+      <p>Our professional locksmiths serve all locations in Singapore, providing **digital mailbox lock** services to all HDB estates and private condominiums. We cover <strong>Ang Mo Kio, Bedok, Bukit Merah, Hougang, Jurong, Punggol, Sengkang, Tampines, Woodlands, Yishun</strong>, and all other areas.</p>
+    </section>
     <section id="reviews" aria-labelledby="reviews-title">
       <h2 id="reviews-title">What Our Customers Say</h2>
       <div class="testimonials">
@@ -428,21 +517,64 @@
           <footer>— User_ABC <span class="source">(via Carousell)</span></footer>
         </div>
          <div class="testimonial">
-          <p>"Good quality digital lock for my HDB mailbox. Cheaper than other places. Recommended seller from Carousell."</p>
-          <footer>— Buyer_XYZ <span class="source">(via Carousell)</span></footer>
+           <p>"Good quality digital lock for my HDB mailbox. Cheaper than other places. Recommended seller from Carousell."</p>
+           <footer>— Buyer_XYZ <span class="source">(via Carousell)</span></footer>
         </div>
       </div>
     </section>
 
-    <section id="projects" aria-labelledby="projects-title">
-     </section>
-
     <section id="faq" aria-labelledby="faq-title">
-      </section>
+      <h2 id="faq-title">Frequently Asked Questions</h2>
+      <dl>
+        <dt>What should I do if I lost my HDB letterbox key?</dt>
+        <dd>If you've lost your HDB letterbox key, don't worry. Contact our 24/7 emergency service. We can either unlock your existing letterbox for a SGD 25 fee, or we can replace the entire lock with a new digital one, which includes the unlocking service. This is often the best time to upgrade to a keyless solution.</dd>
+        <dt>How much does it cost to change a mailbox lock in Singapore?</dt>
+        <dd>Our prices for changing a mailbox lock start from just SGD 50. This price includes the new lock and the full installation service. If your current lock is locked and you've lost the key, an additional SGD 25 unlocking fee applies.</dd>
+        <dt>Are your digital locks better than the original SingPost locks?</dt>
+        <dd>Yes, our digital locks offer significant advantages over standard SingPost locks. They provide keyless convenience (no more lost keys), are built with more durable materials to resist rust and tampering, and offer a more modern and secure solution for your mail.</dd>
+        <dt>Do your digital mailbox locks require batteries?</dt>
+        <dd>Our most popular password and key models are fully mechanical and do not require batteries. Our smart lock model uses AA batteries that last for over 12 months.</dd>
+        <dt>How long until my new lock is installed?</dt>
+        <dd>We offer fast service across Singapore. Our standard lead time for installation is just 1–2 business days after you confirm your order.</dd>
+        <dt>Are your digital locks compatible with all HDB letterboxes?</dt>
+        <dd>Yes, our locks are designed to be fully compatible with all standard HDB and condo letterboxes in Singapore. We can also accommodate custom sizes if required.</dd>
+      </dl>
+    </section>
 
     <section id="articles" aria-labelledby="articles-title">
-     </section>
-
+      <h2 id="articles-title">Helpful Articles & Guides</h2>
+      <p>To help you make an informed decision, we've prepared some expert guides and resources from around the web.</p>
+      <ul>
+        <li>
+          <a href="https://starkedigitallocks.sg/letterbox-digital-lock/" target="_blank" rel="noopener noreferrer">3 Best Digital Locks for Letterbox in Singapore</a>
+          <p>A helpful guide to choosing the best digital lock for your HDB or condo letterbox.</p>
+        </li>
+        <li>
+          <a href="https://www.locksmithsingapore.net/hdb-letterbox-lock-replacement/" target="_blank" rel="noopener noreferrer">When to Replace Your HDB Letterbox Lock</a>
+          <p>Learn the common reasons for replacement, such as wear & tear or break-in attempts.</p>
+        </li>
+        <li>
+          <a href="https://www.imda.gov.sg/regulations-and-licensing-listing/postal/letter-box-specifications-and-guidelines" target="_blank" rel="noopener noreferrer">Official HDB/Condo Letter Box Guidelines</a>
+          <p>Stay informed with the official IMDA specifications and guidelines for mailbox installations in Singapore.</p>
+        </li>
+        <li>
+          <a href="https://www.mydigitallock.com.sg/top-10-digital-lock-in-singapore/" target="_blank" rel="noopener noreferrer">Singapore's Top 10 Digital Lock Reviews</a>
+          <p>An in-depth review of the leading digital lock brands available in Singapore, provided by MyDigitalLock.</p>
+        </li>
+        <li>
+          <a href="https://store-sg.igloohome.co/" target="_blank" rel="noopener noreferrer">Innovations in Smart Lock Technology by Igloohome</a>
+          <p>Explore the latest advancements in smart lock technology from Igloohome, a leading local brand.</p>
+        </li>
+        <li>
+          <a href="https://yewdigitallock.com.sg/" target="_blank" rel="noopener noreferrer">Choosing a Digital Lock for Your HDB or Condo</a>
+          <p>A guide from Yew Digital Lock on selecting the right security solutions for different property types.</p>
+        </li>
+        <li>
+          <a href="https://www.eazea.sg/" target="_blank" rel="noopener noreferrer">Comprehensive Digital Lock Solutions from Eazea</a>
+          <p>Discover a wide range of electronic and smart lock options for doors and gates.</p>
+        </li>
+      </ul>
+    </section>
     <section id="services-summary" aria-labelledby="services-summary-title">
       <h2 id="services-summary-title">Our Comprehensive Digital Mailbox Lock Services</h2>
       <ul>
@@ -483,26 +615,24 @@
       if (greyOption) greyOption.disabled = false;
       if (silverOption) silverOption.disabled = false;
       
-      // Clear previous selection only if it becomes invalid
       const currentSelectionInvalid = 
            (colorSelect.value === 'silver' && type !== 'zinc-alloy') ||
            (colorSelect.value === 'grey' && type !== 'battery-free') ||
            ((colorSelect.value === 'grey' || colorSelect.value === 'silver') && type === 'code-key') ||
-           ((colorSelect.value !== 'black') && type === 'battery');
+           (colorSelect.value !== 'black' && type === 'battery' && colorSelect.value !== ''); // Allow empty selection to be auto-filled
 
       if (currentSelectionInvalid) {
-         // Don't reset if it's the only valid option being auto-selected
-         if (!((type === 'zinc-alloy' && colorSelect.value === 'silver') || (type === 'battery' && colorSelect.value === 'black'))) {
-              colorSelect.value = '';
-         }
+          colorSelect.value = ''; // Reset selection
       }
 
 
       if (type === 'battery-free') { // Black, Grey, White
           if(silverOption) silverOption.disabled = true;
+          if(colorSelect.value === 'silver') colorSelect.value = ''; // Clear invalid selection
       } else if (type === 'code-key') { // Black, White
           if(greyOption) greyOption.disabled = true;
           if(silverOption) silverOption.disabled = true;
+          if(colorSelect.value === 'grey' || colorSelect.value === 'silver') colorSelect.value = '';
       } else if (type === 'zinc-alloy') { // Silver only
           colorSelect.value = 'silver';
           colorSelect.disabled = true; 
