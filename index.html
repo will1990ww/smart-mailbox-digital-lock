@@ -71,7 +71,11 @@
         "@type": "LocalBusiness",
         "name": "LetterboxLock.sg - Digital & Smart Mailbox Locks",
         "image": "https://www.letterboxlock.sg/lion-logo-left.png",
-        "address": { "@type": "PostalAddress", "streetAddress": "Blk 123, Bukit Merah Lane", "addressLocality": "Bukit Merah", "addressRegion": "Singapore", "postalCode": "536197", "addressCountry": "SG" },
+        "address": { 
+            "@type": "PostalAddress", 
+            "addressRegion": "Singapore", 
+            "addressCountry": "SG" 
+        },
         "telephone": "+65 8341 7888",
         "openingHours": "Mo–Su 10:00–19:00",
         "url": "https://www.letterboxlock.sg",
@@ -142,9 +146,15 @@
       {"@type": "Question", "name": "What warranty do you provide?", "acceptedAnswer": { "@type": "Answer", "text": "All our digital and mechanical mailbox locks include a **1-Year Seller Warranty with on-call support** – **Singapore's Only One!**, giving you complete peace of mind." } },
       {"@type": "Question", "name": "How long does the installation take?", "acceptedAnswer": { "@type": "Answer", "text": "Installation is very fast, typically taking only 15–30 minutes. We provide on-call service, and our standard lead time is just 1–2 business days after you confirm your order." } },
       {"@type": "Question", "name": "Will you damage my letterbox?", "acceptedAnswer": { "@type": "Answer", "text": "No. Our technicians are professional locksmiths who use specialized tools to ensure a clean installation or replacement with no damage to your letterbox door." } },
-      {"@type": "Question", "name": "Do your digital mailbox locks require batteries?", "acceptedAnswer": { "@type": "Answer", "text": "Our most popular password and key models are fully mechanical and do not require batteries. Our smart lock model uses AA batteries that last for over 12 months." } },
-      {"@type": "Question", "name": "What is 'Retrieve Password' on some locks?", "acceptedAnswer": { "@type": "Answer", "text": "Our 'Password & Key' and 'Zinc Alloy' models have a password retrieval mechanism. This means if you forget your code, you don't need to break the lock. We can use a master key or tool to find your password for you." } },
-      {"@type": "Question", "name": "Are your digital locks compatible with all HDB letterboxes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, our locks are designed to be fully compatible with all standard HDB and condo letterboxes in Singapore. We can also accommodate custom sizes if required." } }
+      {"@type": "Question", "name": "Do your digital mailbox locks require batteries?", "acceptedAnswer": { "@type": "Answer", "text": "Our most popular password and key models (Battery-Free, Password & Key, Zinc Alloy) are fully mechanical and do not require batteries. Only the \"Smart Battery-Powered\" lock uses AA batteries, which last over 12 months." } },
+      {"@type": "Question", "name": "What is \"Retrieve Password\" on some locks?", "acceptedAnswer": { "@type": "Answer", "text": "Our \"Password & Key\" and \"Zinc Alloy\" models have a password retrieval mechanism. This means if you forget your code, you don't need to break the lock. We can use a master key or tool to find your password for you. Crucially, this key cannot open the lock directly." } },
+      {"@type": "Question", "name": "Are your digital locks compatible with all HDB letterboxes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, our locks are designed to be fully compatible with all standard HDB and condo letterboxes in Singapore. We can also accommodate custom sizes if required." } },
+      
+      /* 新增的常见问题 (FAQ) */
+      {"@type": "Question", "name": "Can I replace my old mechanical lock with a digital one?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, absolutely! Our service is primarily focused on replacing old, faulty, or key-based locks with modern digital and smart options. Our team ensures a perfect fit for nearly all HDB and condominium letterbox models." } },
+      {"@type": "Question", "name": "What happens if the digital lock battery runs out?", "acceptedAnswer": { "@type": "Answer", "text": "Only our Smart Battery Lock requires batteries. It is designed with a long battery life (over 12 months) and will issue low-power warnings. If the battery runs out completely, you can use an external battery (like a power bank) to temporarily power the lock and open it, then replace the internal batteries immediately. You will never be locked out due to a dead battery." } },
+      {"@type": "Question", "name": "How secure are mechanical digital letterbox locks?", "acceptedAnswer": { "@type": "Answer", "text": "Mechanical digital locks are highly secure and tamper-resistant. They eliminate the risk of lost keys and are designed to prevent typical prying or forceful entry attempts better than standard key locks." } },
+      {"@type": "Question", "name": "Do you provide emergency service outside of regular business hours?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we offer 24/7 on-call support for emergency services, especially for mailbox unlocking (SGD 25 fee applies). We understand that urgent issues like lost keys can happen anytime." } }
     ]
   }
   </script>
@@ -155,10 +165,10 @@
       --primary-color: #0077cc;
       --primary-hover: #005fa3;
       --highlight-color: #dc3545; /* Red for price and warranty */
+      --intro-bg: #fff3cd; /* Light yellow background for prominence */
+      --intro-border: #ffc107; /* Yellow border */
     }
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; font-family: 'Inter', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
     a { color: var(--primary-color); text-decoration: none; }
@@ -175,14 +185,40 @@
     
     @keyframes shine {
       0%   { background-color: var(--primary-color); color: #fff; transform: scale(1); }
-      25%  { background-color: #ffc107; color: #000; transform: scale(1.05); } /* Yellow */
-      50%  { background-color: #28a745; color: #fff; transform: scale(1.1); } /* Green */
-      75%  { background-color: #dc3545; color: #fff; transform: scale(1.05); } /* Red */
+      25%  { background-color: #ffc107; color: #000; transform: scale(1.05); } 
+      50%  { background-color: #28a745; color: #fff; transform: scale(1.1); } 
+      75%  { background-color: #dc3545; color: #fff; transform: scale(1.05); } 
       100% { background-color: var(--primary-color); color: #fff; transform: scale(1); }
     }
     #nav-order-link {
       animation: shine 2.5s infinite linear;
       font-weight: bold;
+    }
+    
+    /* Intro & Warranty Highlight Styles */
+    .intro-warranty-highlight {
+        background-color: var(--intro-bg); 
+        border: 2px solid var(--intro-border); 
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        font-size: 1.1em;
+        line-height: 1.5;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,.1);
+    }
+    .intro-warranty-highlight p {
+        margin: 0.5rem 0;
+    }
+    .warranty-text-strong {
+        font-weight: 700;
+        color: var(--highlight-color); /* 仅此处使用红色 */
+    }
+    .warranty-unique-highlight {
+        font-size: 1.25em; 
+        text-decoration: underline;
+        color: var(--highlight-color); 
+        font-weight: bold;
     }
     
     .product {
@@ -212,44 +248,16 @@
      .product-media video {
         background-color: #000; 
      }
-    .product-details {
-        padding: 1rem;
-    }
+    .product-details { padding: 1rem; }
     .product-details h3 { margin-top: 0; font-size: 1.1em; }
     .product-details p { font-size: 0.95em; }
-    .product-actions {
-        display: flex;
-        justify-content: space-between; 
-        align-items: center; 
-        margin-top: 1rem; 
-        gap: 1rem; 
-        flex-wrap: wrap; 
-    }
-    .offer-info { 
-        display: block; 
-        font-weight: bold;
-        font-size: 1em; 
-    }
-    .offer-highlight {
-        color: var(--highlight-color); 
-    }
-    .order-btn { 
-        display: inline-block; 
-        text-decoration: none; 
-        padding: 10px 20px; 
-        border-radius: 5px; 
-        text-align: center; 
-        font-weight: 600; 
-        cursor: pointer; 
-        transition: background-color 0.3s; 
-        background-color: var(--primary-color); 
-        color: #fff; 
-        border: 1px solid var(--primary-color); 
-        white-space: nowrap; 
-        flex-shrink: 0; 
-        font-size: 0.95em; 
-    }
+    .product-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; gap: 1rem; flex-wrap: wrap; }
+    .offer-info { display: block; font-weight: bold; font-size: 1em; }
+    .offer-highlight { color: var(--highlight-color); }
+    .order-btn { display: inline-block; text-decoration: none; padding: 10px 20px; border-radius: 5px; text-align: center; font-weight: 600; cursor: pointer; transition: background-color 0.3s; background-color: var(--primary-color); color: #fff; border: 1px solid var(--primary-color); white-space: nowrap; flex-shrink: 0; font-size: 0.95em; }
     .order-btn:hover { background-color: var(--primary-hover); }
+    
+    /* Form Styles */
     form { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.05); margin-bottom: 1rem; }
     fieldset { border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; border-radius: 6px; }
     legend { font-weight: 600; padding: 0 0.5rem; }
@@ -258,13 +266,8 @@
     form button { width: 100%; padding: 0.75rem; background: var(--primary-color); color: #fff; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; transition: background 0.3s; font-weight: bold; }
     form button:hover { background: var(--primary-hover); }
     
-    #our-services ul, #services-summary ul, #articles ul {
-        line-height: 1.8;
-        padding-left: 20px;
-    }
-    #our-services li, #services-summary li, #articles li {
-        margin-bottom: 0.75rem;
-    }
+    #our-services ul, #services-summary ul, #articles ul { line-height: 1.8; padding-left: 20px; }
+    #our-services li, #services-summary li, #articles li { margin-bottom: 0.75rem; }
     #articles p { margin: 0.25rem 0 0 0; font-size: 0.9em; }
 
     .testimonials { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.05); margin-bottom: 1rem; }
@@ -282,10 +285,36 @@
     dt { font-weight: 600; margin-top: 1rem; }
     dd { margin: 0 0 1rem 1rem; }
     footer { background: #eee; text-align: center; padding: 1rem; font-size: 0.9rem; margin-bottom: 80px; }
+    
+    /* Gallery Grid CSS */
+    #gallery { margin-top: 2rem; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+      gap: 1rem;
+    }
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,.1);
+      line-height: 0; 
+      aspect-ratio: 1 / 1; 
+      cursor: pointer;
+      background-color: #eee;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
 
     @media (max-width: 600px) { 
         .product-media > div { aspect-ratio: 16 / 9; }
-        .product-actions { flex-direction: column; align-items: flex-start; }
+        .product-actions { flex-direction: column; align-items: stretch; }
         .order-btn { width: 100%; }
     }
     @media (max-width: 768px) {
@@ -318,6 +347,7 @@
     </h1>
     <nav>
       <a href="#products">Mailbox Locks</a>
+      <a href="#gallery">Gallery</a>
       <a href="other-services.html">Other Locksmith Services</a> <a href="#order" id="nav-order-link">Order</a>
       <a href="#faq">FAQs</a>
       <a href="#reviews">Reviews</a>
@@ -328,20 +358,28 @@
   <main>
     <section id="intro" aria-labelledby="intro-title">
       <h2 id="intro-title" style="display:none;">Singapore's Premier Digital Letterbox Lock Installation & Replacement</h2>
-      <p>Need a **Digital Letterbox Lock** or **Smart Mailbox Lock** in Singapore? Upgrade from old keys! We specialize in fast, affordable **installation** and **replacement** for all HDB & condo letterboxes. Choose a secure, keyless **digital mailbox lock** today!</p>
+      
+      <div class="intro-warranty-highlight">
+        <p>
+          Need a <strong class="warranty-text-strong">Digital Letterbox Lock</strong> or <strong class="warranty-text-strong">Smart Mailbox Lock</strong> in Singapore? Upgrade from old keys! 
+          We specialize in fast, affordable **installation** and **replacement** for all HDB & condo letterboxes. 
+          Choose a secure, keyless **digital mailbox lock** today!
+        </p>
+        <p>
+          <strong class="warranty-text-strong">Warranty Assurance:</strong> All our locks come with a 
+          <strong class="warranty-text-strong">1-Year Seller Warranty with On-Call Support</strong> – 
+          <span class="warranty-unique-highlight">Singapore's Only One!</span>
+        </p>
+      </div>
     </section>
   
     <section id="products" aria-labelledby="products-title">
       <h2 id="products-title">Our Digital, Smart & Mechanical Mailbox Locks</h2>
       
-      <p style="font-weight: 700; color: #dc3545; font-size: 1.1em; text-align: center; border: 2px solid #dc3545; padding: 0.75rem; border-radius: 4px; background-color: #fce4e4; margin-bottom: 2rem;">
-          **Warranty Assurance:** All our locks come with a <strong style="color: #000;">1-Year Seller Warranty with On-Call Support</strong> – <span style="font-size: 1.2em; text-decoration: underline;">Singapore's Only One!</span>
-      </p>
-
       <article id="product-mechanical" class="product" itemscope itemtype="https://schema.org/Product">
         <div class="product-media">
           <div class="product-image"><img data-src="battery-free-mailbox-lock.jpg" alt="Battery-Free Mechanical Letterbox Lock - Simple & Reliable" class="lazyload" itemprop="image"/></div>
-          <div class="product-video"><video width="100%" controls preload="metadata" playsinline><source src="video_1.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+          <div class="product-video"><video width="100%" controls preload="metadata" playsinline poster="video_1_poster.jpg"><source src="video_1.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
         </div>
         <div class="product-details">
           <h3 itemprop="name">Battery-Free Mechanical Mailbox Lock (SGD 50 incl. install)</h3>
@@ -356,11 +394,11 @@
       <article id="product-password" class="product" itemscope itemtype="https://schema.org/Product">
         <div class="product-media">
           <div class="product-image"><img data-src="password-and-key-mailbox-lock.jpg" alt="Password & Key Digital Letterbox Lock - Keyless Convenience with Backup" class="lazyload" itemprop="image"/></div>
-          <div class="product-video"><video width="100%" controls preload="metadata" playsinline><source src="video_2.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+          <div class="product-video"><video width="100%" controls preload="metadata" playsinline poster="video_2_poster.jpg"><source src="video_2.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
         </div>
         <div class="product-details">
           <h3 itemprop="name">Password & Key Mailbox Lock with Backup Key (SGD 55 incl. install)</h3>
-          <p itemprop="description">Enjoy convenient passcode entry with a physical key for backup. Fully mechanical, this **letterbox digital lock** requires no batteries. Features a key for password retrieval (Retrieve Password).</p>
+          <p itemprop="description">Enjoy convenient passcode entry with a physical key for backup. Fully mechanical, this **letterbox digital lock** requires no batteries. Features a dedicated password retrieval mechanism. <strong>IMPORTANT: The included key is ONLY for password retrieval, it cannot unlock the letterbox directly.</strong></p>
            <div class="product-actions">
               <span class="offer-info offer-highlight" itemprop="offers" itemscope itemtype="https://schema.org/Offer"> <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="55">55</span> <link itemprop="availability" href="https://schema.org/InStock" /> In Stock </span>
               <a href="#order" class="order-btn">Order Now</a>
@@ -371,11 +409,11 @@
       <article id="product-zinc-alloy" class="product" itemscope itemtype="https://schema.org/Product">
          <div class="product-media">
           <div class="product-image"><img data-src="zinc-alloy-mechanical-code-lock.jpg" alt="Zinc Alloy Mechanical Digital Code Lock for Mailbox - Retrieve Password" class="lazyload" itemprop="image"/></div>
-          <div class="product-video"><video width="100%" controls preload="metadata" playsinline><source src="video_3.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+          <div class="product-video"><video width="100%" controls preload="metadata" playsinline poster="video_3_poster.jpg"><source src="video_3.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
         </div>
         <div class="product-details">
           <h3 itemprop="name">Zinc Alloy Mechanical Code Lock (SGD 65 incl. install)</h3>
-          <p itemprop="description">Made from a better and more durable zinc alloy material, this mechanical **digital code lock** features enlarged turn wheels for easy operation. Includes a password retrieval mechanism (Retrieve Password). Available in Silver color only.</p>
+          <p itemprop="description">Made from a better and more durable zinc alloy material, this mechanical **digital code lock** features enlarged turn wheels for easy operation. Includes a password retrieval mechanism. <strong>IMPORTANT: If you forget the code, the included key is used to retrieve the password, not to open the lock.</strong> Available in Silver color only.</p>
           <div class="product-actions">
               <span class="offer-info offer-highlight" itemprop="offers" itemscope itemtype="https://schema.org/Offer"> <span itemprop="priceCurrency" content="SGD">SGD</span><span itemprop="price" content="65">65</span> <link itemprop="availability" href="https://schema.org/InStock" /> In Stock </span>
               <a href="#order" class="order-btn">Order Now</a>
@@ -386,7 +424,7 @@
       <article id="product-smart" class="product" itemscope itemtype="https://schema.org/Product">
         <div class="product-media">
           <div class="product-image"><img data-src="battery-powered-smart-mailbox-lock.jpg" alt="Smart Battery-Powered Digital Mailbox Lock Singapore - PIN Access" class="lazyload" itemprop="image"/></div>
-          <div class="product-video"><video width="100%" controls preload="metadata" playsinline><source src="video_4.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+          <div class="product-video"><video width="100%" controls preload="metadata" playsinline poster="video_4_poster.jpg"><source src="video_4.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
         </div>
         <div class="product-details">
           <h3 itemprop="name">Smart Battery-Powered Digital Mailbox Lock (SGD 60 incl. install)</h3>
@@ -397,6 +435,28 @@
           </div>
         </div>
       </article>
+    </section>
+    
+    <section id="gallery" aria-labelledby="gallery-title">
+        <h2 id="gallery-title">Installation Photo Gallery & Case Studies</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img data-src="project-1.jpg" alt="Project 1 - Digital Letterbox Lock Installation" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-2.jpg" alt="Project 2 - HDB Mailbox Lock Replacement" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-3.jpg" alt="Project 3 - Condo Smart Mailbox Lock" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-4.jpg" alt="Project 4 - Mechanical Letterbox Lock" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-5.jpg" alt="Project 5 - Keyless Mailbox Solution" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-6.jpg" alt="Project 6 - Digital Lock Upgrade Singapore" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-7.jpg" alt="Project 7 - Secure Letterbox Lock" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-8.jpg" alt="Project 8 - HDB Locksmith Service" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-9.jpg" alt="Project 9 - Mailbox Lock Repair" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-10.jpg" alt="Project 10 - Zinc Alloy Lock Installation" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-11.jpg" alt="Project 11 - Digital Lock Black Color" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-12.jpg" alt="Project 12 - Best HDB Letterbox Lock" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-13.jpg" alt="Project 13 - Digital Letterbox Lock" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-14.jpg" alt="Project 14 - Digital Mailbox Lock" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-15.jpg" alt="Project 15 - WT Digital Mailbox Lock" class="lazyload"/></div>
+        </div>
+        <p style="text-align: center; margin-top: 1.5rem;">Welcome to our <a href="https://www.carousell.sg/u/carosalesg/?tab=reviews" target="_blank">Carousell Page</a> See REVIEWS！</p>
     </section>
 
     <section id="order" aria-labelledby="order-title">
@@ -496,21 +556,40 @@
         <dd>Our most popular password and key models (Battery-Free, Password & Key, Zinc Alloy) are fully mechanical and do not require batteries. Only the "Smart Battery-Powered" lock uses AA batteries, which last over 12 months.</dd>
 
         <dt>What is "Retrieve Password" on some locks?</dt>
-        <dd>Our "Password & Key" and "Zinc Alloy" models have a password retrieval mechanism. This means if you forget your code, you don't need to break the lock. We can use a master key or tool to find your password for you.</dd>
+        <dd>Our "Password & Key" and "Zinc Alloy" models have a password retrieval mechanism. This means if you forget your code, you don't need to break the lock. We can use a master key or tool to find your password for you. Crucially, this key cannot open the lock directly.</dd>
 
         <dt>Are your digital locks compatible with all HDB letterboxes?</dt>
-        <dd>Yes, our locks are designed to be fully compatible with all standard HDB & condo letterboxes in Singapore. We can also accommodate custom sizes if required.</dd>
+        <dd>Yes, our locks are designed to be fully compatible with all standard HDB and condo letterboxes in Singapore. We can also accommodate custom sizes if required.</dd>
+        
+        <dt>Can I replace my old mechanical lock with a digital one?</dt>
+        <dd>Yes, absolutely! Our service is primarily focused on replacing old, faulty, or key-based locks with modern digital and smart options. Our team ensures a perfect fit for nearly all HDB and condominium letterbox models.</dd>
+        
+        <dt>What happens if the digital lock battery runs out?</dt>
+        <dd>Only our Smart Battery Lock requires batteries. It is designed with a long battery life (over 12 months) and will issue low-power warnings. If the battery runs out completely, you can use an external battery (like a power bank) to temporarily power the lock and open it, then replace the internal batteries immediately. You will never be locked out due to a dead battery.</dd>
+        
+        <dt>How secure are mechanical digital letterbox locks?</dt>
+        <dd>Mechanical digital locks are highly secure and tamper-resistant. They eliminate the risk of lost keys and are designed to prevent typical prying or forceful entry attempts better than standard key locks. The complexity of the combination makes accidental guessing virtually impossible.</dd>
+        
+        <dt>Do you provide emergency service outside of regular business hours?</dt>
+        <dd>Yes, we offer 24/7 on-call support for emergency services, especially for mailbox unlocking (SGD 25 fee applies). We understand that urgent issues like lost keys can happen anytime.</dd>
       </dl>
     </section>
 
     <section id="articles" aria-labelledby="articles-title">
       <h2 id="articles-title">Helpful Articles & Guides</h2>
       <ul>
-        <li><a href="https://starkedigitallocks.sg/letterbox-digital-lock/" target="_blank" rel="noopener noreferrer">3 Best Digital Locks for Letterbox in Singapore</a><p>A helpful guide to choosing the best digital lock for your HDB or condo letterbox.</p></li>
-        <li><a href="https://www.locksmithsingapore.net/hdb-letterbox-lock-replacement/" target="_blank" rel="noopener noreferrer">When to Replace Your HDB Letterbox Lock</a><p>Learn the common reasons for replacement, such as wear & tear or break-in attempts.</p></li>
-        <li><a href="https://www.imda.gov.sg/regulations-and-licensing-listing/postal/letter-box-specifications-and-guidelines" target="_blank" rel="noopener noreferrer">Official HDB/Condo Letter Box Guidelines</a><p>Stay informed with the official IMDA specifications and guidelines for mailbox installations in Singapore.</p></li>
-        <li><a href="https://www.mydigitallock.com.sg/top-10-digital-lock-in-singapore/" target="_blank" rel="noopener noreferrer">Singapore's Top 10 Digital Lock Reviews</a><p>An in-depth review of the leading digital lock brands available in Singapore, provided by MyDigitalLock.</p></li>
-        <li><a href="https://store-sg.igloohome.co/" target="_blank" rel="noopener noreferrer">Innovations in Smart Lock Technology by Igloohome</a><p>Explore the latest advancements in smart lock technology from Igloohome, a leading local brand.</p></li>
+        <li>
+            <a href="your-blog-post-1.html">The Ultimate Guide to Digital Letterbox Locks for HDB & Condos</a>
+            <p>A comprehensive guide to choosing the best keyless solution for your mailbox security.</p>
+        </li>
+        <li>
+            <a href="your-blog-post-2.html">Mechanical vs. Smart: Which Mailbox Lock Offers Better Longevity?</a>
+            <p>An in-depth analysis of battery-free options versus battery-powered smart locks.</p>
+        </li>
+        <li>
+          <a href="https://www.imda.gov.sg/regulations-and-licensing-listing/postal/letter-box-specifications-and-guidelines" target="_blank" rel="noopener noreferrer">Official HDB/Condo Letter Box Guidelines</a>
+          <p>Stay informed with the official IMDA specifications and guidelines for mailbox installations in Singapore.</p>
+        </li>
       </ul>
     </section>
 
@@ -542,47 +621,36 @@
     function updateColorField() {
       const type = document.getElementById('lockType').value;
       const colorSelect = document.getElementById('color');
-      const blackOption = colorSelect.querySelector('option[value="black"]');
-      const whiteOption = colorSelect.querySelector('option[value="white"]');
-      const greyOption = colorSelect.querySelector('option[value="grey"]');
-      const silverOption = colorSelect.querySelector('option[value="silver"]');
-
-      // Reset: Enable dropdown and all options first
-      colorSelect.disabled = false;
-      if (blackOption) blackOption.disabled = false;
-      if (whiteOption) whiteOption.disabled = false;
-      if (greyOption) greyOption.disabled = false;
-      if (silverOption) silverOption.disabled = false;
       
-      const currentSelectionInvalid = 
-           (colorSelect.value === 'silver' && type !== 'zinc-alloy') ||
-           (colorSelect.value === 'grey' && type !== 'battery-free') ||
-           ((colorSelect.value === 'grey' || colorSelect.value === 'silver') && type === 'code-key') ||
-           (colorSelect.value !== 'black' && type === 'battery' && colorSelect.value !== ''); 
+      colorSelect.disabled = false;
+      Array.from(colorSelect.options).forEach(option => {
+          if(option.value !== '') option.disabled = false;
+      });
 
-      if (currentSelectionInvalid) {
-          colorSelect.value = ''; // Reset selection
-      }
-
-
-      if (type === 'battery-free') { // Black, Grey, White
-          if(silverOption) silverOption.disabled = true;
-          if(colorSelect.value === 'silver') colorSelect.value = ''; 
-      } else if (type === 'code-key') { // Black, White
-          if(greyOption) greyOption.disabled = true;
-          if(silverOption) silverOption.disabled = true;
-          if(colorSelect.value === 'grey' || colorSelect.value === 'silver') colorSelect.value = '';
-      } else if (type === 'zinc-alloy') { // Silver only
+      if (type === 'battery-free') { 
+          colorSelect.querySelector('option[value="silver"]').disabled = true;
+          if (colorSelect.value === 'silver') colorSelect.value = '';
+      } else if (type === 'code-key') { 
+          colorSelect.querySelector('option[value="grey"]').disabled = true;
+          colorSelect.querySelector('option[value="silver"]').disabled = true;
+          if (colorSelect.value === 'grey' || colorSelect.value === 'silver') colorSelect.value = '';
+      } else if (type === 'zinc-alloy') { 
           colorSelect.value = 'silver';
           colorSelect.disabled = true; 
-      } else if (type === 'battery') { // Black only
+      } else if (type === 'battery') { 
           colorSelect.value = 'black';
           colorSelect.disabled = true; 
       }
     }
 
-
     function sendFormToWhatsApp() {
+      const form = document.querySelector('form');
+      
+      if (!form.checkValidity()) {
+          alert('Please fill in all required customer details (Name, Phone, Address, Unit Number) before placing the order.');
+          return false; 
+      }
+      
       const n = document.getElementById('name').value.trim();
       const p = document.getElementById('phone').value.trim();
       const a = document.getElementById('address').value.trim();
@@ -603,19 +671,28 @@
       }
 	  
       const unlockFee = s === 'yes' ? 25 : 0;
-      const unlockLabel = s === 'yes' ? 'Yes (SGD 25)' : 'No';
+      const unlockLabel = s === 'yes' ? 'Yes (SGD 25 - Added to Total)' : 'No';
       const total = price * q + unlockFee;
       
       let selectedColor = c;
-      if (t === 'zinc-alloy') selectedColor = 'Silver';
-      else if (t === 'battery') selectedColor = 'Black';
-      else if (c === '' || c === 'NA') selectedColor = 'NA'; 
+      if (t === 'zinc-alloy') selectedColor = 'Silver (Auto)';
+      else if (t === 'battery') selectedColor = 'Black (Auto)';
+      else if (c === '' || c === 'NA') selectedColor = 'Not Selected / NA'; 
 
       const lines = [
-        'New Mailbox Lock Order 📦', 
+        '🔔 New Mailbox Lock Order (From Website) 📦', 
+        '--- Customer Details ---',
         `Name: ${n}`, `Phone: ${p}`, `Address: ${a}`, `Unit: ${u}`,
-        `Lock Type: ${label}`, `Qty: ${q}`, `Color: ${selectedColor}`,
-        `Unlock Service: ${unlockLabel}`, `Unit Price: SGD ${price}`, `Total: SGD ${total}`
+        '--- Order Details ---',
+        `Lock Type: ${label}`, 
+        `Quantity: ${q}`, 
+        `Color: ${selectedColor}`,
+        '--- Service & Cost ---',
+        `Unit Price (Inc. Install): SGD ${price}`, 
+        `Unlock Service: ${unlockLabel}`, 
+        `Total Payable: SGD ${total}`,
+        '',
+        'Please confirm the installation schedule and address.'
       ];
       window.open(
         `https://wa.me/6583417888?text=${encodeURIComponent(lines.join('\n'))}`,
