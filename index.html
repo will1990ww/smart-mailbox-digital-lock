@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
   
-  <title>Digital Letterbox Lock & Mailbox Lock Singapore | Smart Lock Installation | LetterboxLock.sg</title>
+  <title>Digital Letterbox Lock Singapore | HDB & Condo Mailbox Lock Installation | LetterboxLock.sg</title>
 
   <meta
     name="description"
-    content="Singapore's #1 Digital Letterbox Lock Specialist. 8 Models Available! From 4-Digit High Security Mechanical Locks to Smart Battery Locks & Traditional Key options. 24/7 Service & Group Buy."
+    content="Singapore's #1 Digital Letterbox Lock Specialist. $50 Nett w/ Install. 8 Models: Keyless, Password, Smart Card. 24/7 Emergency Unlocking. 1-Year Warranty."
   />
 
   <meta
@@ -20,6 +20,7 @@
 
   <link rel="canonical" href="https://www.letterboxlock.sg/"/>
   <meta name="robots" content="index,follow"/>
+  
   <meta name="geo.region" content="SG" />
   <meta name="geo.placename" content="Singapore" />
   <meta name="geo.position" content="1.3521;103.8198" />
@@ -80,6 +81,7 @@
       --text-light: #666;
       --urgent-red: #d32f2f;
       --star-gold: #FFD700;
+      --install-green: #28a745;
     }
     html { scroll-behavior: smooth; }
     *, *::before, *::after { box-sizing: border-box; }
@@ -113,6 +115,7 @@
     .group-buy-btn:hover { transform: scale(1.05); }
     @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
+    /* Shop Grid */
     .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
     .product-card { background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #eee; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; cursor: pointer; }
     .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: var(--primary-color); }
@@ -120,7 +123,7 @@
     .card-body { padding: 1rem; display: flex; flex-direction: column; flex-grow: 1; }
     .card-title { font-size: 1rem; font-weight: 700; margin: 0 0 0.5rem 0; height: 2.8em; overflow: hidden; line-height: 1.3; color: #222; }
     .card-price { font-size: 1.2rem; color: var(--highlight-color); font-weight: 800; margin-bottom: 0.8rem; }
-    .card-price span { font-size: 0.8rem; color: #999; font-weight: normal; }
+    .card-price span { font-size: 0.8rem; color: var(--install-green); font-weight: 700; display: inline-block; margin-left: 5px; }
     .card-actions { margin-top: auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 8px; }
     .btn-details { background: #f0f0f0; border: none; border-radius: 4px; padding: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; color: #333; }
     .btn-buy { background: var(--highlight-color); color: white; border: none; border-radius: 4px; padding: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; text-align: center; transition: background 0.2s; }
@@ -146,18 +149,14 @@
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; border: 1px solid #eee; transition: transform 0.2s; }
     .gallery-item img:hover { transform: scale(1.03); }
 
-    /* REVIEWS FIXED */
-    .testimonials { 
-        padding: 1.5rem; border-radius: 10px; margin-bottom: 3rem; 
-        display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-        gap: 1.5rem; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #eee;
-    }
+    /* REVIEWS */
+    .testimonials { padding: 1.5rem; border-radius: 10px; margin-bottom: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #eee; }
     .testimonial { border-left: 4px solid var(--primary-color); padding-left: 15px; background: transparent; }
     .testimonial p { margin: 0 0 8px 0; font-style: italic; color: #555; line-height: 1.5; font-size: 0.95rem; }
-    /* Name smaller and lighter */
     .testimonial footer { text-align: right; font-size: 0.85rem; font-weight: 500; color: #666; background: transparent !important; }
     .star-gold { color: var(--star-gold); }
 
+    /* SEO Rich Text */
     #services-summary { background: #fff; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
     #services-summary ul { padding-left: 1.2rem; line-height: 1.7; font-size: 0.95rem; color: #444; }
     #articles ul { list-style: none; padding: 0; margin: 0; }
@@ -176,14 +175,13 @@
     .fab-btn:hover { transform: scale(1.1); }
     .fab-btn img { width: 35px; height: 35px; }
 
-    /* Modal Video Fix */
     .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(3px); }
     .modal-content { background-color: #fefefe; margin: 2% auto; padding: 0; border-radius: 10px; width: 95%; max-width: 650px; position: relative; display:flex; flex-direction:column; max-height:90vh; }
     .modal-body { padding: 1.5rem; overflow-y:auto; }
     .close-modal { position: absolute; top: 10px; right: 15px; font-size: 30px; font-weight: bold; color: #333; cursor: pointer; z-index: 10; background: rgba(255,255,255,0.8); border-radius: 50%; width: 40px; height: 40px; text-align: center; line-height: 40px; }
-    /* Video auto-size to fit modal width, remove fixed aspect ratio to prevent black bars */
     .modal-video { width: 100%; height: auto; max-height: 70vh; display: block; border-radius: 8px; background: #000; margin-bottom: 1rem; object-fit: contain; }
 
+    /* MOBILE FIXES: Ensure w/ Install shows, optimize for Page 1 */
     @media (max-width: 768px) {
         .header-inner { display: none; } 
         .mobile-header-grid { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; width: 100%; }
@@ -193,11 +191,15 @@
         .nav-group.left { align-items: flex-end; padding-right: 12px; }
         .nav-group.right { align-items: flex-start; padding-left: 12px; }
         .nav-group a { color: #fff; background: var(--primary-color); padding: 5px 12px; border-radius: 14px; font-size: 0.75rem; width: 75px; text-align: center; font-weight: 600; }
+        
         .shop-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem; }
         .card-body { padding: 0.8rem; }
         .card-title { font-size: 0.85rem; height: 2.6em; margin-bottom: 0.3rem; }
-        .card-price { font-size: 1rem; margin-bottom: 0.3rem; }
-        .card-price span { display: none; } 
+        
+        /* 关键修复: 手机端 w/ Install 显示 */
+        .card-price { font-size: 1rem; margin-bottom: 0.3rem; display: flex; flex-direction: column; align-items: flex-start; }
+        .card-price span { display: inline-block; font-size: 0.7rem; margin-left: 0; margin-top: 2px; } 
+        
         .btn-buy, .btn-details { padding: 6px 0; font-size: 0.8rem; }
         h2 { font-size: 1.3rem; margin: 1.5rem 0 1rem 0; }
         .intro-text { font-size: 0.95rem; }
@@ -217,7 +219,7 @@
   <header>
     <div class="header-inner">
       <div class="logo-title-row">
-         <img src="lion-logo-left.png" alt="LetterboxLock.sg" class="logo-img"/>
+         <img src="lion-logo-left.png" alt="LetterboxLock.sg" class="logo-img" width="50" height="50"/>
          <h1 class="site-title">LetterboxLock.sg</h1>
       </div>
       <nav class="desktop-nav">
@@ -235,7 +237,7 @@
             <a href="#gallery">Reviews</a>
         </div>
         <div class="logo-center">
-            <img src="lion-logo-left.png" alt="LetterboxLock.sg"/>
+            <img src="lion-logo-left.png" alt="LetterboxLock.sg" width="55" height="55"/>
         </div>
         <div class="nav-group right">
             <a href="#order">Order</a>
@@ -271,14 +273,70 @@
     <section id="shop">
       <h2 id="shop-title">Choose Your Lock Model</h2>
       <div class="shop-grid">
-        <div class="product-card" onclick="openModal('p1')"><img data-src="traditional-key-lock-singapore.jpg" class="card-img lazyload" alt="PRODUCT 1 - Traditional Key Lock Singapore"/><div class="card-body"><div class="card-title">P1 - Traditional Key Lock</div><div class="card-price">SGD 50 <span>w/ Install</span></div><div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p1', event)">Book</button></div></div></div>
-        <div class="product-card" onclick="openModal('p2')"><img data-src="battery-free-mailbox-lock.jpg" class="card-img lazyload" alt="PRODUCT 2 - Battery-Free Mechanical Lock"/><div class="card-body"><div class="card-title">P2 - Mechanical (No Batt)</div><div class="card-price">SGD 50 <span>w/ Install</span></div><div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p2', event)">Book</button></div></div></div>
-        <div class="product-card" onclick="openModal('p3')"><img data-src="password-and-key-mailbox-lock.jpg" class="card-img lazyload" alt="PRODUCT 3 - Password & Key Lock"/><div class="card-body"><div class="card-title">P3 - Pass & Key (Backup)</div><div class="card-price">SGD 55 <span>w/ Install</span></div><div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p3', event)">Book</button></div></div></div>
-        <div class="product-card" onclick="openModal('p4')"><img data-src="battery-powered-smart-mailbox-lock.jpg" class="card-img lazyload" alt="PRODUCT 4 - Smart Battery Lock"/><div class="card-body"><div class="card-title">P4 - Smart Battery Lock</div><div class="card-price">SGD 60 <span>w/ Install</span></div><div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p4', event)">Book</button></div></div></div>
-        <div class="product-card" onclick="openModal('p5')"><img data-src="product-7-ergonomic.jpg" class="card-img lazyload" alt="PRODUCT 5 - 3-Digit Ergonomic Lock"/><div class="card-body"><div class="card-title">P5 - Ergonomic Lock</div><div class="card-price">SGD 60 <span>w/ Install</span></div><div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p5', event)">Book</button></div></div></div>
-        <div class="product-card" onclick="openModal('p6')"><img data-src="zinc-alloy-mechanical-code-lock.jpg" class="card-img lazyload" alt="PRODUCT 6 - Zinc Alloy Code Lock"/><div class="card-body"><div class="card-title">P6 - Zinc Alloy Lock</div><div class="card-price">SGD 65 <span>w/ Install</span></div><div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p6', event)">Book</button></div></div></div>
-        <div class="product-card" onclick="openModal('p7')"><img data-src="product-8-horizontal.jpg" class="card-img lazyload" alt="PRODUCT 7 - Horizontal Smart Lock"/><div class="card-body"><div class="card-title">P7 - Horizontal Smart</div><div class="card-price">SGD 65 <span>w/ Install</span></div><div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p7', event)">Book</button></div></div></div>
-        <div class="product-card" onclick="openModal('p8')"><img data-src="product-6-4digit.jpg" class="card-img lazyload" alt="PRODUCT 8 - 4-Digit High Security Lock"/><div class="card-body"><div class="card-title">P8 - 4-Digit High Security</div><div class="card-price">SGD 75 <span>w/ Install</span></div><div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p8', event)">Book</button></div></div></div>
+        <div class="product-card" onclick="openModal('p1')">
+            <img data-src="traditional-key-lock-singapore.jpg" class="card-img lazyload" alt="PRODUCT 1 - Traditional Key Lock Singapore" width="300" height="300"/>
+            <div class="card-body">
+                <div class="card-title">P1 - Traditional Key Lock</div>
+                <div class="card-price">SGD 50 <span>w/ Install</span></div>
+                <div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p1', event)">Book</button></div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('p2')">
+            <img data-src="battery-free-mailbox-lock.jpg" class="card-img lazyload" alt="PRODUCT 2 - Battery-Free Mechanical Lock" width="300" height="300"/>
+            <div class="card-body">
+                <div class="card-title">P2 - Mechanical (No Batt)</div>
+                <div class="card-price">SGD 50 <span>w/ Install</span></div>
+                <div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p2', event)">Book</button></div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('p3')">
+            <img data-src="password-and-key-mailbox-lock.jpg" class="card-img lazyload" alt="PRODUCT 3 - Password & Key Lock" width="300" height="300"/>
+            <div class="card-body">
+                <div class="card-title">P3 - Pass & Key (Backup)</div>
+                <div class="card-price">SGD 55 <span>w/ Install</span></div>
+                <div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p3', event)">Book</button></div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('p4')">
+            <img data-src="battery-powered-smart-mailbox-lock.jpg" class="card-img lazyload" alt="PRODUCT 4 - Smart Battery Lock" width="300" height="300"/>
+            <div class="card-body">
+                <div class="card-title">P4 - Smart Battery Lock</div>
+                <div class="card-price">SGD 60 <span>w/ Install</span></div>
+                <div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p4', event)">Book</button></div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('p5')">
+            <img data-src="product-7-ergonomic.jpg" class="card-img lazyload" alt="PRODUCT 5 - 3-Digit Ergonomic Lock" width="300" height="300"/>
+            <div class="card-body">
+                <div class="card-title">P5 - Ergonomic Lock</div>
+                <div class="card-price">SGD 60 <span>w/ Install</span></div>
+                <div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p5', event)">Book</button></div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('p6')">
+            <img data-src="zinc-alloy-mechanical-code-lock.jpg" class="card-img lazyload" alt="PRODUCT 6 - Zinc Alloy Code Lock" width="300" height="300"/>
+            <div class="card-body">
+                <div class="card-title">P6 - Zinc Alloy Lock</div>
+                <div class="card-price">SGD 65 <span>w/ Install</span></div>
+                <div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p6', event)">Book</button></div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('p7')">
+            <img data-src="product-8-horizontal.jpg" class="card-img lazyload" alt="PRODUCT 7 - Horizontal Smart Lock" width="300" height="300"/>
+            <div class="card-body">
+                <div class="card-title">P7 - Horizontal Smart</div>
+                <div class="card-price">SGD 65 <span>w/ Install</span></div>
+                <div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p7', event)">Book</button></div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('p8')">
+            <img data-src="product-6-4digit.jpg" class="card-img lazyload" alt="PRODUCT 8 - 4-Digit High Security Lock" width="300" height="300"/>
+            <div class="card-body">
+                <div class="card-title">P8 - 4-Digit High Security</div>
+                <div class="card-price">SGD 75 <span>w/ Install</span></div>
+                <div class="card-actions"><button class="btn-details">Details</button><button class="btn-buy" onclick="selectProduct('p8', event)">Book</button></div>
+            </div>
+        </div>
       </div>
     </section>
 
@@ -319,18 +377,18 @@
     <section id="gallery">
         <h2>Installation Gallery & Case Studies</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img data-src="project-1.jpg" alt="Installation Project 1" class="lazyload"/></div>
-            <div class="gallery-item"><img data-src="project-2.jpg" alt="Installation Project 2" class="lazyload"/></div>
-            <div class="gallery-item"><img data-src="project-3.jpg" alt="Installation Project 3" class="lazyload"/></div>
-            <div class="gallery-item"><img data-src="project-4.jpg" alt="Installation Project 4" class="lazyload"/></div>
-            <div class="gallery-item"><img data-src="project-5.jpg" alt="Installation Project 5" class="lazyload"/></div>
-            <div class="gallery-item"><img data-src="project-6.jpg" alt="Installation Project 6" class="lazyload"/></div>
-            <div class="gallery-item"><img data-src="project-7.jpg" alt="Installation Project 7" class="lazyload"/></div>
-            <div class="gallery-item"><img data-src="project-8.jpg" alt="Installation Project 8" class="lazyload"/></div>
-            <div class="gallery-item"><img data-src="project-9.jpg" alt="Installation Project 9" class="lazyload"/></div>
-            <div class="gallery-item"><img data-src="project-10.jpg" alt="Installation Project 10" class="lazyload"/></div>
-            <div class="gallery-item"><img data-src="project-11.jpg" alt="Installation Project 11" class="lazyload"/></div>
-            <div class="gallery-item"><img data-src="project-12.jpg" alt="Installation Project 12" class="lazyload"/></div>
+            <div class="gallery-item"><img data-src="project-1.jpg" alt="Installation Project 1" class="lazyload" width="200" height="200"/></div>
+            <div class="gallery-item"><img data-src="project-2.jpg" alt="Installation Project 2" class="lazyload" width="200" height="200"/></div>
+            <div class="gallery-item"><img data-src="project-3.jpg" alt="Installation Project 3" class="lazyload" width="200" height="200"/></div>
+            <div class="gallery-item"><img data-src="project-4.jpg" alt="Installation Project 4" class="lazyload" width="200" height="200"/></div>
+            <div class="gallery-item"><img data-src="project-5.jpg" alt="Installation Project 5" class="lazyload" width="200" height="200"/></div>
+            <div class="gallery-item"><img data-src="project-6.jpg" alt="Installation Project 6" class="lazyload" width="200" height="200"/></div>
+            <div class="gallery-item"><img data-src="project-7.jpg" alt="Installation Project 7" class="lazyload" width="200" height="200"/></div>
+            <div class="gallery-item"><img data-src="project-8.jpg" alt="Installation Project 8" class="lazyload" width="200" height="200"/></div>
+            <div class="gallery-item"><img data-src="project-9.jpg" alt="Installation Project 9" class="lazyload" width="200" height="200"/></div>
+            <div class="gallery-item"><img data-src="project-10.jpg" alt="Installation Project 10" class="lazyload" width="200" height="200"/></div>
+            <div class="gallery-item"><img data-src="project-11.jpg" alt="Installation Project 11" class="lazyload" width="200" height="200"/></div>
+            <div class="gallery-item"><img data-src="project-12.jpg" alt="Installation Project 12" class="lazyload" width="200" height="200"/></div>
         </div>
         
         <h3 style="text-align:center; margin: 3rem 0 1.5rem 0; color:#0077cc; font-size:1.4rem;">
@@ -353,15 +411,18 @@
     </section>
 
     <section id="services-summary">
-      <h2>Our Comprehensive Mailbox Lock Services</h2>
+      <h2>Why Choose LetterboxLock.sg?</h2>
       <p style="font-size:0.95rem;">
-        We provide professional <strong>digital letterbox lock installation</strong> and <strong>smart mailbox lock upgrades</strong> islandwide in Singapore. 
-        Whether you need to <strong>replace a lost HDB letterbox key</strong>, fix a <strong>spoiled mailbox lock</strong>, or upgrade to a modern <strong>keyless digital lock</strong>, we are here to help.
-        Our services cover all areas including <strong>Ang Mo Kio, Bedok, Bukit Merah, Hougang, Jurong, Punggol, Sengkang, Tampines, Woodlands, Yishun</strong> and more.
+        We are Singapore's leading provider for <strong>digital letterbox lock installation</strong> and <strong>smart mailbox lock upgrades</strong>. 
+        Unlike general contractors, we specialize specifically in mailbox security. Whether you have a <strong>lost HDB letterbox key</strong>, a <strong>jammed mailbox lock</strong>, or simply want to go keyless, we have the perfect solution.
+      </p>
+      <p style="font-size:0.95rem;">
+        <strong>Our Service Areas:</strong> We cover all HDB estates and Condominiums islandwide, including <strong>Ang Mo Kio, Bedok, Bishan, Bukit Batok, Bukit Merah, Bukit Panjang, Choa Chu Kang, Clementi, Geylang, Hougang, Jurong East/West, Kallang/Whampoa, Pasir Ris, Punggol, Queenstown, Sembawang, Sengkang, Serangoon, Tampines, Toa Payoh, Woodlands, and Yishun</strong>.
       </p>
       <ul>
-          <li><strong>24/7 Emergency Locksmith:</strong> Lost key? Lock jammed? Our emergency service provides quick unlocking.</li>
-          <li><strong>Professional & Affordable:</strong> As leading <strong>letterbox locksmiths</strong> in Singapore, we offer expert installation from SGD 50.</li>
+          <li><strong>24/7 Emergency Locksmith:</strong> Urgent unlocking service available.</li>
+          <li><strong>Professional & Affordable:</strong> Expert installation from SGD 50 nett. No hidden fees.</li>
+          <li><strong>HDB & Condo Compliant:</strong> All our locks fit standard Singapore mailbox specifications.</li>
       </ul>
       <p style="text-align:center;"><a href="other-services.html">View All Services</a></p>
     </section>
@@ -441,7 +502,7 @@
         <h2>Frequently Asked Questions (Mailbox Locks)</h2>
         <dl>
             <dt>What should I do if I lost my HDB letterbox key?</dt>
-            <dd>If you've lost your HDB letterbox key, don't worry. Contact our 24/7 emergency service. We can either unlock your existing letterbox for a SGD 25 fee, or we can replace the entire lock with a new digital one.</dd>
+            <dd>Contact our 24/7 emergency service. We can unlock your existing letterbox for a SGD 25 fee, or replace the entire lock with a new digital one.</dd>
             
             <dt>How much does it cost to change a mailbox lock?</dt>
             <dd>Our prices start from just SGD 50 for a traditional key lock or battery-free mechanical lock. This includes installation.</dd>
