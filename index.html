@@ -6,21 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
   
-  <title>Digital Letterbox Lock Singapore | HDB & Condo Mailbox Lock Installation | LetterboxLock.sg</title>
+  <title>Digital Letterbox Lock Singapore | Unlock & Replacement Services | LetterboxLock.sg</title>
 
   <meta
     name="description"
-    content="Singapore's #1 Digital Letterbox Lock Specialist. $50 Nett w/ Install. 8 Models: Keyless, Password, Smart Card. 24/7 Emergency Unlocking. 1-Year Warranty."
+    content="Singapore's #1 Letterbox Locksmith. Lost Mailbox Key? Need Unlock Service? We offer Digital Lock Installation & Replacement for HDB/Condo. $50 Nett w/ Install. 24/7 Service."
   />
 
   <meta
     name="keywords"
-    content="digital letterbox lock, mailbox digital lock, smart mailbox lock, hdb letterbox lock, condo mailbox lock, letterbox lock replacement singapore, mailbox lock installation, install digital letterbox lock, keyless letterbox lock, password mailbox lock, traditional mailbox lock, letterbox key lock, 4 digit mailbox lock, singapore locksmith, change hdb letterbox lock, digital lock for letterbox, singpost letterbox lock, digital mailbox lock singapore, letterbox locksmith, mailbox lock change cost, best digital lock for hdb letterbox, lost hdb letterbox key, bto group buy lock"
+    content="digital letterbox lock, mailbox digital lock, smart mailbox lock, hdb letterbox lock, condo mailbox lock, letterbox unlock service, mailbox lose key, letterbox lock replacement singapore, mailbox lock installation, install digital letterbox lock, keyless letterbox lock, password mailbox lock, traditional mailbox lock, singapore locksmith, change hdb letterbox lock, digital lock for letterbox, singpost letterbox lock, digital mailbox lock singapore, letterbox locksmith, mailbox lock change cost"
   />
 
   <link rel="canonical" href="https://www.letterboxlock.sg/"/>
   <meta name="robots" content="index,follow"/>
-  
   <meta name="geo.region" content="SG" />
   <meta name="geo.placename" content="Singapore" />
   <meta name="geo.position" content="1.3521;103.8198" />
@@ -44,9 +43,9 @@
         "telephone": "+65 8341 7888",
         "url": "https://www.letterboxlock.sg",
         "priceRange": "SGD 50 - 75",
-        "description": "Singapore's #1 specialist for Digital Letterbox Lock installation.",
+        "description": "Singapore's #1 specialist for Digital Letterbox Lock installation, unlocking, and replacement.",
         "areaServed": [ { "@type": "AdministrativeArea", "name": "Singapore" } ],
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "210" } 
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "215" } 
       },
       {
         "@type": "ItemList",
@@ -62,8 +61,9 @@
         ]
       },
       { "@type": "FAQPage", "mainEntity": [
-          {"@type": "Question", "name": "What should I do if I lost my HDB letterbox key?", "acceptedAnswer": { "@type": "Answer", "text": "Contact our 24/7 emergency service. We can unlock your existing letterbox for a SGD 25 fee, or replace the entire lock with a new digital one." }},
-          {"@type": "Question", "name": "How much does it cost to change a mailbox lock?", "acceptedAnswer": { "@type": "Answer", "text": "Our prices start from just SGD 50 for a traditional key lock or battery-free mechanical lock. This includes installation." }}
+          {"@type": "Question", "name": "I lost my HDB mailbox key, do you provide unlock service?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We provide 24/7 Letterbox Unlock Service. We can open your locked mailbox for SGD 25, or replace the lock entirely with a new digital one." }},
+          {"@type": "Question", "name": "How much for letterbox lock replacement?", "acceptedAnswer": { "@type": "Answer", "text": "Our replacement packages start from SGD 50 Nett. This includes the new lock (Key or Digital) and professional installation." }},
+          {"@type": "Question", "name": "Do you serve condos?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we specialize in both HDB and Condo mailbox lock replacements islandwide." }}
       ]}
     ]
   }
@@ -115,15 +115,17 @@
     .group-buy-btn:hover { transform: scale(1.05); }
     @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-    /* Shop Grid */
     .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
     .product-card { background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #eee; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; cursor: pointer; }
     .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: var(--primary-color); }
     .card-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; background: #f9f9f9; }
     .card-body { padding: 1rem; display: flex; flex-direction: column; flex-grow: 1; }
     .card-title { font-size: 1rem; font-weight: 700; margin: 0 0 0.5rem 0; height: 2.8em; overflow: hidden; line-height: 1.3; color: #222; }
+    
+    /* UI FIX: 电脑端和手机端都保持一行显示，简洁美观 */
     .card-price { font-size: 1.2rem; color: var(--highlight-color); font-weight: 800; margin-bottom: 0.8rem; }
-    .card-price span { font-size: 0.8rem; color: var(--install-green); font-weight: 700; display: inline-block; margin-left: 5px; }
+    .card-price span { font-size: 0.8rem; color: #888; font-weight: normal; margin-left: 5px; } /* 灰色小字，紧跟价格 */
+    
     .card-actions { margin-top: auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 8px; }
     .btn-details { background: #f0f0f0; border: none; border-radius: 4px; padding: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; color: #333; }
     .btn-buy { background: var(--highlight-color); color: white; border: none; border-radius: 4px; padding: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; text-align: center; transition: background 0.2s; }
@@ -141,6 +143,7 @@
     form label { display: block; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; color: #444; }
     form input, form select { width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; background: #fff; }
     form button { width: 100%; padding: 1rem; background: #25D366; color: #fff; border: none; border-radius: 6px; font-size: 1.2rem; cursor: pointer; font-weight: 800; transition: background 0.3s; }
+    
     .label-urgent { color: var(--urgent-red); font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 6px; }
     .label-urgent::before { content: "⚠️"; }
     .unlock-select { border: 2px solid var(--urgent-red) !important; background-color: #fff0f0; font-weight: bold; color: var(--urgent-red); }
@@ -149,14 +152,12 @@
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; border: 1px solid #eee; transition: transform 0.2s; }
     .gallery-item img:hover { transform: scale(1.03); }
 
-    /* REVIEWS */
     .testimonials { padding: 1.5rem; border-radius: 10px; margin-bottom: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #eee; }
     .testimonial { border-left: 4px solid var(--primary-color); padding-left: 15px; background: transparent; }
     .testimonial p { margin: 0 0 8px 0; font-style: italic; color: #555; line-height: 1.5; font-size: 0.95rem; }
     .testimonial footer { text-align: right; font-size: 0.85rem; font-weight: 500; color: #666; background: transparent !important; }
     .star-gold { color: var(--star-gold); }
 
-    /* SEO Rich Text */
     #services-summary { background: #fff; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
     #services-summary ul { padding-left: 1.2rem; line-height: 1.7; font-size: 0.95rem; color: #444; }
     #articles ul { list-style: none; padding: 0; margin: 0; }
@@ -181,7 +182,6 @@
     .close-modal { position: absolute; top: 10px; right: 15px; font-size: 30px; font-weight: bold; color: #333; cursor: pointer; z-index: 10; background: rgba(255,255,255,0.8); border-radius: 50%; width: 40px; height: 40px; text-align: center; line-height: 40px; }
     .modal-video { width: 100%; height: auto; max-height: 70vh; display: block; border-radius: 8px; background: #000; margin-bottom: 1rem; object-fit: contain; }
 
-    /* MOBILE FIXES: Ensure w/ Install shows, optimize for Page 1 */
     @media (max-width: 768px) {
         .header-inner { display: none; } 
         .mobile-header-grid { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; width: 100%; }
@@ -196,9 +196,9 @@
         .card-body { padding: 0.8rem; }
         .card-title { font-size: 0.85rem; height: 2.6em; margin-bottom: 0.3rem; }
         
-        /* 关键修复: 手机端 w/ Install 显示 */
-        .card-price { font-size: 1rem; margin-bottom: 0.3rem; display: flex; flex-direction: column; align-items: flex-start; }
-        .card-price span { display: inline-block; font-size: 0.7rem; margin-left: 0; margin-top: 2px; } 
+        /* UI FIX: 手机端完全一致的内联布局 */
+        .card-price { font-size: 1rem; margin-bottom: 0.3rem; display: block; }
+        .card-price span { font-size: 0.75rem; margin-left: 4px; }
         
         .btn-buy, .btn-details { padding: 6px 0; font-size: 0.8rem; }
         h2 { font-size: 1.3rem; margin: 1.5rem 0 1rem 0; }
@@ -413,15 +413,15 @@
     <section id="services-summary">
       <h2>Why Choose LetterboxLock.sg?</h2>
       <p style="font-size:0.95rem;">
-        We are Singapore's leading provider for <strong>digital letterbox lock installation</strong> and <strong>smart mailbox lock upgrades</strong>. 
-        Unlike general contractors, we specialize specifically in mailbox security. Whether you have a <strong>lost HDB letterbox key</strong>, a <strong>jammed mailbox lock</strong>, or simply want to go keyless, we have the perfect solution.
+        We are Singapore's leading provider for <strong>digital letterbox lock installation</strong>, <strong>unlocking services</strong>, and <strong>smart mailbox lock upgrades</strong>. 
+        Have you <strong>lost your HDB letterbox key</strong> or is your <strong>mailbox lock jammed</strong>? We provide fast <strong>letterbox lock replacement</strong> services islandwide.
       </p>
       <p style="font-size:0.95rem;">
         <strong>Our Service Areas:</strong> We cover all HDB estates and Condominiums islandwide, including <strong>Ang Mo Kio, Bedok, Bishan, Bukit Batok, Bukit Merah, Bukit Panjang, Choa Chu Kang, Clementi, Geylang, Hougang, Jurong East/West, Kallang/Whampoa, Pasir Ris, Punggol, Queenstown, Sembawang, Sengkang, Serangoon, Tampines, Toa Payoh, Woodlands, and Yishun</strong>.
       </p>
       <ul>
-          <li><strong>24/7 Emergency Locksmith:</strong> Urgent unlocking service available.</li>
-          <li><strong>Professional & Affordable:</strong> Expert installation from SGD 50 nett. No hidden fees.</li>
+          <li><strong>24/7 Emergency Locksmith:</strong> We provide urgent <strong>letterbox unlocking</strong> if you have lost your key.</li>
+          <li><strong>Professional & Affordable:</strong> Expert replacement from SGD 50 nett. No hidden fees.</li>
           <li><strong>HDB & Condo Compliant:</strong> All our locks fit standard Singapore mailbox specifications.</li>
       </ul>
       <p style="text-align:center;"><a href="other-services.html">View All Services</a></p>
@@ -501,11 +501,11 @@
     <section id="faq">
         <h2>Frequently Asked Questions (Mailbox Locks)</h2>
         <dl>
-            <dt>What should I do if I lost my HDB letterbox key?</dt>
-            <dd>Contact our 24/7 emergency service. We can unlock your existing letterbox for a SGD 25 fee, or replace the entire lock with a new digital one.</dd>
-            
-            <dt>How much does it cost to change a mailbox lock?</dt>
-            <dd>Our prices start from just SGD 50 for a traditional key lock or battery-free mechanical lock. This includes installation.</dd>
+            <dt>I lost my HDB/Condo letterbox key, do you provide unlock service?</dt>
+            <dd>Yes! We provide 24/7 **Letterbox Unlock Service**. If you lost your key, we can open your locked mailbox for SGD 25. Most customers choose to replace the lock with a new digital one at the same time.</dd>
+
+            <dt>How much does it cost to change/replace a mailbox lock?</dt>
+            <dd>Our prices start from just SGD 50 for a traditional key lock or battery-free mechanical lock. This includes the new lock and professional installation.</dd>
 
             <dt>How fast can you install?</dt>
             <dd>We usually arrange installation within 1-2 business days. Installation takes about 20 minutes.</dd>
