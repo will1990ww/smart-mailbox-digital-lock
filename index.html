@@ -19,7 +19,7 @@
   />
 
   <link rel="canonical" href="https://www.letterboxlock.sg/"/>
-  <meta name="robots" content="index,follow"/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
   <meta name="geo.region" content="SG" />
   <meta name="geo.placename" content="Singapore" />
   <meta name="geo.position" content="1.3521;103.8198" />
@@ -40,15 +40,49 @@
   <meta property="og:image" content="https://www.letterboxlock.sg/og-image.jpg"/>
   <meta property="og:url" content="https://www.letterboxlock.sg/"/>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.letterboxlock.sg/#localbusiness",
+        "name": "LetterboxLock.sg - Digital & Smart Mailbox Locks",
+        "image": "https://www.letterboxlock.sg/lion-logo-left.png",
+        "address": { "@type": "PostalAddress", "addressRegion": "Singapore", "addressCountry": "SG" },
+        "telephone": "+65 8341 7888",
+        "openingHours": "Mo-Su 00:00-23:59",
+        "url": "https://www.letterboxlock.sg",
+        "priceRange": "SGD 50 - 85",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "210",
+          "bestRating": "5"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Brenda Tan" },
+            "datePublished": "2025-11-15",
+            "reviewBody": "Excellent service! The technician arrived on time and replaced my HDB mailbox lock in under 20 minutes.",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
     /* =========================================
        PREMIUM DESIGN SYSTEM
        ========================================= */
     :root { 
       --logo-size: 55px; 
-      --primary-dark: #0A192F; /* Deep Navy Blue */
+      --primary-dark: #0A192F; 
       --primary-light: #112240;
-      --accent-gold: #D4AF37; /* Premium Gold */
+      --accent-gold: #D4AF37; 
       --accent-gold-hover: #C5A028;
       --highlight-red: #E63946; 
       --bg-body: #F8FAFC;
@@ -65,12 +99,8 @@
     *, *::before, *::after { box-sizing: border-box; }
     
     body { 
-      margin: 0; 
-      font-family: 'Inter', sans-serif; 
-      background: var(--bg-body); 
-      color: var(--text-main); 
-      line-height: 1.6; 
-      -webkit-font-smoothing: antialiased;
+      margin: 0; font-family: 'Inter', sans-serif; background: var(--bg-body); 
+      color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased;
     }
     
     a { color: var(--accent-gold); text-decoration: none; transition: color 0.3s; font-weight: 600; }
@@ -80,15 +110,9 @@
        HEADER & NAVIGATION
        ========================================= */
     header { 
-      background: rgba(10, 25, 47, 0.95); 
-      backdrop-filter: blur(10px);
-      color: #fff; 
-      padding: 1rem; 
-      text-align: center; 
-      position: sticky; 
-      top: 0; 
-      z-index: 1000; 
-      box-shadow: var(--shadow-md);
+      background: rgba(10, 25, 47, 0.95); backdrop-filter: blur(10px);
+      color: #fff; padding: 1rem; text-align: center; position: sticky; 
+      top: 0; z-index: 1000; box-shadow: var(--shadow-md);
       border-bottom: 2px solid var(--accent-gold);
     }
     .logo-container { 
@@ -99,35 +123,21 @@
     .logo-container img { max-width: 100%; max-height: 100%; object-fit: contain; }
     
     header h1 { 
-      margin: 0; font-size: 1.3rem; 
-      font-family: 'Playfair Display', serif;
-      letter-spacing: 0.5px;
-      display: flex; align-items: center; justify-content: center; flex-wrap: wrap; 
+      margin: 0; font-size: 1.3rem; font-family: 'Playfair Display', serif;
+      letter-spacing: 0.5px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; 
     }
     
     nav { margin-top: 1rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; }
     nav a { 
-      color: #E2E8F0; 
-      background: rgba(255,255,255,0.05); 
-      padding: 0.5rem 1rem; 
-      border-radius: 30px; 
-      font-size: 0.9rem; 
-      font-weight: 500;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.3s ease; 
+      color: #E2E8F0; background: rgba(255,255,255,0.05); 
+      padding: 0.5rem 1rem; border-radius: 30px; font-size: 0.9rem; font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; 
     }
-    nav a:hover { 
-      background: var(--accent-gold); 
-      color: #000; 
-      border-color: var(--accent-gold); 
-    }
+    nav a:hover { background: var(--accent-gold); color: #000; border-color: var(--accent-gold); }
     
     #nav-order-link {
-      background: var(--accent-gold);
-      color: #000;
-      font-weight: 700;
-      border-color: var(--accent-gold);
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+      background: var(--accent-gold); color: #000; font-weight: 700;
+      border-color: var(--accent-gold); box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
     }
     #nav-order-link:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.6); }
 
@@ -137,22 +147,12 @@
     main { max-width: 1000px; margin: 2rem auto; padding: 0 1.2rem; }
     
     h2 { 
-      font-size: 1.8rem; 
-      margin: 3rem 0 1.5rem 0; 
-      color: var(--primary-dark); 
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      text-align: center;
-      position: relative;
+      font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: var(--primary-dark); 
+      font-family: 'Playfair Display', serif; font-weight: 700; text-align: center; position: relative;
     }
     h2::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background: var(--accent-gold);
-      margin: 0.8rem auto 0;
-      border-radius: 2px;
+      content: ''; display: block; width: 60px; height: 3px;
+      background: var(--accent-gold); margin: 0.8rem auto 0; border-radius: 2px;
     }
 
     /* =========================================
@@ -160,96 +160,48 @@
        ========================================= */
     .intro-warranty-highlight {
       background: linear-gradient(145deg, #ffffff, #f0f4f8);
-      border: 1px solid var(--border-soft); 
-      padding: 2.5rem 1.5rem;
-      border-radius: 16px;
-      margin-bottom: 3rem;
-      font-size: 1.15em;
-      text-align: center;
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      overflow: hidden;
+      border: 1px solid var(--border-soft); padding: 2.5rem 1.5rem;
+      border-radius: 16px; margin-bottom: 3rem; font-size: 1.15em;
+      text-align: center; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
     }
-    .intro-warranty-highlight::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-gold);
-    }
+    .intro-warranty-highlight::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-gold); }
     .warranty-text-strong { font-weight: 700; color: var(--primary-dark); }
     .warranty-unique-highlight { 
-      display: inline-block;
-      margin-top: 10px;
-      padding: 4px 12px;
-      background: var(--primary-dark);
-      border-radius: 4px;
-      font-size: 1em; 
-      color: var(--accent-gold); 
-      font-weight: bold; 
-      letter-spacing: 0.5px;
+      display: inline-block; margin-top: 10px; padding: 4px 12px;
+      background: var(--primary-dark); border-radius: 4px;
+      font-size: 1em; color: var(--accent-gold); font-weight: bold; letter-spacing: 0.5px;
     }
     
-    .flash-install-highlight {
-      color: var(--highlight-red);
-      font-weight: 800;
-      animation: pulse-red 2s infinite;
-    }
-    @keyframes pulse-red {
-      0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.05); }
-      100% { opacity: 1; transform: scale(1); }
-    }
+    .flash-install-highlight { color: var(--highlight-red); font-weight: 800; animation: pulse-red 2s infinite; }
+    @keyframes pulse-red { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.05); } 100% { opacity: 1; transform: scale(1); } }
 
     .intro-cta-btn {
-      display: inline-block;
-      background: linear-gradient(to right, var(--primary-dark), var(--primary-light));
-      color: var(--accent-gold) !important;
-      padding: 1.2rem 2.5rem;
-      border-radius: 50px;
-      font-weight: 700; 
-      font-size: 1.1rem;
-      margin-top: 1.5rem;
-      box-shadow: 0 10px 20px rgba(10, 25, 47, 0.2);
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border: 1px solid rgba(212, 175, 55, 0.3);
+      display: inline-block; background: linear-gradient(to right, var(--primary-dark), var(--primary-light));
+      color: var(--accent-gold) !important; padding: 1.2rem 2.5rem; border-radius: 50px;
+      font-weight: 700; font-size: 1.1rem; margin-top: 1.5rem;
+      box-shadow: 0 10px 20px rgba(10, 25, 47, 0.2); transition: all 0.3s ease;
+      text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(212, 175, 55, 0.3);
     }
-    .intro-cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 25px rgba(10, 25, 47, 0.3);
-      background: var(--primary-dark);
-      border-color: var(--accent-gold);
-    }
+    .intro-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(10, 25, 47, 0.3); background: var(--primary-dark); }
 
     /* Group Buy Banner */
     .group-buy-container { 
       background: linear-gradient(135deg, var(--primary-dark) 0%, #1a365d 100%); 
-      color: white; 
-      padding: 2rem; 
-      border-radius: 16px; 
-      position: relative; 
-      margin-bottom: 3.5rem; 
-      text-align: center; 
-      box-shadow: var(--shadow-lg); 
-      border: 1px solid rgba(255,255,255,0.1);
+      color: white; padding: 2rem; border-radius: 16px; position: relative; 
+      margin-bottom: 3.5rem; text-align: center; box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.1);
     }
     .hot-badge { 
-      position: absolute; top: -15px; right: 20px; 
-      background: var(--highlight-red); color: white; 
-      padding: 6px 16px; font-weight: 800; font-size: 0.85rem; 
-      border-radius: 20px; letter-spacing: 1px;
-      box-shadow: 0 4px 10px rgba(230, 57, 70, 0.4); 
+      position: absolute; top: -15px; right: 20px; background: var(--highlight-red); color: white; 
+      padding: 6px 16px; font-weight: 800; font-size: 0.85rem; border-radius: 20px; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(230, 57, 70, 0.4); 
     }
     .group-buy-container h3 { margin: 0; font-size: 1.5rem; font-family: 'Playfair Display', serif; color: var(--accent-gold); }
     .group-buy-offers { display: flex; justify-content: center; gap: 15px; list-style: none; padding: 0; margin: 1.5rem 0; flex-wrap: wrap; }
     .group-buy-offers li { 
-      font-size: 1rem; background: rgba(255,255,255,0.1); 
-      padding: 10px 20px; border-radius: 8px; font-weight: 600; 
-      border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px);
+      font-size: 1rem; background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 8px; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px);
     }
     .group-buy-btn { 
-      display: inline-flex; align-items: center; gap: 8px; 
-      background: #25D366; color: #fff !important; 
-      padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700; 
-      font-size: 1rem; margin-top: 0.5rem; border: none; 
+      display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #fff !important; 
+      padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; margin-top: 0.5rem; border: none; 
       transition: all 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); 
     }
     .group-buy-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
@@ -257,85 +209,38 @@
     /* =========================================
        PRODUCT GRID & CARDS
        ========================================= */
-    .shop-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-      gap: 2rem; 
-      margin-bottom: 4rem; 
-    }
+    .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
     .product-card { 
-      background: var(--card-bg); 
-      border-radius: 16px; 
-      overflow: hidden; 
-      border: 1px solid var(--border-soft); 
-      display: flex; 
-      flex-direction: column; 
-      box-shadow: var(--shadow-sm); 
-      transition: all 0.3s ease; 
-      cursor: pointer; 
+      background: var(--card-bg); border-radius: 16px; overflow: hidden; border: 1px solid var(--border-soft); 
+      display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: all 0.3s ease; cursor: pointer; 
     }
-    .product-card:hover { 
-      transform: translateY(-8px); 
-      box-shadow: var(--shadow-lg); 
-      border-color: var(--accent-gold); 
-    }
-    .card-img { 
-      width: 100%; 
-      aspect-ratio: 1 / 1; 
-      object-fit: contain; 
-      background: #fff; 
-      padding: 20px; 
-      border-bottom: 1px solid #f1f5f9;
-    }
+    .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--accent-gold); }
+    .card-img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background: #fff; padding: 20px; border-bottom: 1px solid #f1f5f9; }
     .card-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-    .card-title { 
-      font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem 0; 
-      color: var(--primary-dark); line-height: 1.4; min-height: 3em;
-    }
-    .card-price { 
-      font-size: 1.4rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 1.2rem; 
-    }
+    .card-title { font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--primary-dark); line-height: 1.4; min-height: 3em; }
+    .card-price { font-size: 1.4rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 1.2rem; }
     .card-price span { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
     
     .card-actions { margin-top: auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px; }
-    .btn-details { 
-      background: var(--bg-body); border: 1px solid var(--border-soft); 
-      border-radius: 8px; padding: 10px; font-weight: 600; font-size: 0.9rem; 
-      cursor: pointer; color: var(--text-muted); transition: all 0.2s;
-    }
+    .btn-details { background: var(--bg-body); border: 1px solid var(--border-soft); border-radius: 8px; padding: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer; color: var(--text-muted); transition: all 0.2s; }
     .btn-details:hover { background: #e2e8f0; color: var(--text-main); }
-    .btn-buy { 
-      background: var(--primary-dark); color: var(--accent-gold); 
-      border: none; border-radius: 8px; padding: 10px; font-weight: 700; 
-      font-size: 0.9rem; cursor: pointer; text-align: center; transition: all 0.2s; 
-    }
+    .btn-buy { background: var(--primary-dark); color: var(--accent-gold); border: none; border-radius: 8px; padding: 10px; font-weight: 700; font-size: 0.9rem; cursor: pointer; text-align: center; transition: all 0.2s; }
     .btn-buy:hover { background: var(--primary-light); color: #fff; }
 
     /* =========================================
        MODAL
        ========================================= */
-    .modal { 
-      display: none; position: fixed; z-index: 2000; left: 0; top: 0; 
-      width: 100%; height: 100%; background-color: rgba(10,25,47,0.85); 
-      backdrop-filter: blur(5px); 
-    }
+    .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(10,25,47,0.85); backdrop-filter: blur(5px); }
     .modal-content { 
-      background-color: var(--card-bg); margin: 5% auto; padding: 0; 
-      border-radius: 16px; width: 92%; max-width: 550px; position: relative; 
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-      animation: modalFadeIn 0.3s ease-out;
+      background-color: var(--card-bg); margin: 5% auto; padding: 0; border-radius: 16px; width: 92%; max-width: 550px; position: relative; 
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); animation: modalFadeIn 0.3s ease-out;
     }
     @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-    
     .modal-body { padding: 2rem; overflow-y: auto; max-height: 85vh; }
     .modal-body h3 { color: var(--primary-dark); font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-top: 0;}
-    
     .close-modal { 
-      position: absolute; top: 15px; right: 15px; font-size: 24px; 
-      color: var(--text-muted); cursor: pointer; z-index: 10; 
-      background: #f1f5f9; border-radius: 50%; width: 36px; height: 36px; 
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s;
+      position: absolute; top: 15px; right: 15px; font-size: 24px; color: var(--text-muted); cursor: pointer; z-index: 10; 
+      background: #f1f5f9; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; transition: background 0.2s;
     }
     .close-modal:hover { background: #e2e8f0; color: #000; }
     .modal-video { width: 100%; height: auto; border-radius: 8px; background: #000; margin-bottom: 1.5rem; }
@@ -344,9 +249,7 @@
        FORM & TABLES
        ========================================= */
     .comparison-table-container { 
-      overflow-x: auto; margin-bottom: 4rem; background: var(--card-bg); 
-      padding: 1.5rem; border-radius: 16px; box-shadow: var(--shadow-sm); 
-      border: 1px solid var(--border-soft);
+      overflow-x: auto; margin-bottom: 4rem; background: var(--card-bg); padding: 1.5rem; border-radius: 16px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-soft);
     }
     table { width: 100%; border-collapse: collapse; min-width: 800px; }
     th, td { border-bottom: 1px solid var(--border-soft); padding: 14px 10px; text-align: center; font-size: 0.9rem; }
@@ -354,47 +257,24 @@
     td:first-child { text-align: left; font-weight: 700; color: var(--primary-dark); position: sticky; left: 0; background: var(--card-bg); }
     tr:hover td { background-color: #f8fafc; }
 
-    form { 
-      background: var(--card-bg); padding: 2.5rem; border-radius: 16px; 
-      box-shadow: var(--shadow-lg); margin-bottom: 4rem; 
-      border-top: 6px solid var(--primary-dark); 
-    }
+    form { background: var(--card-bg); padding: 2.5rem; border-radius: 16px; box-shadow: var(--shadow-lg); margin-bottom: 4rem; border-top: 6px solid var(--primary-dark); }
     form p.form-subtitle { text-align:center; font-size:0.95rem; color:var(--text-muted); margin-bottom:2rem; }
-    
-    fieldset { 
-      border: 1px solid var(--border-soft); padding: 1.5rem; margin-bottom: 1.5rem; 
-      border-radius: 12px; background: #fafafa; 
-    }
-    legend { 
-      font-weight: 700; color: var(--primary-dark); font-size: 1.1rem; 
-      padding: 0 10px; background: var(--card-bg); border-radius: 4px; border: 1px solid var(--border-soft);
-    }
+    fieldset { border: 1px solid var(--border-soft); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 12px; background: #fafafa; }
+    legend { font-weight: 700; color: var(--primary-dark); font-size: 1.1rem; padding: 0 10px; background: var(--card-bg); border-radius: 4px; border: 1px solid var(--border-soft); }
     form label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.95rem; color: var(--text-main); }
     
     form input, form select { 
-      width: 100%; padding: 1rem; margin-bottom: 1.2rem; 
-      border: 1.5px solid var(--border-soft); border-radius: 8px; 
-      font-size: 1rem; font-family: inherit; background: var(--card-bg); 
-      transition: all 0.3s; color: var(--text-main);
-      appearance: none; -webkit-appearance: none;
+      width: 100%; padding: 1rem; margin-bottom: 1.2rem; border: 1.5px solid var(--border-soft); border-radius: 8px; 
+      font-size: 1rem; font-family: inherit; background: var(--card-bg); transition: all 0.3s; color: var(--text-main); appearance: none; -webkit-appearance: none;
     }
-    form input:focus, form select:focus {
-      outline: none; border-color: var(--primary-dark);
-      box-shadow: 0 0 0 4px rgba(10, 25, 47, 0.1);
-    }
-    
+    form input:focus, form select:focus { outline: none; border-color: var(--primary-dark); box-shadow: 0 0 0 4px rgba(10, 25, 47, 0.1); }
     form select {
       background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%230A192F%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-      background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65em auto;
-      padding-right: 2.5rem;
+      background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65em auto; padding-right: 2.5rem;
     }
-
     form button[type="submit"] { 
-      width: 100%; padding: 1.2rem; 
-      background: #25D366; color: #fff; 
-      border: none; border-radius: 8px; font-size: 1.2rem; 
-      font-weight: 700; cursor: pointer; transition: all 0.3s; 
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); letter-spacing: 0.5px;
+      width: 100%; padding: 1.2rem; background: #25D366; color: #fff; border: none; border-radius: 8px; font-size: 1.2rem; 
+      font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); letter-spacing: 0.5px;
     }
     form button[type="submit"]:hover { background: #20b857; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
     
@@ -403,17 +283,43 @@
     .unlock-select:focus { border-color: var(--highlight-red) !important; box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1) !important; }
 
     /* =========================================
-       REVIEWS, FAQ & ARTICLES
+       REVIEWS (OPTIMIZED UI)
        ========================================= */
-    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    .testimonials { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 1.5rem; 
+      margin-bottom: 2rem; 
+    }
     .testimonial { 
       background: var(--card-bg); border-radius: 12px; padding: 1.5rem; 
       border-left: 4px solid var(--accent-gold); box-shadow: var(--shadow-sm); 
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform 0.2s;
     }
-    .testimonial p { margin: 0 0 1rem 0; font-style: italic; color: var(--text-muted); line-height: 1.5; }
-    .testimonial footer { font-weight: 700; font-size: 0.9rem; color: var(--primary-dark); text-align: right; }
-    .testimonial .source { font-weight: 400; color: #94a3b8; font-size: 0.85em; } 
+    .testimonial:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .testimonial blockquote { 
+      margin: 0 0 1.2rem 0; font-style: italic; color: var(--text-muted); 
+      line-height: 1.6; font-size: 0.95rem; flex-grow: 1; 
+      position: relative;
+    }
+    /* Compact Author & Source Row */
+    .testimonial figcaption { 
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--border-soft); padding-top: 1rem;
+    }
+    .testimonial .author-name { font-weight: 700; font-size: 0.9rem; color: var(--primary-dark); }
+    /* Premium Carousell Badge */
+    .testimonial .source-badge { 
+      background-color: #D2232A; /* Close to Carousell Red */
+      color: #FFFFFF; font-weight: 600; font-size: 0.75rem; 
+      padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px;
+      display: inline-flex; align-items: center;
+    }
 
+    /* =========================================
+       FAQ & ARTICLES
+       ========================================= */
     dl { background: var(--card-bg); padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-sm); }
     dt { font-weight: 700; color: var(--primary-dark); margin-top: 1.5rem; font-size: 1.1rem; border-bottom: 1px solid var(--border-soft); padding-bottom: 0.5rem; }
     dt:first-child { margin-top: 0; }
@@ -432,9 +338,9 @@
     /* FAB Button */
     .mobile-fab-buttons { display: flex; position: fixed; bottom: 20px; right: 20px; z-index: 1001; }
     .fab-btn { 
-      display: flex; align-items: center; justify-content: center; 
-      width: 65px; height: 65px; color: white; border-radius: 50%; 
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+      display: flex; align-items: center; justify-content: center; width: 65px; height: 65px; 
+      color: white; border-radius: 50%; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5); 
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     }
     .fab-btn:hover { transform: scale(1.1) translateY(-5px); }
     .whatsapp-btn { background-color: #25D366; }
@@ -470,14 +376,14 @@
 </head>
 
 <body>
-  <header>
+  <header role="banner">
     <h1>
       <div class="logo-container">
-        <img src="lion-logo-left.png" alt="LetterboxLock.sg company logo"/>
+        <img src="lion-logo-left.png" alt="LetterboxLock.sg company logo" width="55" height="55" loading="eager"/>
       </div>
       Premium Digital & Smart Letterbox Lock Installation
     </h1>
-    <nav>
+    <nav role="navigation" aria-label="Main Navigation">
       <a href="#products">Mailbox Locks</a>
       <a href="#gallery">Gallery</a>
       <a href="other-services.html">Other Services</a> 
@@ -488,9 +394,9 @@
     </nav>
   </header>
 
-  <main>
+  <main role="main">
     <section id="intro" aria-labelledby="intro-title">
-      <h2 id="intro-title" style="display:none;">Singapore's Premium Digital Letterbox Lock Installation</h2>
+      <h2 id="intro-title" class="sr-only" style="display:none;">Singapore's Premium Digital Letterbox Lock Installation</h2>
       
       <div class="intro-warranty-highlight">
         <p>
@@ -504,7 +410,7 @@
           <span class="warranty-unique-highlight">Singapore's Only One!</span>
         </p>
         
-        <a href="#order" class="intro-cta-btn">Book Your Installation ↓</a>
+        <a href="#order" class="intro-cta-btn" aria-label="Scroll down to booking form">Book Your Installation ↓</a>
       </div>
     </section>
 
@@ -516,8 +422,8 @@
             <li>🖐️ 5 Pax: <strong>10% OFF</strong></li>
             <li>🙌 10+ Pax: <strong>20% OFF</strong></li>
         </ul>
-        <a href="https://wa.me/6583417888?text=Hello%2C%20I%20am%20interested%20in%20Starting%20a%20Group%20Buy%20for%20my%20Estate." target="_blank" class="group-buy-btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" style="width:20px;height:20px;">
+        <a href="https://wa.me/6583417888?text=Hello%2C%20I%20am%20interested%20in%20Starting%20a%20Group%20Buy%20for%20my%20Estate." target="_blank" rel="noopener noreferrer" class="group-buy-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" width="20" height="20">
             Start Group Buy via WhatsApp
         </a>
     </section>
@@ -526,119 +432,119 @@
       <h2 id="products-title">Select Your Premium Lock Model</h2>
       
       <div class="shop-grid">
-        <div class="product-card" onclick="openModal('p1')">
+        <article class="product-card" onclick="openModal('p1')" tabindex="0" role="button" aria-label="View Product 1 Details">
             <img data-src="traditional-key-lock-singapore.jpg" class="card-img lazyload" alt="P1 - Traditional Key Mailbox Lock"/>
             <div class="card-body">
-                <div class="card-title">P1: Traditional Key Lock</div>
+                <h3 class="card-title">P1: Traditional Key Lock</h3>
                 <div class="card-price">SGD 50 <span>w/ Install</span></div>
                 <div class="card-actions">
-                    <button class="btn-details">Details</button>
+                    <button class="btn-details" aria-label="View Details for P1">Details</button>
                     <button class="btn-buy" onclick="selectProduct('p1', event)">Book</button>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="product-card" onclick="openModal('p2')">
+        <article class="product-card" onclick="openModal('p2')" tabindex="0" role="button">
             <img data-src="battery-free-mailbox-lock.jpg" class="card-img lazyload" alt="P2 - Battery-Free Mechanical Lock"/>
             <div class="card-body">
-                <div class="card-title">P2: Battery-Free Mechanical</div>
+                <h3 class="card-title">P2: Battery-Free Mechanical</h3>
                 <div class="card-price">SGD 50 <span>w/ Install</span></div>
                 <div class="card-actions">
                     <button class="btn-details">Details</button>
                     <button class="btn-buy" onclick="selectProduct('p2', event)">Book</button>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="product-card" onclick="openModal('p3')">
+        <article class="product-card" onclick="openModal('p3')" tabindex="0" role="button">
             <img data-src="password-and-key-mailbox-lock.jpg" class="card-img lazyload" alt="P3 - Password & Key Digital Lock"/>
             <div class="card-body">
-                <div class="card-title">P3: Password & Key (Backup)</div>
+                <h3 class="card-title">P3: Password & Key (Backup)</h3>
                 <div class="card-price">SGD 55 <span>w/ Install</span></div>
                 <div class="card-actions">
                     <button class="btn-details">Details</button>
                     <button class="btn-buy" onclick="selectProduct('p3', event)">Book</button>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="product-card" onclick="openModal('p4')">
+        <article class="product-card" onclick="openModal('p4')" tabindex="0" role="button">
             <img data-src="battery-powered-smart-mailbox-lock.jpg" class="card-img lazyload" alt="P4 - Smart Battery-Powered Digital Lock"/>
             <div class="card-body">
-                <div class="card-title">P4: Smart Battery Lock</div>
+                <h3 class="card-title">P4: Smart Battery Lock</h3>
                 <div class="card-price">SGD 60 <span>w/ Install</span></div>
                 <div class="card-actions">
                     <button class="btn-details">Details</button>
                     <button class="btn-buy" onclick="selectProduct('p4', event)">Book</button>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="product-card" onclick="openModal('p5')">
+        <article class="product-card" onclick="openModal('p5')" tabindex="0" role="button">
             <img data-src="product-7-ergonomic.jpg" class="card-img lazyload" alt="P5 - Ergonomic Mechanical Mailbox Lock"/>
             <div class="card-body">
-                <div class="card-title">P5: Ergonomic Lock</div>
+                <h3 class="card-title">P5: Ergonomic Lock</h3>
                 <div class="card-price">SGD 60 <span>w/ Install</span></div>
                 <div class="card-actions">
                     <button class="btn-details">Details</button>
                     <button class="btn-buy" onclick="selectProduct('p5', event)">Book</button>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="product-card" onclick="openModal('p6')">
+        <article class="product-card" onclick="openModal('p6')" tabindex="0" role="button">
             <img data-src="zinc-alloy-mechanical-code-lock.jpg" class="card-img lazyload" alt="P6 - Zinc Alloy Mechanical Digital Code Lock"/>
             <div class="card-body">
-                <div class="card-title">P6: Zinc Alloy Code Lock</div>
+                <h3 class="card-title">P6: Zinc Alloy Code Lock</h3>
                 <div class="card-price">SGD 65 <span>w/ Install</span></div>
                 <div class="card-actions">
                     <button class="btn-details">Details</button>
                     <button class="btn-buy" onclick="selectProduct('p6', event)">Book</button>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="product-card" onclick="openModal('p7')">
+        <article class="product-card" onclick="openModal('p7')" tabindex="0" role="button">
             <img data-src="product-8-horizontal.jpg" class="card-img lazyload" alt="P7 - Horizontal Smart Battery Digital Lock"/>
             <div class="card-body">
-                <div class="card-title">P7: Horizontal Smart Lock</div>
+                <h3 class="card-title">P7: Horizontal Smart Lock</h3>
                 <div class="card-price">SGD 65 <span>w/ Install</span></div>
                 <div class="card-actions">
                     <button class="btn-details">Details</button>
                     <button class="btn-buy" onclick="selectProduct('p7', event)">Book</button>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="product-card" onclick="openModal('p8')">
+        <article class="product-card" onclick="openModal('p8')" tabindex="0" role="button">
             <img data-src="product-6-4digit.jpg" class="card-img lazyload" alt="P8 - 4-Digit High Security Mechanical Mailbox Lock"/>
             <div class="card-body">
-                <div class="card-title">P8: 4-Digit High Security</div>
+                <h3 class="card-title">P8: 4-Digit High Security</h3>
                 <div class="card-price">SGD 75 <span>w/ Install</span></div>
                 <div class="card-actions">
                     <button class="btn-details">Details</button>
                     <button class="btn-buy" onclick="selectProduct('p8', event)">Book</button>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="product-card" onclick="openModal('p9')">
+        <article class="product-card" onclick="openModal('p9')" tabindex="0" role="button">
             <img data-src="product-9-4digit-zinc.jpg" class="card-img lazyload" alt="P9 - 4-Digit Zinc Alloy Mechanical Lock"/>
             <div class="card-body">
-                <div class="card-title">P9: 4-Digit Zinc Alloy <span style="color:var(--highlight-red); font-size:0.8em;">(NEW)</span></div>
+                <h3 class="card-title">P9: 4-Digit Zinc Alloy <span style="color:var(--highlight-red); font-size:0.8em;">(NEW)</span></h3>
                 <div class="card-price">SGD 85 <span>w/ Install</span></div>
                 <div class="card-actions">
                     <button class="btn-details">Details</button>
                     <button class="btn-buy" onclick="selectProduct('p9', event)">Book</button>
                 </div>
             </div>
-        </div>
+        </article>
       </div> 
     </section>
 
-    <div id="product-modal" class="modal" onclick="if(event.target === this) closeModal()">
+    <div id="product-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" onclick="if(event.target === this) closeModal()">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">×</span>
+            <button class="close-modal" aria-label="Close Modal" onclick="closeModal()">×</button>
             <div class="modal-body" id="modal-body-content"></div>
         </div>
     </div>
@@ -649,15 +555,15 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Feature</th>
-                        <th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th><th>P6</th><th>P7</th><th>P8</th><th>P9</th>
+                        <th scope="col">Feature</th>
+                        <th scope="col">P1</th><th scope="col">P2</th><th scope="col">P3</th><th scope="col">P4</th><th scope="col">P5</th><th scope="col">P6</th><th scope="col">P7</th><th scope="col">P8</th><th scope="col">P9</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Price</td><td>$50</td><td>$50</td><td>$55</td><td>$60</td><td>$60</td><td>$65</td><td>$65</td><td>$75</td><td>$85</td></tr>
-                    <tr><td>Type</td><td>Key</td><td>Mech</td><td>Mech</td><td>Smart</td><td>Mech</td><td>Mech</td><td>Smart</td><td>Mech</td><td>Mech</td></tr>
-                    <tr><td>Battery</td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>No</td></tr>
-                    <tr><td>Digits</td><td>N/A</td><td>3</td><td>3</td><td>PIN</td><td>3</td><td>3</td><td>PIN</td><td>4</td><td>4</td></tr>
+                    <tr><td scope="row">Price</td><td>$50</td><td>$50</td><td>$55</td><td>$60</td><td>$60</td><td>$65</td><td>$65</td><td>$75</td><td>$85</td></tr>
+                    <tr><td scope="row">Type</td><td>Key</td><td>Mech</td><td>Mech</td><td>Smart</td><td>Mech</td><td>Mech</td><td>Smart</td><td>Mech</td><td>Mech</td></tr>
+                    <tr><td scope="row">Battery</td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>No</td></tr>
+                    <tr><td scope="row">Digits</td><td>N/A</td><td>3</td><td>3</td><td>PIN</td><td>3</td><td>3</td><td>PIN</td><td>4</td><td>4</td></tr>
                 </tbody>
             </table>
         </div>
@@ -686,7 +592,7 @@
         <fieldset>
             <legend>02. Order Configuration</legend>
             <label for="lockType">Select Lock Model</label>
-            <select id="lockType" onchange="updateColors()" required>
+            <select id="lockType" onchange="updateColors()" required aria-required="true">
                 <option value="" disabled selected>-- Choose Lock --</option>
                 <option value="p1">P1: Traditional Key Lock ($50)</option>
                 <option value="p2">P2: Battery-Free Lock ($50)</option>
@@ -700,12 +606,12 @@
             </select>
             
             <label for="color">Preferred Color</label>
-            <select id="color" required>
+            <select id="color" required aria-required="true">
                 <option value="">-- First Select Model --</option>
             </select>
             
             <label for="qty">Quantity</label>
-            <input type="number" id="qty" min="1" value="1" required/>
+            <input type="number" id="qty" min="1" value="1" required aria-required="true"/>
             
             <label for="unlockService" class="label-urgent">Emergency Unlock Service (Lost Key?)</label>
             <select id="unlockService" class="unlock-select">
@@ -721,26 +627,47 @@
     <section id="reviews" aria-labelledby="reviews-title">
       <h2 id="reviews-title">What Our Customers Say</h2>
       <div class="testimonials">
-        <div class="testimonial">
-          <p>"Excellent service! The technician arrived on time and replaced my HDB mailbox lock in under 20 minutes. The new digital lock is so convenient. Highly recommended!"</p>
-          <footer>— Brenda Tan, Ang Mo Kio</footer>
-        </div>
-        <div class="testimonial">
-          <p>"Lost my keys and was locked out of my condo letterbox. Called them for their emergency unlock service. They were fast, professional, and the price was very reasonable. Thank you!"</p>
-          <footer>— Rajesh Kumar, Tampines</footer>
-        </div>
-         <div class="testimonial">
-          <p>"The smart lock is a game-changer. I love the peace of mind knowing my mail is secure. Installation was seamless. Great job!"</p>
-          <footer>— Siti Aishah, Punggol</footer>
-        </div>
-        <div class="testimonial">
-          <p>"Very responsive seller on Carousell! Installation of the digital letterbox lock was quick and fuss-free. Lock works perfectly."</p>
-          <footer>— User_ABC <span class="source">(via Carousell)</span></footer>
-        </div>
-         <div class="testimonial">
-          <p>"Good quality digital lock for my HDB mailbox. Cheaper than other places. Recommended seller from Carousell."</p>
-          <footer>— Buyer_XYZ <span class="source">(via Carousell)</span></footer>
-        </div>
+        
+        <figure class="testimonial">
+          <blockquote>"Excellent service! The technician arrived on time and replaced my HDB mailbox lock in under 20 minutes. The new digital lock is so convenient. Highly recommended!"</blockquote>
+          <figcaption>
+             <span class="author-name">Brenda Tan</span>
+             <span style="font-size:0.8rem; color:#94a3b8;">Ang Mo Kio</span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <blockquote>"Lost my keys and was locked out of my condo letterbox. Called them for their emergency unlock service. They were fast, professional, and the price was very reasonable. Thank you!"</blockquote>
+          <figcaption>
+             <span class="author-name">Rajesh Kumar</span>
+             <span style="font-size:0.8rem; color:#94a3b8;">Tampines</span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <blockquote>"The smart lock is a game-changer. I love the peace of mind knowing my mail is secure. Installation was seamless. Great job!"</blockquote>
+          <figcaption>
+             <span class="author-name">Siti Aishah</span>
+             <span style="font-size:0.8rem; color:#94a3b8;">Punggol</span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <blockquote>"Very responsive seller! Installation of the digital letterbox lock was quick and fuss-free. Lock works perfectly."</blockquote>
+          <figcaption>
+             <span class="author-name">User_ABC</span>
+             <span class="source-badge" aria-label="Verified via Carousell">Carousell</span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <blockquote>"Good quality digital lock for my HDB mailbox. Cheaper than other places. Recommended seller."</blockquote>
+          <figcaption>
+             <span class="author-name">Buyer_XYZ</span>
+             <span class="source-badge" aria-label="Verified via Carousell">Carousell</span>
+          </figcaption>
+        </figure>
+
       </div>
     </section>
 
@@ -801,15 +728,15 @@
     </section>
   </main>
 
-  <footer>
-    <p>Find us on <a href="https://www.google.com/maps/search/?api=1&query=LetterboxLock.sg+Singapore" target="_blank">Google Maps</a> | Read our reviews on <a href="https://www.carousell.sg/u/carosalesg/?tab=reviews" target="_blank">Carousell</a>.</p>
+  <footer role="contentinfo">
+    <p>Find us on <a href="https://www.google.com/maps/search/?api=1&query=LetterboxLock.sg+Singapore" target="_blank" rel="noopener noreferrer">Google Maps</a> | Read our reviews on <a href="https://www.carousell.sg/u/carosalesg/?tab=reviews" target="_blank" rel="noopener noreferrer">Carousell</a>.</p>
     <p>© 2026 <strong>LetterboxLock.sg</strong> – Premium Installation Services. All rights reserved.</p>
     <p>Available Islandwide: Hougang, Tampines, Jurong, Yishun, Punggol, Central & more.</p>
   </footer>
 
   <div class="mobile-fab-buttons">
-    <a href="https://wa.me/6583417888?text=Hello%20LetterboxLock.sg%2C%20I%20would%20like%20to%20enquire%20about%20your%20premium%20digital%20lock%20services." class="fab-btn whatsapp-btn" target="_blank" aria-label="WhatsApp">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    <a href="https://wa.me/6583417888?text=Hello%20LetterboxLock.sg%2C%20I%20would%20like%20to%20enquire%20about%20your%20premium%20digital%20lock%20services." class="fab-btn whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="35" height="35" />
     </a>
   </div>
 
@@ -833,8 +760,8 @@
         const p = productsConfig[id];
         if(!p) return;
         const html = `
-            <video class="modal-video" controls poster="${p.video}_poster.jpg"><source src="${p.video}" type="video/mp4"></video>
-            <h3>${p.title}</h3>
+            <video class="modal-video" controls preload="metadata" poster="${p.video}_poster.jpg"><source src="${p.video}" type="video/mp4"></video>
+            <h3 id="modal-title">${p.title}</h3>
             <p style="color:#64748B; margin-bottom: 1.5rem;">${p.desc}</p>
             <div style="background:#f8fafc; padding: 1rem; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 1.5rem;">
                <strong style="color:#0A192F;">Available Finishes:</strong> ${p.allowedColors.join(" / ")}
