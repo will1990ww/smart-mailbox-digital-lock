@@ -5,6 +5,7 @@
   <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  <meta name="theme-color" content="#0077cc">
   
   <title>Digital Letterbox Lock Singapore | #1 HDB & Condo Mailbox Lock Install</title>
 
@@ -28,6 +29,10 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
   <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
   <link
     rel="preload"
@@ -89,10 +94,25 @@
           { "@type": "ListItem", "position": 9, "item": { "@type": "Product", "name": "P9 - 4-Digit Zinc Alloy Lock", "offers": { "@type": "Offer", "price": "85", "priceCurrency": "SGD" } } }
         ]
       },
-      { "@type": "FAQPage", "mainEntity": [
-          {"@type": "Question", "name": "Which letterbox lock is most secure?", "acceptedAnswer": { "@type": "Answer", "text": "Our P8 and P9 (4-Digit Locks) offer the highest security with 10,000 possible combinations." }},
-          {"@type": "Question", "name": "Do you provide letterbox lock replacement?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we provide full installation and replacement services for HDB and Condo mailboxes starting from $50." }}
-      ]}
+      {
+        "@type": "HowTo",
+        "name": "How to Order and Install Your Digital Letterbox Lock",
+        "description": "Our seamless process for upgrading your HDB or Condo mailbox lock in Singapore with same-day installation.",
+        "step": [
+          { "@type": "HowToStep", "name": "Select Your Lock", "text": "Choose your preferred digital or smart lock model and click Order." },
+          { "@type": "HowToStep", "name": "Provide Details", "text": "Fill in your full address and postal code in our order form." },
+          { "@type": "HowToStep", "name": "Same-Day Installation", "text": "If you need unlock service, we will arrange it today. If not, simply leave your mailbox open and we will install it today." },
+          { "@type": "HowToStep", "name": "Video Confirmation & Payment", "text": "We will send you a video of the completed installation before you make payment via PayNow." }
+        ]
+      },
+      { 
+        "@type": "FAQPage", 
+        "mainEntity": [
+          {"@type": "Question", "name": "What should I do if I lost my HDB letterbox key?", "acceptedAnswer": { "@type": "Answer", "text": "Contact our 24/7 emergency service. We can unlock your existing letterbox or replace the entire lock with a new digital one." }},
+          {"@type": "Question", "name": "How much does it cost to change a mailbox lock in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Prices start from SGD 50, which includes the new lock and full installation. An additional SGD 25 applies if emergency unlocking is needed." }},
+          {"@type": "Question", "name": "What warranty do you provide?", "acceptedAnswer": { "@type": "Answer", "text": "All locks include a 1-Year Seller Warranty with on-call support." }}
+        ]
+      }
     ]
   }
   </script>
@@ -115,7 +135,7 @@
     a { color: var(--primary-color); text-decoration: none; }
     a:hover { text-decoration: underline; }
     
-    header { background: #000; color: #fff; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 1000; }
+    header { background: #000; color: #fff; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
     .logo-container { width: var(--logo-size); height: var(--logo-size); background-color: transparent; display: flex; align-items: center; justify-content: center; margin-right: 0.5rem; }
     .logo-container img { max-width: 100%; max-height: 100%; }
     header h1 { margin: 0; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
@@ -124,7 +144,7 @@
     nav a:hover { background: var(--primary-hover); }
     
     main { max-width: 960px; margin: 1rem auto; padding: 0 1rem; }
-    h2 { font-size: 1.5rem; margin: 2rem 0 1rem 0; border-bottom: 2px solid #ddd; color: #222; font-weight: 800; }
+    h2 { font-size: 1.5rem; margin: 2rem 0 1rem 0; border-bottom: 2px solid #ddd; color: #222; font-weight: 800; padding-bottom: 5px; }
     
     /* Navigation "Order" Button Shine */
     @keyframes shine {
@@ -134,10 +154,7 @@
       75%  { background-color: #dc3545; color: #fff; transform: scale(1.05); } 
       100% { background-color: var(--primary-color); color: #fff; transform: scale(1); }
     }
-    #nav-order-link {
-      animation: shine 2.5s infinite linear;
-      font-weight: bold;
-    }
+    #nav-order-link { animation: shine 2.5s infinite linear; font-weight: bold; }
 
     /* FLASH ANIMATION FOR "WITH INSTALL" */
     @keyframes flash-text {
@@ -145,25 +162,9 @@
         50% { color: #ff0000; text-shadow: 0 0 15px rgba(255,0,0,0.6); transform: scale(1.1); }
         100% { color: #d32f2f; text-shadow: 0 0 5px rgba(255,0,0,0.2); transform: scale(1); }
     }
-    .flash-install-highlight {
-        display: inline-block;
-        font-weight: 900;
-        text-transform: uppercase;
-        animation: flash-text 1.2s infinite ease-in-out;
-        padding: 0 4px;
-    }
+    .flash-install-highlight { display: inline-block; font-weight: 900; text-transform: uppercase; animation: flash-text 1.2s infinite ease-in-out; padding: 0 4px; }
 
-    .intro-warranty-highlight {
-        background-color: var(--intro-bg); 
-        border: 2px solid var(--intro-border); 
-        padding: 1.5rem;
-        border-radius: 8px;
-        margin-bottom: 2rem;
-        font-size: 1.1em;
-        line-height: 1.5;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0,0,0,.1);
-    }
+    .intro-warranty-highlight { background-color: var(--intro-bg); border: 2px solid var(--intro-border); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; font-size: 1.1em; line-height: 1.5; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,.1); }
     .warranty-text-strong { font-weight: 700; color: var(--highlight-color); }
     .warranty-unique-highlight { font-size: 1.25em; text-decoration: underline; color: var(--highlight-color); font-weight: bold; }
     
@@ -182,165 +183,40 @@
         50% { opacity: 1; transform: scale(1.02); box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
         100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
     }
-    .intro-cta-btn {
-        display: inline-block;
-        background-color: #28a745; 
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        font-weight: 800; 
-        font-size: 1.2rem;
-        margin-top: 1rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        transition: transform 0.2s, background-color 0.2s;
-        border: 2px solid #fff;
-        animation: btn-flash 2s infinite;
-    }
-    .intro-cta-btn:hover {
-        transform: scale(1.05);
-        background-color: #218838;
-        text-decoration: none;
-        animation: none;
-    }
+    .intro-cta-btn { display: inline-block; background-color: #28a745; color: white; padding: 1rem 2rem; border-radius: 50px; font-weight: 800; font-size: 1.2rem; margin-top: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s, background-color 0.2s; border: 2px solid #fff; animation: btn-flash 2s infinite; }
+    .intro-cta-btn:hover { transform: scale(1.05); background-color: #218838; text-decoration: none; animation: none; }
+
+    /* Must-Read Process Section */
+    .process-container { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,.08); margin: 3rem 0; border-left: 6px solid var(--highlight-color); }
+    .process-container h2 { border-bottom: none; margin-top: 0; margin-bottom: 1.5rem; color: #222; }
+    .process-list { list-style: none; padding: 0; margin: 0; counter-reset: step-counter; }
+    .process-list li { position: relative; padding-left: 3.5rem; margin-bottom: 1.5rem; font-size: 1.05rem; color: #444; }
+    .process-list li::before { content: counter(step-counter); counter-increment: step-counter; position: absolute; left: 0; top: -4px; background: var(--highlight-color); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; box-shadow: 0 2px 5px rgba(220,53,69,0.4); }
+    .process-list li strong { color: #111; display: block; font-size: 1.1rem; margin-bottom: 0.2rem; }
+    .process-sub { font-size: 0.95rem; background: #f8f9fa; padding: 10px; border-radius: 6px; margin-top: 8px; border-left: 3px solid var(--primary-color); }
+    .process-note { background: #fff3cd; padding: 1rem; border-radius: 8px; font-size: 0.95rem; color: #856404; margin-top: 1.5rem; display: flex; align-items: flex-start; gap: 12px; font-weight: 600; line-height: 1.4; }
+    .process-note span { font-size: 1.5rem; line-height: 1; }
 
     /* Product Grid */
-    .shop-grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
-        gap: 1.5rem; 
-        margin-bottom: 3rem; 
-    }
-    .product-card { 
-        background: #fff; 
-        border-radius: 10px; 
-        overflow: hidden; 
-        border: 1px solid #eee; 
-        display: flex; 
-        flex-direction: column; 
-        box-shadow: 0 4px 8px rgba(0,0,0,.05); 
-        transition: transform 0.2s, box-shadow 0.2s; 
-        cursor: pointer; 
-        position: relative;
-    }
-    .product-card:hover { 
-        transform: translateY(-5px); 
-        box-shadow: 0 12px 20px rgba(0,0,0,0.12); 
-        border-color: var(--primary-color); 
-    }
-    .card-img { 
-        width: 100%; 
-        aspect-ratio: 1 / 1; 
-        object-fit: contain; 
-        background: #f9f9f9; 
-        padding: 10px; 
-    }
-    .card-body { 
-        padding: 1rem; 
-        display: flex; 
-        flex-direction: column; 
-        flex-grow: 1; 
-    }
-    .card-title { 
-        font-size: 1rem; 
-        font-weight: 700; 
-        margin: 0 0 0.5rem 0; 
-        min-height: 2.8em; 
-        line-height: 1.3; 
-        color: #222; 
-    }
-    .card-price { 
-        font-size: 1.2rem; 
-        color: var(--highlight-color); 
-        font-weight: 800; 
-        margin-bottom: 0.8rem; 
-    }
-    .card-price span { 
-        font-size: 0.8rem; 
-        color: #999; 
-        font-weight: normal; 
-    }
-    .card-actions { 
-        margin-top: auto; 
-        display: grid; 
-        grid-template-columns: 1fr 1.5fr; 
-        gap: 8px; 
-    }
-    .btn-details { 
-        background: #f0f0f0; 
-        border: none; 
-        border-radius: 4px; 
-        padding: 8px; 
-        font-weight: 600; 
-        font-size: 0.9rem; 
-        cursor: pointer; 
-        color: #333; 
-    }
-    .btn-buy { 
-        background: var(--highlight-color); 
-        color: white; 
-        border: none; 
-        border-radius: 4px; 
-        padding: 8px; 
-        font-weight: 700; 
-        font-size: 0.9rem; 
-        cursor: pointer; 
-        text-align: center; 
-        transition: background 0.2s; 
-    }
+    .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+    .product-card { background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #eee; display: flex; flex-direction: column; box-shadow: 0 4px 8px rgba(0,0,0,.05); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; position: relative; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.12); border-color: var(--primary-color); }
+    .card-img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background: #f9f9f9; padding: 10px; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .card-title { font-size: 1rem; font-weight: 700; margin: 0 0 0.5rem 0; min-height: 2.8em; line-height: 1.3; color: #222; }
+    .card-price { font-size: 1.2rem; color: var(--highlight-color); font-weight: 800; margin-bottom: 0.8rem; }
+    .card-price span { font-size: 0.8rem; color: #999; font-weight: normal; }
+    .card-actions { margin-top: auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 8px; }
+    .btn-details { background: #f0f0f0; border: none; border-radius: 4px; padding: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; color: #333; }
+    .btn-buy { background: var(--highlight-color); color: white; border: none; border-radius: 4px; padding: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; text-align: center; transition: background 0.2s; }
     .btn-buy:hover { background: var(--highlight-hover); }
 
     /* Modal */
-    .modal { 
-        display: none; 
-        position: fixed; 
-        z-index: 2000; 
-        left: 0; 
-        top: 0; 
-        width: 100%; 
-        height: 100%; 
-        background-color: rgba(0,0,0,0.8); 
-        backdrop-filter: blur(3px); 
-    }
-    .modal-content { 
-        background-color: #fefefe; 
-        margin: 5% auto; 
-        padding: 0; 
-        border-radius: 10px; 
-        width: 95%; 
-        max-width: 600px; 
-        position: relative; 
-        display: flex; 
-        flex-direction: column; 
-        max-height: 90vh; 
-    }
-    .modal-body { 
-        padding: 1.5rem; 
-        overflow-y: auto; 
-    }
-    .close-modal { 
-        position: absolute; 
-        top: 10px; 
-        right: 15px; 
-        font-size: 30px; 
-        font-weight: bold; 
-        color: #333; 
-        cursor: pointer; 
-        z-index: 10; 
-        background: rgba(255,255,255,0.8); 
-        border-radius: 50%; 
-        width: 40px; 
-        height: 40px; 
-        text-align: center; 
-        line-height: 40px; 
-    }
-    .modal-video { 
-        width: 100%; 
-        height: auto; 
-        display: block; 
-        border-radius: 8px; 
-        background: #000; 
-        margin-bottom: 1rem; 
-    }
+    .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(3px); }
+    .modal-content { background-color: #fefefe; margin: 5% auto; padding: 0; border-radius: 10px; width: 95%; max-width: 600px; position: relative; display: flex; flex-direction: column; max-height: 90vh; }
+    .modal-body { padding: 1.5rem; overflow-y: auto; }
+    .close-modal { position: absolute; top: 10px; right: 15px; font-size: 30px; font-weight: bold; color: #333; cursor: pointer; z-index: 10; background: rgba(255,255,255,0.8); border-radius: 50%; width: 40px; height: 40px; text-align: center; line-height: 40px; }
+    .modal-video { width: 100%; height: auto; display: block; border-radius: 8px; background: #000; margin-bottom: 1rem; }
 
     /* Form & Tables */
     .comparison-table-container { overflow-x: auto; margin-bottom: 2rem; background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,.05); }
@@ -350,102 +226,22 @@
     td:first-child { text-align: left; font-weight: bold; background: #f9f9f9; min-width: 120px; position: sticky; left: 0; }
     tr:nth-child(even) { background-color: #fbfbfb; }
 
-    form { 
-        background: #fff; 
-        padding: 1.5rem; 
-        border-radius: 12px; 
-        box-shadow: 0 5px 20px rgba(0,0,0,.08); 
-        margin-bottom: 3rem; 
-        border-top: 5px solid var(--primary-color); 
-    }
-    fieldset { 
-        border: 1px solid #eee; 
-        padding: 1rem; 
-        margin-bottom: 1.2rem; 
-        border-radius: 8px; 
-        background: #fcfcfc; 
-    }
-    legend { 
-        font-weight: 700; 
-        color: var(--primary-color); 
-        font-size: 1rem; 
-        padding: 0 5px; 
-    }
-    form label { 
-        display: block; 
-        margin-bottom: 0.4rem; 
-        font-weight: 600; 
-        font-size: 0.95rem; 
-        color: #444; 
-    }
-    form input, form select { 
-        width: 100%; 
-        padding: 0.8rem; 
-        margin-bottom: 1rem; 
-        border: 1px solid #ddd; 
-        border-radius: 6px; 
-        font-size: 16px; 
-        background: #fff; 
-        appearance: none; 
-        -webkit-appearance: none;
-    }
-    form select {
-        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-        background-repeat: no-repeat;
-        background-position: right .7em top 50%;
-        background-size: .65em auto;
-    }
-
-    form button { 
-        width: 100%; 
-        padding: 1rem; 
-        background: #25D366; 
-        color: #fff; 
-        border: none; 
-        border-radius: 6px; 
-        font-size: 1.2rem; 
-        cursor: pointer; 
-        font-weight: 800; 
-        transition: background 0.3s; 
-    }
+    form { background: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,.08); margin-bottom: 3rem; border-top: 5px solid var(--primary-color); }
+    fieldset { border: 1px solid #eee; padding: 1rem; margin-bottom: 1.2rem; border-radius: 8px; background: #fcfcfc; }
+    legend { font-weight: 700; color: var(--primary-color); font-size: 1rem; padding: 0 5px; }
+    form label { display: block; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; color: #444; }
+    form input, form select { width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; background: #fff; appearance: none; -webkit-appearance: none; }
+    form select { background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right .7em top 50%; background-size: .65em auto; }
+    form button { width: 100%; padding: 1rem; background: #25D366; color: #fff; border: none; border-radius: 6px; font-size: 1.2rem; cursor: pointer; font-weight: 800; transition: background 0.3s; }
     form button:hover { background: #20b857; }
-    .label-urgent { 
-        color: var(--urgent-red); 
-        font-weight: 800; 
-        font-size: 1.05rem; 
-        display: flex; 
-        align-items: center; 
-        gap: 6px; 
-    }
-    .unlock-select { 
-        border: 2px solid var(--urgent-red) !important; 
-        background-color: #fff0f0 !important; 
-        font-weight: bold; 
-        color: var(--urgent-red); 
-    }
+    .label-urgent { color: var(--urgent-red); font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 6px; }
+    .unlock-select { border: 2px solid var(--urgent-red) !important; background-color: #fff0f0 !important; font-weight: bold; color: var(--urgent-red); }
 
-    /* Gallery & Footer */
+    /* Gallery & Content Sections */
     #gallery { margin-top: 2rem; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-      gap: 1rem;
-    }
-    .gallery-item {
-      overflow: hidden;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,.1);
-      line-height: 0; 
-      aspect-ratio: 1 / 1; 
-      cursor: pointer;
-      background-color: #eee;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+    .gallery-item { overflow: hidden; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,.1); line-height: 0; aspect-ratio: 1 / 1; cursor: pointer; background-color: #eee; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
     .gallery-item img:hover { transform: scale(1.05); }
     
     #our-services ul, #services-summary ul, #articles ul { line-height: 1.8; padding-left: 20px; }
@@ -479,6 +275,8 @@
         .group-buy-container h3 { font-size: 1.2rem; }
         .group-buy-offers { gap: 8px; }
         .group-buy-offers li { font-size: 0.9rem; padding: 5px 10px; }
+        .process-container { padding: 1.5rem; }
+        .process-list li { font-size: 0.95rem; }
     }
   </style>
 
@@ -500,11 +298,10 @@
     <nav aria-label="Main Navigation">
       <a href="#products">Mailbox Locks</a>
       <a href="#gallery">Gallery</a>
-      <a href="other-services.html">Other Services</a> 
       <a href="#order" id="nav-order-link" aria-label="Order Now">Order</a>
-      <a href="#faq">FAQs</a>
+      <a href="#how-to-order">How it Works</a>
       <a href="#reviews">Reviews</a>
-      <a href="#articles">Articles</a>
+      <a href="#faq">FAQs</a>
     </nav>
   </header>
 
@@ -525,20 +322,6 @@
         
         <a href="#order" class="intro-cta-btn">Order Your Mailbox Digital Lock Now ↓</a>
       </div>
-    </section>
-
-    <section id="group-buy" class="group-buy-container" aria-labelledby="group-buy-title">
-        <span class="hot-badge">HOT DEAL</span>
-        <h3 id="group-buy-title">🏘️ BTO / New Estate Group Buy Discount</h3>
-        <p style="margin-bottom:0; color:#eee;">Moving into a new place? Gather your neighbours & save big!</p>
-        <ul class="group-buy-offers">
-            <li>🖐️ 5 Pax: <strong>10% OFF</strong></li>
-            <li>🙌 10+ Pax: <strong>20% OFF</strong></li>
-        </ul>
-        <a href="https://wa.me/6583417888?text=Hello%2C%20I%20am%20interested%20in%20Starting%20a%20Group%20Buy%20for%20my%20Estate." target="_blank" class="group-buy-btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" style="width:20px;height:20px;">
-            Start Group Buy via WhatsApp
-        </a>
     </section>
   
     <section id="products" aria-labelledby="products-title">
@@ -699,7 +482,7 @@
             </table>
         </div>
     </section>
-    
+
     <section id="gallery" aria-labelledby="gallery-title">
         <h2 id="gallery-title">Installation Photo Gallery & Case Studies</h2>
         <div class="gallery-grid">
@@ -769,6 +552,58 @@
         
         <button type="submit">Submit Order via WhatsApp</button>
       </form>
+    </section>
+
+    <section id="how-to-order" class="process-container" aria-labelledby="process-title">
+        <h2 id="process-title">📌 Must-Read: Order & Installation Process</h2>
+        <ul class="process-list">
+            <li>
+                <strong>1. Select Your Lock</strong>
+                Click the 'Order' button on your preferred lock model above.
+            </li>
+            <li>
+                <strong>2. Fill in Details</strong>
+                Provide your postal code, street address, and unit number in the form above.
+            </li>
+            <li>
+                <strong>3. Same-Day Installation Scheduling</strong>
+                <div class="process-sub">
+                    <strong>A. Need Unlocking?</strong> If your mailbox is locked and you lost the key, we will arrange for a technician to unlock and install it on the <strong>same day</strong>.
+                </div>
+                <div class="process-sub">
+                    <strong>B. Mailbox is Open?</strong> Excellent! Leave your mailbox open, notify us, and we will proceed with <strong>same-day installation</strong>.
+                </div>
+            </li>
+            <li>
+                <strong>4. Video Confirmation</strong>
+                Once the installation is complete, our technician will send you a video demonstrating your new digital lock functioning perfectly.
+            </li>
+            <li>
+                <strong>5. Payment After Completion</strong>
+                You only make payment via PayNow <strong>AFTER</strong> receiving the video and confirming the installation is fully completed. 100% Risk-Free!
+            </li>
+        </ul>
+        <div class="process-note">
+            <span>⚠️</span>
+            <div>
+                <strong>Important Routing Notice:</strong> <br>
+                We apologize that we cannot confirm an exact arrival time. To ensure we can provide fast, same-day service islandwide, our technicians' schedules are strictly planned according to geographical routes. Rest assured, your installation will be completed on the scheduled day!
+            </div>
+        </div>
+    </section>
+
+    <section id="group-buy" class="group-buy-container" aria-labelledby="group-buy-title">
+        <span class="hot-badge">HOT DEAL</span>
+        <h3 id="group-buy-title">🏘️ BTO / New Estate Group Buy Discount</h3>
+        <p style="margin-bottom:0; color:#eee;">Moving into a new place? Gather your neighbours & save big!</p>
+        <ul class="group-buy-offers">
+            <li>🖐️ 5 Pax: <strong>10% OFF</strong></li>
+            <li>🙌 10+ Pax: <strong>20% OFF</strong></li>
+        </ul>
+        <a href="https://wa.me/6583417888?text=Hello%2C%20I%20am%20interested%20in%20Starting%20a%20Group%20Buy%20for%20my%20Estate." target="_blank" class="group-buy-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" style="width:20px;height:20px;">
+            Start Group Buy via WhatsApp
+        </a>
     </section>
 
     <section id="services-summary" aria-labelledby="services-summary-title">
@@ -879,79 +714,20 @@
 
   <script>
     /**
-     * MASTER CONFIGURATION (Source of Truth)
-     * Professional IT Practice: Keep data separate from logic.
-     * Updates here automatically reflect in logic, forms, and modals.
+     * Data Model mapping to dynamic colors.
      */
     const productsConfig = {
-        'p1': { 
-            title: "P1: Traditional Key Lock", 
-            price: 50, 
-            allowedColors: ["Silver"], 
-            desc: "Simple, robust key lock. Comes with 2 keys.", 
-            video: "video_5.mp4" 
-        },
-        'p2': { 
-            title: "P2: Battery-Free Mechanical", 
-            price: 50, 
-            // UPDATED: Now ONLY Black, Grey, White
-            allowedColors: ["Black", "Grey", "White"], 
-            desc: "Best Seller. Fully mechanical, no batteries needed. Durable.", 
-            video: "video_1.mp4" 
-        },
-        'p3': { 
-            title: "P3: Password & Key (Backup)", 
-            price: 55, 
-            // UPDATED: Now ONLY Black, White
-            allowedColors: ["Black", "White"], 
-            desc: "Passcode + Key for backup. Note: Key is for retrieval only.", 
-            video: "video_2.mp4" 
-        },
-        'p4': { 
-            title: "P4: Smart Battery Lock", 
-            price: 60, 
-            allowedColors: ["Black"], 
-            desc: "Smart PIN code access. Uses CR2032 Battery (>1 year life).", 
-            video: "video_4.mp4" 
-        },
-        'p5': { 
-            title: "P5: Ergonomic Lock", 
-            price: 60, 
-            allowedColors: ["Black"], 
-            desc: "Better grip, 3-digit mechanical dial. Ergonomic design.", 
-            video: "video_7.mp4" 
-        },
-        'p6': { 
-            title: "P6: Zinc Alloy Code Lock", 
-            price: 65, 
-            allowedColors: ["Silver"], 
-            desc: "Heavy duty Zinc Alloy. Mechanical.", 
-            video: "video_3.mp4" 
-        },
-        'p7': { 
-            title: "P7: Horizontal Smart Lock", 
-            price: 65, 
-            allowedColors: ["Black"], 
-            desc: "Modern horizontal design. Battery powered (CR2032).", 
-            video: "video_8.mp4" 
-        },
-        'p8': { 
-            title: "P8: 4-Digit High Security", 
-            price: 75, 
-            allowedColors: ["Black"], 
-            desc: "10,000 Combinations. High security mechanical lock.", 
-            video: "video_6.mp4" 
-        },
-        'p9': { 
-            title: "P9: 4-Digit Zinc Alloy Lock", 
-            price: 85, 
-            allowedColors: ["Silver"], 
-            desc: "Premium Zinc Alloy + 4-Digit Security. The ultimate mechanical lock.", 
-            video: "video_3.mp4" 
-        }
+        'p1': { title: "P1: Traditional Key Lock", price: 50, allowedColors: ["Silver"], desc: "Simple, robust key lock. Comes with 2 keys.", video: "video_5.mp4" },
+        'p2': { title: "P2: Battery-Free Mechanical", price: 50, allowedColors: ["Black", "Grey", "White"], desc: "Best Seller. Fully mechanical, no batteries needed. Durable.", video: "video_1.mp4" },
+        'p3': { title: "P3: Password & Key (Backup)", price: 55, allowedColors: ["Black", "White"], desc: "Passcode + Key for backup. Note: Key is for retrieval only.", video: "video_2.mp4" },
+        'p4': { title: "P4: Smart Battery Lock", price: 60, allowedColors: ["Black"], desc: "Smart PIN code access. Uses CR2032 Battery (>1 year life).", video: "video_4.mp4" },
+        'p5': { title: "P5: Ergonomic Lock", price: 60, allowedColors: ["Black"], desc: "Better grip, 3-digit mechanical dial. Ergonomic design.", video: "video_7.mp4" },
+        'p6': { title: "P6: Zinc Alloy Code Lock", price: 65, allowedColors: ["Silver"], desc: "Heavy duty Zinc Alloy. Mechanical.", video: "video_3.mp4" },
+        'p7': { title: "P7: Horizontal Smart Lock", price: 65, allowedColors: ["Black"], desc: "Modern horizontal design. Battery powered (CR2032).", video: "video_8.mp4" },
+        'p8': { title: "P8: 4-Digit High Security", price: 75, allowedColors: ["Black"], desc: "10,000 Combinations. High security mechanical lock.", video: "video_6.mp4" },
+        'p9': { title: "P9: 4-Digit Zinc Alloy Lock", price: 85, allowedColors: ["Silver"], desc: "Premium Zinc Alloy + 4-Digit Security. The ultimate mechanical lock.", video: "video_3.mp4" }
     };
 
-    // --- Modal Logic ---
     function openModal(id) {
         const p = productsConfig[id];
         if(!p) return;
@@ -968,52 +744,39 @@
 
     function closeModal() {
         document.getElementById('product-modal').style.display = "none";
-        // Stop video to save battery/data
         const v = document.querySelector('.modal-video');
         if(v) v.pause();
     }
 
-    // --- Form Logic ---
     function selectProduct(val, event) {
         if(event) event.stopPropagation();
         const select = document.getElementById('lockType');
         select.value = val;
-        updateColors(); // Trigger the color update immediately
+        updateColors(); 
         document.getElementById('order').scrollIntoView({behavior: "smooth"});
     }
 
-    /**
-     * Professional Logic: Dynamic Option Rendering
-     * Completely rebuilds the select list based on the config.
-     */
     function updateColors() {
         const type = document.getElementById('lockType').value;
         const colorSelect = document.getElementById('color');
-        
-        // Clear existing options
         colorSelect.innerHTML = "";
-
+        
         if (!type || !productsConfig[type]) {
             const opt = document.createElement('option');
             opt.text = "-- Select Model First --";
             colorSelect.add(opt);
             return;
         }
-
-        const allowed = productsConfig[type].allowedColors;
         
-        // Add valid options
+        const allowed = productsConfig[type].allowedColors;
         allowed.forEach(c => {
             const opt = document.createElement('option');
             opt.value = c;
             opt.text = c;
             colorSelect.add(opt);
         });
-
-        // UX Bonus: If only 1 color exists, auto-select it.
-        if (allowed.length === 1) {
-            colorSelect.selectedIndex = 0; 
-        }
+        
+        if (allowed.length === 1) { colorSelect.selectedIndex = 0; }
     }
 
     function sendFormToWhatsApp() {
@@ -1022,7 +785,7 @@
             alert('Please fill in all required fields.');
             return false;
         }
-
+        
         const n = document.getElementById('name').value.trim();
         const p = document.getElementById('phone').value.trim();
         const a = document.getElementById('address').value.trim();
@@ -1055,7 +818,6 @@
         return false;
     }
 
-    // Initialize logic on load
     document.addEventListener('DOMContentLoaded', () => {
         const lockType = document.getElementById('lockType').value;
         if(lockType) updateColors();
