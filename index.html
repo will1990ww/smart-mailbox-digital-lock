@@ -10,7 +10,6 @@
   
   <title>Digital Letterbox Lock Singapore | #1 HDB & Condo Mailbox Lock Install</title>
 
-  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BCX0B7Y87"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -142,7 +141,7 @@
       --urgent-red: #d32f2f;
       --group-buy-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; } /* Prevent anchor links hiding under sticky header */
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; } 
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; font-family: 'Inter', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
     a { color: var(--primary-color); text-decoration: none; }
@@ -245,8 +244,10 @@
     form label { display: block; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; color: #444; }
     form input, form select { width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; background: #fff; appearance: none; -webkit-appearance: none; }
     form select { background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right .7em top 50%; background-size: .65em auto; }
-    form button { width: 100%; padding: 1rem; background: #25D366; color: #fff; border: none; border-radius: 6px; font-size: 1.2rem; cursor: pointer; font-weight: 800; transition: background 0.3s; }
-    form button:hover { background: #20b857; }
+    .trust-badges { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 1.2rem; }
+    .trust-badge { background: #e8f5e9; color: #2e7d32; padding: 6px 12px; border-radius: 4px; font-weight: 700; font-size: 0.85rem; border: 1px solid #c8e6c9; }
+    form button { width: 100%; padding: 1rem; background: #25D366; color: #fff; border: none; border-radius: 6px; font-size: 1.2rem; cursor: pointer; font-weight: 800; transition: background 0.3s; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+    form button:hover { background: #20b857; transform: translateY(-2px); }
     .label-urgent { color: var(--urgent-red); font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 6px; }
     .unlock-select { border: 2px solid var(--urgent-red) !important; background-color: #fff0f0 !important; font-weight: bold; color: var(--urgent-red); }
 
@@ -272,10 +273,13 @@
     
     footer { background: #eee; text-align: center; padding: 1rem; font-size: 0.9rem; margin-bottom: 80px; }
     
-    .mobile-fab-buttons { display: flex; position: fixed; bottom: 15px; right: 15px; z-index: 1001; }
+    .mobile-fab-buttons { display: flex; position: fixed; bottom: 15px; right: 15px; z-index: 1001; flex-direction: column; align-items: flex-end; gap: 8px; }
+    .whatsapp-tooltip { background: #fff; color: #333; padding: 6px 12px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; box-shadow: 0 4px 10px rgba(0,0,0,0.15); border: 1px solid #ddd; animation: floatUp 2s infinite ease-in-out; }
     .fab-btn { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; color: white; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-decoration: none; transition: transform 0.2s ease; }
     .fab-btn:hover { transform: scale(1.1); }
     .whatsapp-btn { background-color: #25D366; }
+
+    @keyframes floatUp { 0% { transform: translateY(0px); } 50% { transform: translateY(-5px); } 100% { transform: translateY(0px); } }
     
     @media (max-width: 600px) { 
         .shop-grid { grid-template-columns: 1fr 1fr; gap: 10px; } 
@@ -290,6 +294,7 @@
         .group-buy-offers li { font-size: 0.9rem; padding: 5px 10px; }
         .process-container { padding: 1.5rem; }
         .process-list li { font-size: 0.95rem; }
+        .trust-badge { font-size: 0.75rem; padding: 4px 8px; }
     }
   </style>
 
@@ -311,6 +316,7 @@
     <nav aria-label="Main Navigation">
       <a href="#products">Mailbox Locks</a>
       <a href="#gallery">Gallery</a>
+      <a href="other-services.html">Other Services</a> 
       <a href="#order" id="nav-order-link" aria-label="Order Now">Order</a>
       <a href="#how-to-order">How it Works</a>
       <a href="#reviews">Reviews</a>
@@ -336,8 +342,25 @@
         <a href="#order" class="intro-cta-btn">Order Your Mailbox Digital Lock Now ↓</a>
       </div>
     </section>
+
+    <section id="group-buy" class="group-buy-container" aria-labelledby="group-buy-title">
+        <span class="hot-badge">HOT DEAL</span>
+        <h3 id="group-buy-title">🏘️ BTO / New Estate Group Buy Discount</h3>
+        <p style="margin-bottom:0; color:#eee;">Moving into a new place? Gather your neighbours & save big!</p>
+        <ul class="group-buy-offers">
+            <li>🖐️ 5 Pax: <strong>10% OFF</strong></li>
+            <li>🙌 10+ Pax: <strong>20% OFF</strong></li>
+        </ul>
+        <a href="https://wa.me/6583417888?text=Hello%2C%20I%20am%20interested%20in%20Starting%20a%20Group%20Buy%20for%20my%20Estate." target="_blank" class="group-buy-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" style="width:20px;height:20px;">
+            Start Group Buy via WhatsApp
+        </a>
+    </section>
   
     <section id="products" aria-labelledby="products-title">
+      <div style="text-align: center; margin-top: 1rem; color: #d32f2f; font-weight: bold; font-size: 0.95rem;">
+         🔥 Same-day installation slots are filling fast. Book yours today!
+      </div>
       <h2 id="products-title">Choose Your Lock Model</h2>
       
       <div class="shop-grid">
@@ -517,7 +540,13 @@
 
     <section id="order" aria-labelledby="order-title">
       <h2 id="order-title">Order Confirmation Form</h2>
-      <p style="text-align:center; font-size:0.9rem; color:#666; margin-bottom:1.5rem;">Fill below for confirmed orders.</p>
+      <p style="text-align:center; font-size:0.9rem; color:#666; margin-bottom:1rem;">Fill below for confirmed orders.</p>
+      
+      <div class="trust-badges">
+          <span class="trust-badge">✅ No Upfront Payment</span>
+          <span class="trust-badge">✅ Pay After Video Proof</span>
+          <span class="trust-badge">✅ 1-Year Warranty</span>
+      </div>
       
       <form onsubmit="return sendFormToWhatsApp();" novalidate>
         <fieldset>
@@ -603,20 +632,6 @@
                 We apologize that we cannot confirm an exact arrival time. To ensure we can provide fast, same-day service islandwide, our technicians' schedules are strictly planned according to geographical routes. Rest assured, your installation will be completed on the scheduled day!
             </div>
         </div>
-    </section>
-
-    <section id="group-buy" class="group-buy-container" aria-labelledby="group-buy-title">
-        <span class="hot-badge">HOT DEAL</span>
-        <h3 id="group-buy-title">🏘️ BTO / New Estate Group Buy Discount</h3>
-        <p style="margin-bottom:0; color:#eee;">Moving into a new place? Gather your neighbours & save big!</p>
-        <ul class="group-buy-offers">
-            <li>🖐️ 5 Pax: <strong>10% OFF</strong></li>
-            <li>🙌 10+ Pax: <strong>20% OFF</strong></li>
-        </ul>
-        <a href="https://wa.me/6583417888?text=Hello%2C%20I%20am%20interested%20in%20Starting%20a%20Group%20Buy%20for%20my%20Estate." target="_blank" class="group-buy-btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" style="width:20px;height:20px;">
-            Start Group Buy via WhatsApp
-        </a>
     </section>
 
     <section id="services-summary" aria-labelledby="services-summary-title">
@@ -720,6 +735,7 @@
   </footer>
 
   <div class="mobile-fab-buttons">
+    <div class="whatsapp-tooltip">💬 Questions? Chat with us!</div>
     <a href="https://wa.me/6583417888?text=Hello%20LetterboxLock.sg%2C%20I%20would%20like%20to%20enquire%20about%20your%20digital%20lock%20services." class="fab-btn whatsapp-btn" target="_blank" aria-label="Chat with us on WhatsApp">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
     </a>
@@ -727,7 +743,8 @@
 
   <script>
     /**
-     * Data Model mapping to dynamic colors.
+     * 100% 对应你上传代码中的“正确选项”与颜色设置
+     * 且 P9 的视频修改为了 video_9.mp4
      */
     const productsConfig = {
         'p1': { title: "P1: Traditional Key Lock", price: 50, allowedColors: ["Silver"], desc: "Simple, robust key lock. Comes with 2 keys.", video: "video_5.mp4" },
