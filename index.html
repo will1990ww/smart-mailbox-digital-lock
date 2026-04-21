@@ -249,7 +249,19 @@
 
     @keyframes floatUp { 0% { transform: translateY(0px); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0px); } }
     
-    @media (max-width: 600px) { 
+
+   @media (max-width: 600px) { 
+        /* 1. 优化 Header：取消固定在顶部（可划上去），并缩小整体占用空间 */
+        header { position: static; padding: 0.5rem; }
+        .logo-container { width: 40px; height: 40px; margin-right: 0.5rem; }
+        header h1 { font-size: 1.05rem; }
+        nav { gap: 0.4rem; margin-top: 0.6rem; }
+        nav a { padding: 0.4rem 0.6rem; font-size: 0.85rem; }
+
+        /* 2. 隐藏 WhatsApp 旁边的悬浮文字提示 */
+        .whatsapp-tooltip { display: none; }
+
+        /* 以下是你原有的移动端优化代码，保持不变 */
         .shop-grid { grid-template-columns: 1fr 1fr; gap: 12px; } 
         .card-body { padding: 1rem; }
         .card-title { font-size: 0.9rem; height: auto; min-height: 3.5em; margin-bottom: 0.5rem; }
@@ -271,6 +283,7 @@
         dd { padding-left: 1rem; }
     }
   </style>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" crossorigin="anonymous" async></script>
 </head>
