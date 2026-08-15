@@ -1,0 +1,17 @@
+{
+  "name": "letterbox-lock-sg",
+  "version": "2.0.0",
+  "description": "Production package for Letterbox Lock Singapore — privacy-minimal WhatsApp flow, single source of truth, static generation, service/legal pages, launch guard, CI quality gates and tests.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs && node build-pages.mjs",
+    "preview:dev": "ALLOW_PLACEHOLDERS=1 ALLOW_UNVERIFIED=1 node build.mjs && node build-pages.mjs",
+    "preview:file": "ALLOW_PLACEHOLDERS=1 ALLOW_UNVERIFIED=1 node build.mjs && node build-pages.mjs && node build-standalone.mjs",
+    "test": "node --test",
+    "checks": "node checks.mjs",
+    "verify": "npm run test && npm run preview:dev && npm run checks",
+    "serve": "python3 -m http.server 8080"
+  },
+  "engines": { "node": ">=18" }
+}

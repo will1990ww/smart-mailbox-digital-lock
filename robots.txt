@@ -1,1 +1,4 @@
-Sitemap: https://letterboxlock.sg/sitemap.xml
+User-agent: *
+Allow: /
+
+Sitemap: https://www.example.sg/sitemap.xml
