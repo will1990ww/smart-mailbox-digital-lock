@@ -5,7 +5,7 @@ export const RULES = {
   timing:   { max: 80 },
   productId:{ pattern: /^P([1-9]|1[0-2])$/ },
   block:    { pattern: /^[0-9]{1,4}[A-Z]?$/ },
-  unit:     { pattern: /^#?[0-9]{1,3}-[0-9]{1,4}[A-Z]?$/ },
+  unit:     { pattern: /^#?[0-9]{1,6}(-[0-9]{1,5})?[A-Z]?$/ },
 };
 const CONTROL_CHARS = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g;
 export function sanitizeText(value, max) {
@@ -36,7 +36,7 @@ export function validateOrder(data, { validColours = [], requireAuthorisation = 
   const block = sanitizeText(data.block, 6).toUpperCase();
   const unit  = String(data.unit ?? "").trim().toUpperCase().replace(/^#/, "");
   if (requireAddress || block) { if (!RULES.block.pattern.test(block)) errors.block = "Enter your block number (e.g. 123 or 123A)."; }
-  if (requireAddress || unit)  { if (!RULES.unit.pattern.test("#" + unit)) errors.unit = "Enter your unit number (e.g. 12-345)."; }
+  if (requireAddress || unit)  { if (!RULES.unit.pattern.test("#" + unit)) errors.unit = "Enter your unit number (e.g. 14533 or 12-345)."; }
   if (requireAuthorisation && data.authorised !== true) errors.authorised = "Please confirm you are the resident, owner or authorised person.";
   return { valid: Object.keys(errors).length === 0, errors };
 }
