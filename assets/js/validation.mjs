@@ -5,6 +5,7 @@ export const RULES = {
   timing:   { max: 80 },
   productId:{ pattern: /^P([1-9]|1[0-2])$/ },
   block:    { pattern: /^[0-9]{1,4}[A-Z]?$/ },
+  // 修改后：允许纯数字（最长6位），也兼容带 "-" 连字符格式和末尾字母
   unit:     { pattern: /^#?[0-9]{1,6}(-[0-9]{1,5})?[A-Z]?$/ },
 };
 const CONTROL_CHARS = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g;
