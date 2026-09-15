@@ -1,21 +1,27 @@
 /* =============================================================================
- * app.mjs — progressive enhancement only. All content exists in static HTML.
+ * app.mjs — progressive enhancement ONLY. Core content is static HTML.
  * ========================================================================== */
-import { calculateLine, buildBreakdown, money } from "./pricing.mjs";
-import { validateQuote, validateQuantity, accessRequiresAuthorisation, sanitizeText } from "./validation.mjs";
-import { waLink, buildQuoteMessage, buildDetailsForClipboard, buildProductEnquiry } from "./quote-message.mjs";
+import { calculateLine } from "./pricing.mjs";
+import { validateOrder, validateQuantity, accessRequiresAuthorisation, sanitizeText } from "./validation.mjs";
+import { waLink, buildQuoteMessage, buildProductEnquiry } from "./order-message.mjs";
 import { initAnalytics, track, wireEventClicks } from "./analytics.mjs";
-import { createQuoteList } from "./quote-list.mjs";
+import { createCart, buildCartMessage } from "./cart.mjs";
 
-const $ = (s, r = document) => r.querySelector(s);
-const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
 function loadData() {
   const node = document.getElementById("site-data");
   if (!node) return null;
-  let d; try { d = JSON.parse(node.textContent || "{}"); } catch { return null; }
-  if (!d?.site || !Array.isArray(d.products) || !d.colours) return null;
-  if (!d.site.pricing?.accessFees || !Array.isArray(d.site.pricing.tiers)) return null;
+  let d;
+  try { d = JSON.parse(node.textContent || "{}"); }
+  catch { console.error("[app] site-data JSON failed to parse"); return null; }
+  if (!d || typeof d !== "object") return null;
+  if (!d.site || typeof d.site !== "object") return null;
+  if (!Array.isArray(d.products)) return null;
+  if (!d.colours || typeof d.colours !== "object") return null;
+  const p = d.site.pricing;
+  if (!p || typeof p !== "object" || !p.accessFees || !Array.isArray(p.tiers)) return null;
   return d;
 }
 const DATA = loadData();
@@ -27,28 +33,34 @@ const COLOURS = DATA?.colours || {};
 const PRICING = SITE.pricing || { accessFees: {}, tiers: [], quantity: { min: 1, max: 100 } };
 const byId = (id) => PRODUCTS.find((p) => p && p.id === id) || null;
 
+/* ---- Analytics (cookieless, no-ops unless configured) --------------------- */
 initAnalytics(SITE.analytics);
 wireEventClicks(document);
 
-const coloursFor = (id, el) => {
+function coloursForProduct(id, fallbackEl) {
   const p = byId(id);
-  if (p?.colours?.length) return p.colours;
-  const raw = el?.getAttribute?.("data-colours") || "";
+  if (p && Array.isArray(p.colours) && p.colours.length) return p.colours;
+  const raw = fallbackEl?.getAttribute?.("data-colours") || "";
   return raw ? raw.split(",").filter(Boolean) : [];
-};
+}
 
 /* ---- Contact links --------------------------------------------------------- */
 if (SITE.phoneE164) $$("[data-tel]").forEach((a) => { a.href = "tel:+" + SITE.phoneE164; });
+if (SITE.whatsappNumber) {
+  $$("[data-wa]").forEach((a) => { a.href = waLink(SITE.whatsappNumber, "Hi, I'd like a quote for a letterbox lock. My postal code is __."); a.rel = "noopener noreferrer"; });
+  $$("[data-wa-group]").forEach((a) => { a.href = waLink(SITE.whatsappNumber, "Hi, I'd like a GROUP/BULK quote for letterbox locks. Estate: ___ | Units: ___ | Postal code: __"); a.rel = "noopener noreferrer"; });
+}
 if (SITE.phoneDisplay) $$("[data-phone-display]").forEach((s) => { s.textContent = "Call " + SITE.phoneDisplay; });
+const yr = $("#yr"); if (yr) yr.textContent = String(new Date().getFullYear());
+
 $$("[data-wa-product]").forEach((a) => {
   const p = byId(a.getAttribute("data-wa-product"));
   if (!p || !SITE.whatsappNumber) return;
   a.href = waLink(SITE.whatsappNumber, buildProductEnquiry({ productId: p.id, productName: p.name, price: p.price }));
   a.rel = "noopener noreferrer";
 });
-const yr = $("#yr"); if (yr) yr.textContent = String(new Date().getFullYear());
 
-/* ---- Product filter (G-03: hidden cards leave focus + a11y tree) ----------- */
+/* ---- Product filter -------------------------------------------------------- */
 const filterBtns = $$(".filter-row [data-filter]");
 if (filterBtns.length) {
   filterBtns.forEach((btn) => btn.addEventListener("click", () => {
@@ -56,282 +68,284 @@ if (filterBtns.length) {
     btn.setAttribute("aria-pressed", "true");
     const f = btn.dataset.filter;
     $$("#productGrid > [data-categories]").forEach((el) => {
-      const show = f === "all" || (el.dataset.categories || "").split(",").includes(f);
-      el.hidden = !show;
-      el.setAttribute("aria-hidden", show ? "false" : "true");
-      $$("a,button,select,input", el).forEach((c) => { if (show) c.removeAttribute("tabindex"); else c.setAttribute("tabindex", "-1"); });
+      const cats = (el.dataset.categories || "").split(",");
+      el.hidden = !(f === "all" || cats.includes(f));
     });
     track("product_filter", { label: f });
   }));
 }
 
 /* ===========================================================================
- * QUOTE LIST + QUOTE FORM (E-01: two explicit modes, never both at once)
+ * SHOPPING CART (add-to-cart on product cards; summary in the order section)
  * ========================================================================= */
-const LIST = DATA ? createQuoteList({ products: PRODUCTS, colours: COLOURS, tiers: PRICING.tiers }) : null;
-const form = $("#quoteForm");
+const CART = DATA ? createCart({ products: PRODUCTS, colours: COLOURS, tiers: PRICING.tiers }) : null;
+const cartPanel = $("#cartPanel");
+const cartLines = $("#cartLines");
+const cartTotal = $("#cartTotal");
+const cartFab = $("#cartFab");
+const cartCount = $("#cartCount");
 
-const el = {
-  modeSingle: $("#modeSingle"), modeMulti: $("#modeMulti"),
-  singlePane: $("#singlePane"), multiPane: $("#multiPane"),
-  product: $("#qProduct"), colour: $("#qColour"), qty: $("#qQuantity"),
-  access: $("#qAccess"), postal: $("#qPostal"), block: $("#qBlock"), unit: $("#qUnit"),
-  timing: $("#qTiming"), authGroup: $("#authGroup"), authorised: $("#qAuthorised"),
-  breakdown: $("#breakdown"), status: $("#formStatus"),
-  listLines: $("#listLines"), listEmpty: $("#listEmpty"), listClear: $("#listClear"),
-  count: $("#quoteCount"), copyBtn: $("#copyDetails"), urgentFlag: $("#qUrgent"),
-};
+function money(n) { return "S$" + n; }
 
-const getMode = () => (el.modeMulti?.checked ? "multiple" : "single");
-const accessKey = () => el.access?.selectedOptions?.[0]?.value || "OPEN_WITH_KEY";
-const accessMeta = () => PRICING.accessFees?.[accessKey()] || { label: "", perUnit: 0 };
-
-function syncMode() {
-  const mode = getMode();
-  if (el.singlePane) el.singlePane.hidden = mode !== "single";
-  if (el.multiPane) el.multiPane.hidden = mode !== "multiple";
-  render();
-}
-function syncConsent() {
-  const need = accessRequiresAuthorisation(accessKey(), PRICING.accessFees);
-  if (el.authGroup) el.authGroup.classList.toggle("show", need);
-  if (!need && el.authorised) el.authorised.checked = false;
-}
-function fillColours(preferred) {
-  if (!el.product || !el.colour) return;
-  const list = coloursFor(el.product.value, el.product.selectedOptions?.[0]);
-  const cols = list.length ? list : (PRODUCTS[0]?.colours || []);
-  el.colour.replaceChildren();
-  cols.forEach((k) => { const o = document.createElement("option"); o.value = k; o.textContent = COLOURS[k]?.label || k; el.colour.appendChild(o); });
-  el.colour.value = (preferred && cols.includes(preferred)) ? preferred : cols[0];
-}
-function currentResult() {
-  const fee = accessMeta().perUnit || 0;
-  if (getMode() === "multiple") { LIST.setAccessFee(fee); const s = LIST.state(); return { result: s, items: s.items, fee }; }
-  const p = byId(el.product?.value) || PRODUCTS[0];
-  const qv = validateQuantity(el.qty?.value, PRICING.quantity);
-  const q = qv.ok ? qv.value : 1;
-  const result = calculateLine({ unitPrice: p?.price ?? 0, quantity: q, accessFeePerUnit: fee, tiers: PRICING.tiers });
-  const items = p ? [{ id: p.id, name: p.name, colourLabel: COLOURS[el.colour?.value]?.label || "", quantity: q, unitPrice: p.price }] : [];
-  return { result, items, fee };
-}
-function renderBreakdown() {
-  if (!el.breakdown) return;
-  const { result, items, fee } = currentResult();
-  el.breakdown.replaceChildren();
-  if (!items.length) {
-    const p = document.createElement("p"); p.className = "bd-empty";
-    p.textContent = "Add at least one lock to see an estimate.";
-    el.breakdown.appendChild(p); return;
-  }
-  const bd = buildBreakdown(result, { accessLabel: accessMeta().label, accessFeePerUnit: fee });
-  const dl = document.createElement("dl"); dl.className = "bd-rows";
-  bd.rows.forEach((r) => { const dt = document.createElement("dt"); dt.textContent = r.label; const dd = document.createElement("dd"); dd.textContent = r.value; dl.append(dt, dd); });
-  el.breakdown.appendChild(dl);
-  const tot = document.createElement("p"); tot.className = "bd-total";
-  const b = document.createElement("b");
-  if (bd.requiresQuote) { b.textContent = "Written group quote required"; tot.append("Estimate: ", b); }
-  else { b.textContent = bd.total; tot.append("Estimated total: ", b); }
-  el.breakdown.appendChild(tot);
-  const note = document.createElement("p"); note.className = "bd-note"; note.textContent = bd.note;
-  el.breakdown.appendChild(note);
-}
-function renderList(state) {
-  if (!el.listLines) return;
+function renderCart(state) {
   const has = state.count > 0;
-  if (el.count) { el.count.hidden = !has; el.count.textContent = String(state.count); }
-  if (el.listEmpty) el.listEmpty.hidden = has;
-  el.listLines.replaceChildren();
+  if (cartFab) { cartFab.hidden = !has; }
+  if (cartCount) cartCount.textContent = String(state.count);
+  if (cartPanel) cartPanel.hidden = !has;
+  if (!cartLines) return;
+  cartLines.replaceChildren();
   state.items.forEach((it) => {
-    const li = document.createElement("li"); li.className = "ql-line";
-    const info = document.createElement("div"); info.className = "ql-info";
+    const li = document.createElement("li");
+    li.className = "cart-line";
+
+    const info = document.createElement("div");
+    info.className = "cart-line-info";
     const nm = document.createElement("b"); nm.textContent = `${it.id} ${it.name}`;
     const sub = document.createElement("span"); sub.textContent = `${it.colourLabel} · ${money(it.unitPrice)} each`;
     info.append(nm, sub);
-    const ctl = document.createElement("div"); ctl.className = "ql-ctl";
-    const dec = document.createElement("button"); dec.type = "button"; dec.className = "qty-btn"; dec.textContent = "−"; dec.setAttribute("aria-label", `Decrease quantity of ${it.name}`);
-    const q = document.createElement("span"); q.className = "qty-val"; q.textContent = String(it.quantity);
-    const inc = document.createElement("button"); inc.type = "button"; inc.className = "qty-btn"; inc.textContent = "+"; inc.setAttribute("aria-label", `Increase quantity of ${it.name}`);
-    const rm = document.createElement("button"); rm.type = "button"; rm.className = "ql-rm"; rm.textContent = "Remove"; rm.setAttribute("aria-label", `Remove ${it.name} from quote list`);
-    dec.addEventListener("click", () => LIST.setQuantity(it.id, it.colour, it.quantity - 1));
-    inc.addEventListener("click", () => LIST.setQuantity(it.id, it.colour, it.quantity + 1));
-    rm.addEventListener("click", () => { LIST.remove(it.id, it.colour); track("quote_remove", { product: it.id }); });
-    ctl.append(dec, q, inc, rm);
-    li.append(info, ctl);
-    el.listLines.appendChild(li);
-  });
-}
-function render() { if (LIST) renderList(LIST.state()); renderBreakdown(); }
 
-if (LIST) {
-  LIST.subscribe(() => render());
+    const ctrls = document.createElement("div");
+    ctrls.className = "cart-line-ctrls";
+    const dec = document.createElement("button"); dec.type = "button"; dec.className = "qty-btn"; dec.textContent = "−"; dec.setAttribute("aria-label", `Decrease ${it.name}`);
+    const qty = document.createElement("span"); qty.className = "qty-val"; qty.textContent = String(it.quantity);
+    const inc = document.createElement("button"); inc.type = "button"; inc.className = "qty-btn"; inc.textContent = "+"; inc.setAttribute("aria-label", `Increase ${it.name}`);
+    const rm = document.createElement("button"); rm.type = "button"; rm.className = "cart-rm"; rm.textContent = "Remove"; rm.setAttribute("aria-label", `Remove ${it.name}`);
+    dec.addEventListener("click", () => CART.setQuantity(it.id, it.colour, it.quantity - 1));
+    inc.addEventListener("click", () => CART.setQuantity(it.id, it.colour, it.quantity + 1));
+    rm.addEventListener("click", () => { CART.remove(it.id, it.colour); track("cart_remove", { product: it.id }); });
+    ctrls.append(dec, qty, inc, rm);
+
+    li.append(info, ctrls);
+    cartLines.appendChild(li);
+  });
+  if (cartTotal) {
+    cartTotal.replaceChildren();
+    const lbl = document.createElement("span"); lbl_text(lbl, state);
+    cartTotal.append(lbl);
+  }
+}
+function lbl_text(el, state) {
+  if (state.requiresQuote) {
+    el.innerHTML = "";
+    const b = document.createElement("b"); b.textContent = "Written group quote (20+ units)";
+    el.append(`${state.totalQty} items — `, b);
+  } else {
+    const strong = document.createElement("b"); strong.textContent = money(state.total);
+    el.append(`Estimated total: `, strong);
+    if (state.discountRate) { const s = document.createElement("small"); s.textContent = ` (incl. ${Math.round(state.discountRate * 100)}% bulk discount)`; el.append(s); }
+  }
+}
+
+if (CART) {
+  CART.subscribe(renderCart);
+  renderCart(CART.state());
+
+  // Add-to-cart buttons on product cards.
   $$("[data-add-product]").forEach((btn) => btn.addEventListener("click", () => {
     const id = btn.getAttribute("data-add-product");
     const sel = document.querySelector(`[data-card-colour="${id}"]`);
-    LIST.add(id, sel ? sel.value : undefined, 1);
-    if (el.modeMulti && !el.modeMulti.checked) { el.modeMulti.checked = true; syncMode(); }
-    track("add_to_quote", { product: id, colour: sel ? sel.value : undefined });
+    const colour = sel ? sel.value : undefined;
+    CART.add(id, colour, 1);
+    track("add_to_cart", { product: id, colour });
     btn.classList.add("added"); btn.textContent = "Added ✓";
-    setTimeout(() => { btn.classList.remove("added"); btn.textContent = "Add to quote"; }, 1100);
+    setTimeout(() => { btn.classList.remove("added"); btn.textContent = "Add to cart"; }, 1100);
   }));
-  if (el.listClear) el.listClear.addEventListener("click", () => { LIST.clear(); track("quote_clear", {}); });
+
+  const cartClear = $("#cartClear");
+  if (cartClear) cartClear.addEventListener("click", () => { CART.clear(); track("cart_clear", {}); });
 }
 
+/* ===========================================================================
+ * ORDER FORM
+ * ========================================================================= */
+const form = $("#orderForm");
 if (form && DATA) {
-  [el.modeSingle, el.modeMulti].forEach((r) => r && r.addEventListener("change", syncMode));
-  el.product?.addEventListener("change", () => { fillColours(); renderBreakdown(); });
-  el.access?.addEventListener("change", () => { syncConsent(); render(); });
-  [el.qty, el.colour, el.postal, el.block, el.unit].forEach((n) => n && n.addEventListener("input", renderBreakdown));
-  fillColours(); syncConsent(); syncMode();
+  const selP = $("#orderProduct", form);
+  const selC = $("#orderColour", form);
+  const selA = $("#orderAccess", form);
+  const qty  = $("#orderQuantity", form);
+  const dist = $("#orderDistrict", form);
+  const block = $("#orderBlock", form);
+  const unit  = $("#orderUnit", form);
+  const timing = form.elements["timing"];
+  const est  = $("#estimate", form);
+  const consent = $("#authGroup", form);
+  const consentBox = $("#authorised", form);
+  const status = $("#formStatus", form);
 
-  $$("[data-pick-product]").forEach((a) => a.addEventListener("click", (e) => {
-    const id = a.getAttribute("data-pick-product");
-    if (!byId(id) || !el.product) return;
-    e.preventDefault();
-    if (el.modeSingle) { el.modeSingle.checked = true; syncMode(); }
-    el.product.value = id; fillColours(a.getAttribute("data-pick-colour") || ""); renderBreakdown();
-    document.getElementById("quote")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    el.product.focus({ preventScroll: true });
-    track("pick_product", { product: id });
-  }));
+  const validColoursFor = (id) => coloursForProduct(id, selP.selectedOptions?.[0]);
 
-  const setStatus = (msg, isErr) => {
-    if (!el.status) return;
-    el.status.replaceChildren(document.createTextNode(msg));
-    el.status.classList.toggle("err", !!isErr);
-  };
-  if (el.copyBtn) el.copyBtn.addEventListener("click", async () => {
-    const text = buildDetailsForClipboard({ block: el.block?.value, unit: el.unit?.value, postal: el.postal?.value });
-    if (!text) { setStatus("Add your block, unit or postal code first.", true); return; }
-    let ok = false;
-    try { await navigator.clipboard.writeText(text); ok = true; } catch { ok = false; }
-    setStatus(ok ? "Copied — paste your address details inside the WhatsApp chat." : "Copy failed. Please type your block and unit in the chat.", !ok);
-    track("copy_details", {});
-  });
-  const showError = (field, msg) => {
+  function fillColours(preferred) {
+    const id = selP.value;
+    const list = coloursForProduct(id, selP.selectedOptions?.[0]);
+    const colours = list.length ? list : (PRODUCTS[0]?.colours || ["SILVER"]);
+    selC.replaceChildren();
+    colours.forEach((key) => {
+      const o = document.createElement("option");
+      o.value = key;
+      o.textContent = COLOURS[key]?.label || key;
+      selC.appendChild(o);
+    });
+    if (preferred && colours.includes(preferred)) selC.value = preferred;
+    else selC.value = colours[0];
+  }
+  const currentAccessKey = () => selA.selectedOptions[0]?.value || "OPEN_WITH_KEY";
+  function syncConsent() {
+    const need = accessRequiresAuthorisation(currentAccessKey(), PRICING.accessFees);
+    consent.classList.toggle("show", need);
+    if (!need) consentBox.checked = false;
+  }
+  function addNote(txt) { const n = document.createElement("span"); n.className = "note"; n.textContent = txt; est.append(n); }
+  function calc() {
+    const p = byId(selP.value) || PRODUCTS[0];
+    const accessKey = currentAccessKey();
+    const fee = PRICING.accessFees?.[accessKey]?.perUnit || 0;
+    const qv = validateQuantity(qty.value, PRICING.quantity);
+    const q = qv.ok ? qv.value : 1;
+    const result = calculateLine({ unitPrice: p?.price ?? 0, quantity: q, accessFeePerUnit: fee, tiers: PRICING.tiers });
+    est.replaceChildren();
+    est.append("Estimated total: ");
+    const strong = document.createElement("b");
+    if (result.requiresQuote) { strong.textContent = "Written group quote required"; est.append(strong); addNote("20+ units are priced by written quote so the rate reflects the full scope."); }
+    else {
+      strong.textContent = "S$" + result.total; est.append(strong);
+      if (result.discountRate) addNote(`Estimate only — includes ${Math.round(result.discountRate * 100)}% bulk discount. Final price confirmed in writing.`);
+      else addNote("Estimate only, not a confirmed price. Final price confirmed in writing after a photo.");
+    }
+    return { p, result, accessKey };
+  }
+  function showError(field, msg) {
     const input = form.elements[field];
     const box = $(`[data-error-for="${field}"]`, form);
-    if (input?.setAttribute) input.setAttribute("aria-invalid", "true");
+    if (input) input.setAttribute("aria-invalid", "true");
     if (box) box.textContent = msg;
-  };
-  const clearErrors = () => {
-    $$("[aria-invalid]", form).forEach((n) => n.removeAttribute("aria-invalid"));
-    $$("[data-error-for]", form).forEach((n) => { n.textContent = ""; });
-    if (el.status) { el.status.replaceChildren(); el.status.classList.remove("err"); }
-  };
+  }
+  function clearErrors() {
+    $$("[aria-invalid]", form).forEach((el) => el.removeAttribute("aria-invalid"));
+    $$("[data-error-for]", form).forEach((el) => { el.textContent = ""; });
+    if (status) { status.textContent = ""; status.classList.remove("err"); }
+  }
+
+  selP.addEventListener("change", () => { fillColours(); calc(); });
+  selA.addEventListener("change", () => { syncConsent(); calc(); });
+  [qty, selC, dist, block, unit].forEach((el) => el && el.addEventListener("input", calc));
+  fillColours(); syncConsent(); calc();
+
+  $$("[data-scroll-product]").forEach((a) => a.addEventListener("click", (e) => {
+    const id = a.getAttribute("data-scroll-product");
+    const colour = a.getAttribute("data-scroll-colour") || "";
+    if (!byId(id)) return;
+    e.preventDefault();
+    selP.value = id; fillColours(colour); calc();
+    document.getElementById("order")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    selP.focus({ preventScroll: true });
+    form.classList.add("flash");
+    setTimeout(() => form.classList.remove("flash"), 900);
+    track("select_configure", { product: id });
+  }));
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     clearErrors();
-    const mode = getMode();
-    const needAuth = accessRequiresAuthorisation(accessKey(), PRICING.accessFees);
-    const { result, items, fee } = currentResult();
-    if (mode === "multiple" && items.length === 0) { setStatus("Your quote list is empty. Add at least one lock.", true); return; }
-
-    const { valid, errors } = validateQuote({
-      productId: el.product?.value, colour: el.colour?.value, quantity: el.qty?.value,
-      postal: el.postal?.value, block: el.block?.value, unit: el.unit?.value, authorised: !!el.authorised?.checked,
-    }, { validColours: coloursFor(el.product?.value, el.product?.selectedOptions?.[0]), requireAuthorisation: needAuth, requireProduct: mode === "single" });
-
+    const accessKey = currentAccessKey();
+    const requireAuth = accessRequiresAuthorisation(accessKey, PRICING.accessFees);
+    const payload = {
+      productId: selP.value, colour: selC.value, quantity: qty.value,
+      access: accessKey, district: dist.value, block: block?.value, unit: unit?.value, authorised: consentBox.checked,
+    };
+    const { valid, errors } = validateOrder(payload, { validColours: validColoursFor(selP.value), requireAuthorisation: requireAuth, requireAddress: true });
     if (!valid) {
       Object.entries(errors).forEach(([f, m]) => showError(f, m));
-      setStatus("Please fix the highlighted fields.", true);
+      if (status) { status.textContent = "Please fix the highlighted fields."; status.classList.add("err"); }
       form.querySelector('[aria-invalid="true"]')?.focus();
+      track("order_invalid", { product: selP.value });
       return;
     }
-    const msg = buildQuoteMessage({
-      items, result, accessLabel: accessMeta().label, accessFeePerUnit: fee,
-      postal: el.postal?.value, timing: sanitizeText(el.timing?.value, 80),
-      urgent: !!el.urgentFlag?.checked,
-    });
-    track("quote_submit", { mode, quantity: String(result.totalQty ?? result.quantity ?? 0), value: result.requiresQuote ? "written-quote" : String(result.total) });
-
-    if (!SITE.whatsappNumber) { setStatus("WhatsApp is not configured yet. Please call us.", true); return; }
+    const { p, result } = calc();
+    const cartState = CART ? CART.state() : { count: 0 };
+    const details = {
+      block: sanitizeText(block?.value, 6), unit: sanitizeText(unit?.value, 12),
+      district: dist.value, access: accessKey,
+      accessLabel: PRICING.accessFees?.[accessKey]?.label || "",
+      timing: sanitizeText(timing?.value, 80),
+    };
+    let msg;
+    if (cartState.count > 0) {
+      // Cart checkout: send every item in one WhatsApp message.
+      msg = buildCartMessage(cartState, details);
+      track("order_submit", { label: "cart", quantity: String(cartState.totalQty), value: cartState.requiresQuote ? "quote" : String(cartState.total) });
+    } else {
+      // Single-item quick order (form selection).
+      msg = buildQuoteMessage({
+        productId: p.id, productName: p.name, colour: COLOURS[selC.value]?.label || "",
+        quantity: result.quantity, accessLabel: details.accessLabel,
+        block: details.block, unit: details.unit, timing: details.timing,
+        district: details.district, priceResult: result,
+      });
+      track("order_submit", { product: p.id, colour: selC.value, quantity: String(result.quantity), value: result.requiresQuote ? "quote" : String(result.total) });
+    }
+    if (!SITE.whatsappNumber) { if (status) { status.textContent = "WhatsApp is not configured yet."; status.classList.add("err"); } return; }
     const url = waLink(SITE.whatsappNumber, msg);
     let win = null;
     try { win = window.open(url, "_blank", "noopener,noreferrer"); } catch { win = null; }
     if (win) { try { win.opener = null; } catch {} return; }
-
-    if (el.status) {                                   // E-07 fallback chain
-      el.status.replaceChildren();
-      el.status.classList.remove("err");
-      const a = document.createElement("a");
-      a.href = url; a.target = "_blank"; a.rel = "noopener noreferrer"; a.textContent = "Tap here to open WhatsApp";
-      const copy = document.createElement("button");
-      copy.type = "button"; copy.className = "linkish"; copy.textContent = "Copy my quote instead";
-      copy.addEventListener("click", async () => {
-        try { await navigator.clipboard.writeText(msg); setStatus("Quote copied. Paste it to us on WhatsApp or SMS.", false); }
-        catch { setStatus(`Please call us at ${SITE.phoneDisplay}.`, true); }
-      });
-      const tel = document.createElement("a");
-      tel.href = "tel:+" + SITE.phoneE164; tel.textContent = `or call ${SITE.phoneDisplay}`;
-      el.status.append("WhatsApp did not open. ", a, " · ", copy, " · ", tel);
-      a.focus();
+    if (status) {
+      status.textContent = ""; status.classList.remove("err");
+      const link = document.createElement("a");
+      link.href = url; link.target = "_blank"; link.rel = "noopener noreferrer";
+      link.textContent = "Tap here to open WhatsApp with your request";
+      status.append("Popup blocked. ", link); link.focus();
     }
   });
 }
 
-/* ---- M18: compare up to 3 models ------------------------------------------ */
-const compareForm = $("#compareTable");
-if (compareForm) {
-  const boxes = $$("[data-compare]", compareForm);
-  const note = $("#compareNote");
-  const MAXC = 3;
-  const apply = () => {
-    const chosen = boxes.filter((b) => b.checked);
-    if (chosen.length > MAXC) { chosen[0].checked = false; }
-    const active = boxes.filter((b) => b.checked).map((b) => b.getAttribute("data-compare"));
-    $$("tbody tr", compareForm).forEach((tr) => {
-      const id = tr.getAttribute("data-row");
-      const show = active.length === 0 || active.includes(id);
-      tr.hidden = !show;
-    });
-    if (note) note.textContent = active.length === 0
-      ? "Showing all nine models. Tick up to three to compare side by side."
-      : `Comparing ${active.length} model${active.length > 1 ? "s" : ""}: ${active.join(", ")}.`;
-    boxes.forEach((b) => { b.disabled = !b.checked && active.length >= MAXC; });
-    track("compare", { quantity: String(active.length) });
-  };
-  boxes.forEach((b) => b.addEventListener("change", apply));
-  const reset = $("#compareReset");
-  if (reset) reset.addEventListener("click", () => { boxes.forEach((b) => { b.checked = false; b.disabled = false; }); apply(); });
-}
-
-/* ---- Lightbox with focus trap (G-02) -------------------------------------- */
+/* ---- Gallery lightbox ------------------------------------------------------ */
 const lightbox = $("#lightbox");
 if (lightbox) {
-  const img = $("#lightboxImg", lightbox);
   let lastFocus = null;
-  const focusables = () => $$('button, [href], [tabindex]:not([tabindex="-1"])', lightbox);
+  const img = $("#lightboxImg", lightbox);
   const open = (src, alt) => {
     lastFocus = document.activeElement;
     if (img && src) { img.src = src; img.alt = alt || ""; }
-    if (typeof lightbox.showModal === "function") lightbox.showModal(); else lightbox.setAttribute("open", "");
-    focusables()[0]?.focus();
+    if (typeof lightbox.showModal === "function") lightbox.showModal();
+    else lightbox.setAttribute("open", "");
   };
   const close = () => {
-    if (typeof lightbox.close === "function") lightbox.close(); else lightbox.removeAttribute("open");
-    lastFocus?.focus?.();
+    if (typeof lightbox.close === "function") lightbox.close();
+    else lightbox.removeAttribute("open");
+    if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
   };
-  $$("[data-gallery-src]").forEach((b) => b.addEventListener("click", () => open(b.dataset.gallerySrc, b.getAttribute("data-gallery-alt"))));
+  $$("[data-gallery-src]").forEach((btn) => btn.addEventListener("click", () => open(btn.dataset.gallerySrc, btn.getAttribute("aria-label"))));
   $$("[data-close]", lightbox).forEach((b) => b.addEventListener("click", close));
   lightbox.addEventListener("click", (e) => { if (e.target === lightbox) close(); });
-  lightbox.addEventListener("cancel", () => { lastFocus?.focus?.(); });
-  lightbox.addEventListener("keydown", (e) => {
-    if (e.key !== "Tab") return;
-    const f = focusables(); if (!f.length) return;
-    const first = f[0], last = f[f.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-  });
+  lightbox.addEventListener("cancel", () => { if (lastFocus?.focus) lastFocus.focus(); });
 }
 
-/* ---- Mobile menu ----------------------------------------------------------- */
-const menuBtn = $(".menu"), linksNav = $(".links");
+/* ---- Scroll-spy ----------------------------------------------------------- */
+if (typeof window !== "undefined" && "IntersectionObserver" in window) {
+  const navLinks = $$('.links a[href*="#"]');
+  if (navLinks.length) {
+    const byHash = new Map();
+    navLinks.forEach((a) => { const hash = a.getAttribute("href").split("#")[1]; if (hash) byHash.set(hash, a); });
+    const setCurrent = (id) => navLinks.forEach((a) => a.setAttribute("aria-current", byHash.get(id) === a ? "true" : "false"));
+    const sections = [...byHash.keys()].map((id) => document.getElementById(id)).filter(Boolean);
+    if (sections.length) {
+      const io = new IntersectionObserver((entries) => {
+        const vis = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (vis?.target?.id) setCurrent(vis.target.id);
+      }, { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.25, 0.5, 1] });
+      sections.forEach((s) => io.observe(s));
+    }
+  }
+}
+
+/* ---- Mobile menu ---------------------------------------------------------- */
+const menuBtn = $(".menu");
+const linksNav = $(".links");
 if (menuBtn && linksNav) {
-  const setOpen = (o) => { linksNav.classList.toggle("open", o); menuBtn.setAttribute("aria-expanded", String(o)); };
+  const setOpen = (open) => { linksNav.classList.toggle("open", open); menuBtn.setAttribute("aria-expanded", String(open)); };
   menuBtn.addEventListener("click", () => setOpen(!linksNav.classList.contains("open")));
   linksNav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
-  if (typeof window !== "undefined") window.addEventListener("resize", () => { if (window.innerWidth > 860) setOpen(false); });
+  if (typeof document !== "undefined") document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+  if (typeof window !== "undefined" && window.addEventListener) window.addEventListener("resize", () => { if (window.innerWidth > 860) setOpen(false); });
 }
