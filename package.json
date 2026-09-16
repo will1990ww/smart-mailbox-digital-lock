@@ -1,0 +1,11 @@
+{
+  "name": "letterbox-lock-singapore", "version": "3.4.0", "private": true, "type": "module",
+  "description": "Static, single-source-of-truth site for a Singapore WT letterbox-lock specialist. No runtime dependencies.",
+  "scripts": {
+    "build": "node build.mjs && node build-pages.mjs",
+    "check": "node checks.mjs", "test": "node --test",
+    "all": "npm run build && npm test && npm run check",
+    "preview": "python3 -m http.server 8080"
+  },
+  "engines": { "node": ">=18" }
+}

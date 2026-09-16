@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Public assets must stay crawlable so Google can render pages
+Allow: /assets/
+
+Sitemap: https://www.letterboxlock.sg/sitemap.xml
