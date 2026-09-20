@@ -1,0 +1,21 @@
+{
+  "name": "letterboxlock-sg",
+  "version": "4.0.0",
+  "private": true,
+  "description": "Bilingual static site generator for letterboxlock.sg — single source of truth for every price.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "images": "node tools/make-images.mjs",
+    "build": "node build.mjs && node build-pages.mjs",
+    "build:preview": "node build.mjs --preview && node build-pages.mjs --preview",
+    "check": "node checks.mjs",
+    "test": "node tests/run.mjs",
+    "all": "npm run build && npm run test && npm run check",
+    "serve": "node serve.mjs",
+    "dev": "npm run build && node serve.mjs",
+    "preview": "npm run build:preview",
+    "package": "node package.mjs"
+  },
+  "license": "UNLICENSED"
+}
