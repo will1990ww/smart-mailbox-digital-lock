@@ -1,0 +1,2203 @@
+{
+  "site": {
+    "name": "Letterbox Lock Singapore",
+    "nameZh": "新加坡信箱锁专门店",
+    "alternateName": [
+      "Mailbox Lock Singapore",
+      "Letterbox Lock SG",
+      "信箱锁新加坡"
+    ],
+    "origin": "https://www.letterboxlock.sg",
+    "slogan": {
+      "en": "Letterbox locks are all we do.",
+      "zh": "我们只做信箱锁。"
+    },
+    "phoneE164": "6583417888",
+    "phoneDisplay": "+65 8341 7888",
+    "phoneHref": "+6583417888",
+    "whatsappNumber": "6583417888",
+    "hours": {
+      "alwaysOpen": true,
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "themeColor": "#0b1220",
+    "ogImage": "/assets/img/og-cover.jpg",
+    "analytics": {
+      "enabled": true,
+      "endpoint": "/api/collect"
+    }
+  },
+  "pricing": {
+    "currency": "SGD",
+    "minPrice": 25,
+    "maxPrice": 85,
+    "unlockFee": 25,
+    "urgentFee": 10,
+    "accessFees": {
+      "OPEN_WITH_KEY": {
+        "perUnit": 0,
+        "unlock": false,
+        "label": {
+          "en": "Open, key available",
+          "zh": "可以打开，有钥匙"
+        }
+      },
+      "LOST_KEY_LOCKED": {
+        "perUnit": 25,
+        "unlock": true,
+        "label": {
+          "en": "Locked, key lost (opening from S$25)",
+          "zh": "已上锁，钥匙遗失（开锁 S$25 起）"
+        }
+      },
+      "DAMAGED_OR_JAMMED": {
+        "perUnit": 25,
+        "unlock": true,
+        "label": {
+          "en": "Lock damaged or jammed (from S$25)",
+          "zh": "锁损坏或卡住（S$25 起）"
+        }
+      },
+      "NEW_MAILBOX": {
+        "perUnit": 0,
+        "unlock": false,
+        "label": {
+          "en": "New mailbox / no existing lock",
+          "zh": "新信箱／没有原装锁"
+        }
+      }
+    },
+    "scheduling": {
+      "STANDARD": {
+        "perJob": 0,
+        "label": {
+          "en": "Standard — next run through my area",
+          "zh": "标准 — 下一趟经过我区域的行程"
+        },
+        "note": {
+          "en": "Free. We confirm an arrival window before we travel.",
+          "zh": "免费。出发前会确认到达时段。"
+        }
+      },
+      "URGENT": {
+        "perJob": 10,
+        "label": {
+          "en": "Urgent installation (+S$10)",
+          "zh": "紧急安装（+S$10）"
+        },
+        "note": {
+          "en": "Special arrangement outside our planned route. Subject to availability and stock.",
+          "zh": "在既定路线之外的特别安排。视档期与库存而定。"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "minQty": 20,
+        "rate": null,
+        "label": {
+          "en": "20+ units · written group quote required",
+          "zh": "20 个以上 · 需书面报价"
+        }
+      },
+      {
+        "minQty": 10,
+        "rate": 0.1,
+        "label": {
+          "en": "10+ units · 10% off",
+          "zh": "10 个以上 · 九折"
+        }
+      },
+      {
+        "minQty": 5,
+        "rate": 0.05,
+        "label": {
+          "en": "5+ units · 5% off",
+          "zh": "5 个以上 · 95 折"
+        }
+      }
+    ],
+    "quantity": {
+      "min": 1,
+      "max": 100
+    }
+  },
+  "colours": {
+    "SILVER": {
+      "hex": "#c0c5cc",
+      "label": {
+        "en": "Silver",
+        "zh": "银色"
+      }
+    },
+    "BLACK": {
+      "hex": "#1f2937",
+      "label": {
+        "en": "Black",
+        "zh": "黑色"
+      }
+    },
+    "WHITE": {
+      "hex": "#f1f5f9",
+      "label": {
+        "en": "White",
+        "zh": "白色"
+      }
+    },
+    "GREY": {
+      "hex": "#6b7280",
+      "label": {
+        "en": "Grey",
+        "zh": "灰色"
+      }
+    }
+  },
+  "products": [
+    {
+      "id": "P1",
+      "price": 50,
+      "brand": null,
+      "colours": [
+        "SILVER"
+      ],
+      "categories": [
+        "key"
+      ],
+      "powerType": "none",
+      "codeDigits": null,
+      "image": "p1-traditional-key-letterbox-lock.jpg",
+      "name": {
+        "en": "Traditional Key Lock",
+        "zh": "传统钥匙锁"
+      },
+      "alt": {
+        "en": "Silver keyed HDB letterbox lock supplied with two keys",
+        "zh": "银色组屋信箱钥匙锁，附两把钥匙"
+      },
+      "blurb": {
+        "en": "Classic keyed lock. Simple, dependable, the standard HDB replacement.",
+        "zh": "经典钥匙锁。简单可靠，组屋标准替换款。"
+      },
+      "bestFor": {
+        "en": "Anyone happy with a key, and landlords wanting a like-for-like swap.",
+        "zh": "习惯用钥匙的人，以及想要同款替换的房东。"
+      },
+      "access": {
+        "en": "Key",
+        "zh": "钥匙"
+      },
+      "backupKey": {
+        "en": "Spare key included",
+        "zh": "附备用钥匙"
+      },
+      "features": [
+        {
+          "en": "2 keys included",
+          "zh": "附 2 把钥匙"
+        },
+        {
+          "en": "Simple, familiar operation",
+          "zh": "操作简单熟悉"
+        },
+        {
+          "en": "Standard HDB fit",
+          "zh": "组屋标准尺寸"
+        }
+      ],
+      "advantages": [
+        {
+          "en": "Nothing to learn — everyone in the household already knows how to use a key",
+          "zh": "无需学习 — 家中每个人都会用钥匙"
+        },
+        {
+          "en": "No code to forget, and no battery to replace",
+          "zh": "不会忘记密码，也不用换电池"
+        },
+        {
+          "en": "Our lowest price point, and the fastest fit",
+          "zh": "价格最低，安装也最快"
+        },
+        {
+          "en": "Extra keys can be cut cheaply at any hardware shop",
+          "zh": "额外钥匙可在任何五金店便宜配制"
+        }
+      ],
+      "considerations": [
+        {
+          "en": "Every additional user needs their own cut key",
+          "zh": "每多一位使用者就要多配一把钥匙"
+        },
+        {
+          "en": "If all keys are lost, the lock must be drilled and replaced",
+          "zh": "若钥匙全部遗失，必须钻开更换"
+        },
+        {
+          "en": "Keys wear over time and eventually need replacing",
+          "zh": "钥匙会随时间磨损，最终需要更换"
+        }
+      ],
+      "notSuitable": [
+        {
+          "en": "You want to stop carrying keys altogether",
+          "zh": "您想完全不再携带钥匙"
+        },
+        {
+          "en": "Several people need access and you do not want to cut keys",
+          "zh": "多人需要使用，而您不想配多把钥匙"
+        }
+      ],
+      "popular": false
+    },
+    {
+      "id": "P2",
+      "price": 50,
+      "brand": null,
+      "colours": [
+        "BLACK",
+        "WHITE",
+        "SILVER"
+      ],
+      "categories": [
+        "combination",
+        "keyless"
+      ],
+      "powerType": "none",
+      "codeDigits": 3,
+      "image": "p2-battery-free-combination-lock.jpg",
+      "name": {
+        "en": "Battery-Free Combination",
+        "zh": "免电池密码锁"
+      },
+      "alt": {
+        "en": "Battery-free combination letterbox lock with three dials",
+        "zh": "三位转盘免电池信箱密码锁"
+      },
+      "blurb": {
+        "en": "No battery, no key. Set your own 3-digit code. Our most popular model.",
+        "zh": "不用电池、不用钥匙。自设三位数密码。最受欢迎的一款。"
+      },
+      "bestFor": {
+        "en": "Families sharing access who never want to think about keys again.",
+        "zh": "需要共用、且不想再操心钥匙的家庭。"
+      },
+      "access": {
+        "en": "Code",
+        "zh": "密码"
+      },
+      "backupKey": {
+        "en": "None — code only",
+        "zh": "无 — 只用密码"
+      },
+      "features": [
+        {
+          "en": "3-digit combination code",
+          "zh": "三位数密码"
+        },
+        {
+          "en": "Set your own code",
+          "zh": "可自行设定密码"
+        },
+        {
+          "en": "Share access without cutting keys",
+          "zh": "无需配钥匙即可共用"
+        }
+      ],
+      "advantages": [
+        {
+          "en": "Nothing to carry and nothing to lose — the code is in your head",
+          "zh": "没有东西要带、也没有东西会遗失 — 密码记在脑中"
+        },
+        {
+          "en": "Share access instantly by telling someone the code",
+          "zh": "只要告知密码即可立即共用"
+        },
+        {
+          "en": "Completely mechanical: no battery, ever",
+          "zh": "纯机械结构：永远不用电池"
+        },
+        {
+          "en": "Change the code yourself any time, at no cost",
+          "zh": "随时可自行更改密码，不需费用"
+        },
+        {
+          "en": "Three finishes to match your mailbox",
+          "zh": "三种颜色可搭配您的信箱"
+        }
+      ],
+      "considerations": [
+        {
+          "en": "A 3-digit code gives 1,000 combinations — ample for a residential block",
+          "zh": "三位数密码有 1,000 种组合 — 对住宅楼足够"
+        },
+        {
+          "en": "Dials need a deliberate turn; very stiff fingers may prefer P5",
+          "zh": "转盘需要确实转动；手指不便者建议选 P5"
+        }
+      ],
+      "notSuitable": [
+        {
+          "en": "You may forget the code and want a way to recover it — choose P3 instead",
+          "zh": "您可能忘记密码且希望能找回 — 请改选 P3"
+        },
+        {
+          "en": "The mailbox is fully exposed to driving rain — choose P6 or P9",
+          "zh": "信箱完全暴露于斜雨中 — 请选 P6 或 P9"
+        }
+      ],
+      "popular": true
+    },
+    {
+      "id": "P3",
+      "price": 55,
+      "brand": null,
+      "colours": [
+        "BLACK",
+        "WHITE"
+      ],
+      "categories": [
+        "combination",
+        "keyless"
+      ],
+      "powerType": "none",
+      "codeDigits": 3,
+      "image": "p3-combination-backup-key-lock.jpg",
+      "name": {
+        "en": "Combination + Backup Key",
+        "zh": "密码 + 备用钥匙"
+      },
+      "alt": {
+        "en": "Combination letterbox lock supplied with a backup key",
+        "zh": "附备用钥匙的信箱密码锁"
+      },
+      "blurb": {
+        "en": "Code access, plus a backup key that retrieves your code if it is forgotten.",
+        "zh": "密码开锁，另附备用钥匙，忘记时可找回密码。"
+      },
+      "bestFor": {
+        "en": "Keyless convenience, with a safety net if the code is forgotten.",
+        "zh": "想要免钥匙方便，又怕忘记密码的人。"
+      },
+      "access": {
+        "en": "Code",
+        "zh": "密码"
+      },
+      "backupKey": {
+        "en": "Backup key retrieves your code",
+        "zh": "备用钥匙可找回您的密码"
+      },
+      "features": [
+        {
+          "en": "3-digit code",
+          "zh": "三位数密码"
+        },
+        {
+          "en": "Backup key retrieves your code",
+          "zh": "备用钥匙可找回密码"
+        },
+        {
+          "en": "Black or white finish",
+          "zh": "黑色或白色可选"
+        }
+      ],
+      "advantages": [
+        {
+          "en": "Day-to-day you never touch a key — the code does the work",
+          "zh": "日常完全不用钥匙 — 用密码就好"
+        },
+        {
+          "en": "If the code is ever forgotten, the backup key retrieves it",
+          "zh": "万一忘记密码，备用钥匙可以找回"
+        },
+        {
+          "en": "No battery, so nothing to charge or replace",
+          "zh": "免电池，不必充电或更换"
+        },
+        {
+          "en": "Only S$5 more than P2 for a genuine safety net",
+          "zh": "仅比 P2 贵 S$5，就多一道保险"
+        }
+      ],
+      "considerations": [
+        {
+          "en": "The backup key retrieves the code — it is not a spare key for daily use",
+          "zh": "备用钥匙用于找回密码 — 并非日常使用的备用钥匙"
+        },
+        {
+          "en": "Store the backup key somewhere safe and away from the mailbox",
+          "zh": "备用钥匙请妥善存放，且不要放在信箱附近"
+        },
+        {
+          "en": "Two finishes only — silver is not available on this model",
+          "zh": "仅两种颜色 — 此款没有银色"
+        }
+      ],
+      "notSuitable": [
+        {
+          "en": "You specifically want no key in existence at all — choose P2",
+          "zh": "您希望完全不存在任何钥匙 — 请选 P2"
+        }
+      ],
+      "popular": false
+    },
+    {
+      "id": "P4",
+      "price": 60,
+      "brand": "WT",
+      "colours": [
+        "BLACK"
+      ],
+      "categories": [
+        "digital",
+        "keyless"
+      ],
+      "powerType": "battery",
+      "codeDigits": "4–14",
+      "image": "p4-wt-digital-touch-pin-lock.jpg",
+      "name": {
+        "en": "WT Digital Touch-PIN Lock",
+        "zh": "WT 数码触控密码锁"
+      },
+      "alt": {
+        "en": "WT black electronic touch-PIN digital letterbox lock keypad",
+        "zh": "WT 黑色电子触控密码信箱锁键盘"
+      },
+      "blurb": {
+        "en": "WT electronic keypad. Set a code from 4 to 14 digits.",
+        "zh": "WT 电子键盘。密码可设 4 至 14 位数。"
+      },
+      "bestFor": {
+        "en": "Anyone who wants a modern keypad and does not mind a battery.",
+        "zh": "想要现代键盘、不介意换电池的人。"
+      },
+      "access": {
+        "en": "Code",
+        "zh": "密码"
+      },
+      "backupKey": {
+        "en": "Per manufacturer — confirmed in writing before installation",
+        "zh": "依厂商规格 — 安装前书面确认"
+      },
+      "features": [
+        {
+          "en": "Code length 4 to 14 digits",
+          "zh": "密码长度 4 至 14 位数"
+        },
+        {
+          "en": "Electronic touch PIN",
+          "zh": "电子触控密码"
+        },
+        {
+          "en": "Low-battery warning",
+          "zh": "低电量警示"
+        }
+      ],
+      "advantages": [
+        {
+          "en": "Set a code from 4 to 14 digits — as short or as secure as you want",
+          "zh": "密码可设 4 至 14 位数 — 长短由您决定"
+        },
+        {
+          "en": "Fastest to operate — tap the code and it is open",
+          "zh": "操作最快 — 输入密码即开"
+        },
+        {
+          "en": "Easy to use in a dim corridor or with wet hands",
+          "zh": "昏暗走廊或手湿时也好操作"
+        },
+        {
+          "en": "Warns you weeks before the battery runs low",
+          "zh": "电量偏低前数周就会提醒"
+        },
+        {
+          "en": "Clean, modern look that suits a renovated lobby",
+          "zh": "外观简洁现代，适合翻新后的大堂"
+        }
+      ],
+      "considerations": [
+        {
+          "en": "Uses a standard replaceable battery — budget a change every so often",
+          "zh": "使用标准可更换电池 — 需偶尔更换"
+        },
+        {
+          "en": "Backup key arrangements vary by production batch; we confirm yours in writing before fitting",
+          "zh": "备用钥匙配置依生产批次而异；安装前我们会书面确认您的机型"
+        },
+        {
+          "en": "Black only on this model",
+          "zh": "此款仅有黑色"
+        }
+      ],
+      "notSuitable": [
+        {
+          "en": "The mailbox is fully exposed to direct rain — choose a zinc-alloy mechanical model",
+          "zh": "信箱完全暴露于雨中 — 请改选锌合金机械款"
+        },
+        {
+          "en": "You want to never think about a battery again — choose any of our seven mechanical models",
+          "zh": "您不想再操心电池 — 请选七款机械式其中之一"
+        }
+      ],
+      "popular": false
+    },
+    {
+      "id": "P5",
+      "price": 60,
+      "brand": null,
+      "colours": [
+        "BLACK"
+      ],
+      "categories": [
+        "combination",
+        "keyless"
+      ],
+      "powerType": "none",
+      "codeDigits": 3,
+      "image": "p5-ergonomic-combination-lock.jpg",
+      "name": {
+        "en": "Ergonomic Combination Lock",
+        "zh": "易握密码锁"
+      },
+      "alt": {
+        "en": "Easy-grip combination letterbox lock with large dials",
+        "zh": "大转盘易握信箱密码锁"
+      },
+      "blurb": {
+        "en": "Large easy-grip dials and clear numerals, with code recovery.",
+        "zh": "大转盘易握、数字清晰，可找回密码。"
+      },
+      "bestFor": {
+        "en": "Elderly residents, or anyone who finds small dials hard to grip.",
+        "zh": "年长住户，或觉得小转盘不好握的人。"
+      },
+      "access": {
+        "en": "Code",
+        "zh": "密码"
+      },
+      "backupKey": {
+        "en": "Backup key retrieves the code only",
+        "zh": "备用钥匙仅用于找回密码"
+      },
+      "features": [
+        {
+          "en": "Easy-grip large dials",
+          "zh": "大转盘易握"
+        },
+        {
+          "en": "Backup key retrieves your code",
+          "zh": "备用钥匙可找回密码"
+        },
+        {
+          "en": "Clearer numerals for seniors",
+          "zh": "数字清晰，适合长者"
+        }
+      ],
+      "advantages": [
+        {
+          "en": "Designed specifically for weaker grip and older eyes",
+          "zh": "专为握力较弱与视力较差者设计"
+        },
+        {
+          "en": "Larger numerals are readable without glasses in a dim corridor",
+          "zh": "数字够大，昏暗走廊不戴眼镜也看得清"
+        },
+        {
+          "en": "No battery and no key to carry day to day",
+          "zh": "免电池，日常也不用带钥匙"
+        },
+        {
+          "en": "Code can be recovered if it is ever forgotten",
+          "zh": "万一忘记密码，可以找回"
+        }
+      ],
+      "considerations": [
+        {
+          "en": "The backup key retrieves the code — it does not open the door by itself",
+          "zh": "备用钥匙用于找回密码 — 本身不能直接开门"
+        },
+        {
+          "en": "Physically larger than P2, so check the door has clearance",
+          "zh": "体积比 P2 大，请确认门板有足够空间"
+        },
+        {
+          "en": "Black only on this model",
+          "zh": "此款仅有黑色"
+        }
+      ],
+      "notSuitable": [
+        {
+          "en": "You want the smallest, most discreet lock face — choose P2",
+          "zh": "您想要最小、最不显眼的锁面 — 请选 P2"
+        }
+      ],
+      "popular": false
+    },
+    {
+      "id": "P6",
+      "price": 65,
+      "brand": null,
+      "colours": [
+        "SILVER"
+      ],
+      "categories": [
+        "combination",
+        "keyless"
+      ],
+      "powerType": "none",
+      "codeDigits": 3,
+      "image": "p6-zinc-alloy-combination-lock.jpg",
+      "name": {
+        "en": "Zinc Alloy Combination Lock",
+        "zh": "锌合金密码锁"
+      },
+      "alt": {
+        "en": "Silver zinc-alloy combination letterbox lock body",
+        "zh": "银色锌合金信箱密码锁"
+      },
+      "blurb": {
+        "en": "Zinc alloy body built for outdoor and high-use mailboxes.",
+        "zh": "锌合金锁体，专为户外与高频使用信箱打造。"
+      },
+      "bestFor": {
+        "en": "Landed homes, gate-side and corridor mailboxes exposed to weather.",
+        "zh": "有地住宅、大门旁与走廊等会淋雨的信箱。"
+      },
+      "access": {
+        "en": "Code",
+        "zh": "密码"
+      },
+      "backupKey": {
+        "en": "Backup key retrieves the code only",
+        "zh": "备用钥匙仅用于找回密码"
+      },
+      "features": [
+        {
+          "en": "Backup key retrieves your code",
+          "zh": "备用钥匙可找回密码"
+        },
+        {
+          "en": "Robust everyday build",
+          "zh": "坚固耐用"
+        },
+        {
+          "en": "Larger dials",
+          "zh": "大转盘"
+        }
+      ],
+      "advantages": [
+        {
+          "en": "Zinc alloy resists Singapore humidity far better than lighter bodies",
+          "zh": "锌合金比轻量锁体更耐新加坡的潮湿"
+        },
+        {
+          "en": "Our first choice for gate posts, pillars and open corridors",
+          "zh": "门柱、砖柱与开放走廊的首选"
+        },
+        {
+          "en": "No battery compartment for water to find",
+          "zh": "没有电池仓让水渗入"
+        },
+        {
+          "en": "Larger dials are easy to operate even with wet hands",
+          "zh": "转盘够大，手湿时也好操作"
+        }
+      ],
+      "considerations": [
+        {
+          "en": "Heavier than the plastic-bodied models — normal for this build",
+          "zh": "比塑料锁体重 — 这是正常的"
+        },
+        {
+          "en": "Silver only, to match typical outdoor hardware",
+          "zh": "仅银色，搭配常见的户外五金"
+        },
+        {
+          "en": "The backup key retrieves the code rather than opening the door",
+          "zh": "备用钥匙用于找回密码，而非直接开门"
+        }
+      ],
+      "notSuitable": [
+        {
+          "en": "The mailbox is fully sheltered and you want the lowest price — P2 is enough",
+          "zh": "信箱完全有遮蔽且您想要最低价 — P2 就够了"
+        }
+      ],
+      "popular": false
+    },
+    {
+      "id": "P7",
+      "price": 65,
+      "brand": null,
+      "colours": [
+        "BLACK"
+      ],
+      "categories": [
+        "digital",
+        "keyless"
+      ],
+      "powerType": "battery",
+      "codeDigits": 4,
+      "image": "p7-horizontal-digital-lock.jpg",
+      "name": {
+        "en": "Horizontal Digital Lock",
+        "zh": "横式数码锁"
+      },
+      "alt": {
+        "en": "Compact horizontal digital letterbox lock for narrow mailbox doors",
+        "zh": "适合窄门信箱的小型横式数码锁"
+      },
+      "blurb": {
+        "en": "Compact horizontal keypad for narrow or short mailbox doors.",
+        "zh": "小型横式键盘，适合窄门或矮门信箱。"
+      },
+      "bestFor": {
+        "en": "Mailbox doors too narrow or short for a vertical keypad.",
+        "zh": "装不下直式键盘的窄门或矮门信箱。"
+      },
+      "access": {
+        "en": "Code",
+        "zh": "密码"
+      },
+      "backupKey": {
+        "en": "Per manufacturer — confirmed in writing before installation",
+        "zh": "依厂商规格 — 安装前书面确认"
+      },
+      "features": [
+        {
+          "en": "Horizontal layout",
+          "zh": "横式设计"
+        },
+        {
+          "en": "Electronic PIN access",
+          "zh": "电子密码开启"
+        },
+        {
+          "en": "Compact installation",
+          "zh": "小巧安装"
+        }
+      ],
+      "advantages": [
+        {
+          "en": "Fits doors where a vertical keypad simply will not go",
+          "zh": "可装在直式键盘放不下的门板上"
+        },
+        {
+          "en": "Same fast 4-digit PIN entry as P4",
+          "zh": "与 P4 相同的快速四位数密码输入"
+        },
+        {
+          "en": "Compact face leaves room above and below the mail slot",
+          "zh": "锁面小巧，信件投入口上下皆留有空间"
+        },
+        {
+          "en": "Low-battery warning before it runs down",
+          "zh": "电量耗尽前会先警示"
+        }
+      ],
+      "considerations": [
+        {
+          "en": "Uses a replaceable battery",
+          "zh": "使用可更换电池"
+        },
+        {
+          "en": "Backup key arrangements vary by batch; confirmed in writing before fitting",
+          "zh": "备用钥匙配置依批次而异；安装前书面确认"
+        },
+        {
+          "en": "Black only on this model",
+          "zh": "此款仅有黑色"
+        }
+      ],
+      "notSuitable": [
+        {
+          "en": "Your door has room for a vertical keypad — P4 is the more common body and spares are easier",
+          "zh": "您的门板装得下直式键盘 — P4 更常见，备品也较容易取得"
+        },
+        {
+          "en": "The mailbox is fully exposed to rain",
+          "zh": "信箱完全暴露于雨中"
+        }
+      ],
+      "popular": false
+    },
+    {
+      "id": "P8",
+      "price": 75,
+      "brand": null,
+      "colours": [
+        "BLACK"
+      ],
+      "categories": [
+        "combination",
+        "keyless"
+      ],
+      "powerType": "none",
+      "codeDigits": 4,
+      "image": "p8-4-digit-high-security-lock.jpg",
+      "name": {
+        "en": "4-Digit High Security",
+        "zh": "四位数高保安锁"
+      },
+      "alt": {
+        "en": "Black four-digit high-security combination letterbox lock",
+        "zh": "黑色四位数高保安信箱密码锁"
+      },
+      "blurb": {
+        "en": "4-digit code, 10,000 combinations. No battery, code recovery included.",
+        "zh": "四位数密码，一万种组合。免电池，可找回密码。"
+      },
+      "bestFor": {
+        "en": "Blocks that have had mail tampering, or anyone wanting maximum codes.",
+        "zh": "曾发生信件被动的组屋，或想要最多密码组合的人。"
+      },
+      "access": {
+        "en": "Code",
+        "zh": "密码"
+      },
+      "backupKey": {
+        "en": "Backup key retrieves the code only",
+        "zh": "备用钥匙仅用于找回密码"
+      },
+      "features": [
+        {
+          "en": "4-digit code · 10,000 combinations",
+          "zh": "四位数密码 · 一万种组合"
+        },
+        {
+          "en": "Backup key retrieves your code",
+          "zh": "备用钥匙可找回密码"
+        },
+        {
+          "en": "Deters mail tampering",
+          "zh": "有效防止信件被动"
+        }
+      ],
+      "advantages": [
+        {
+          "en": "Ten times the code range of a 3-digit lock",
+          "zh": "密码组合是三位数锁的十倍"
+        },
+        {
+          "en": "The widest code range available without a battery",
+          "zh": "免电池款中密码组合最多的一款"
+        },
+        {
+          "en": "A visible deterrent in blocks that have had problems",
+          "zh": "在曾出问题的组屋中具有明显吓阻作用"
+        },
+        {
+          "en": "Code can be recovered if forgotten",
+          "zh": "忘记密码时可以找回"
+        }
+      ],
+      "considerations": [
+        {
+          "en": "Four dials take slightly longer to set than three",
+          "zh": "四个转盘比三个稍微多花一点时间"
+        },
+        {
+          "en": "The backup key retrieves the code rather than opening the door",
+          "zh": "备用钥匙用于找回密码，而非直接开门"
+        },
+        {
+          "en": "Black only on this model",
+          "zh": "此款仅有黑色"
+        }
+      ],
+      "notSuitable": [
+        {
+          "en": "You want the simplest possible daily operation — P2 is quicker",
+          "zh": "您想要最简单的日常操作 — P2 更快"
+        }
+      ],
+      "popular": false
+    },
+    {
+      "id": "P9",
+      "price": 85,
+      "brand": null,
+      "colours": [
+        "SILVER"
+      ],
+      "categories": [
+        "combination",
+        "keyless"
+      ],
+      "powerType": "none",
+      "codeDigits": 4,
+      "image": "p9-4-digit-zinc-alloy-lock.jpg",
+      "name": {
+        "en": "4-Digit Zinc Alloy",
+        "zh": "四位数锌合金锁"
+      },
+      "alt": {
+        "en": "Premium silver zinc-alloy four-digit combination letterbox lock",
+        "zh": "高级银色锌合金四位数信箱密码锁"
+      },
+      "blurb": {
+        "en": "Our toughest build: zinc alloy, 4-digit code, code recovery.",
+        "zh": "最坚固的一款：锌合金、四位数密码、可找回密码。"
+      },
+      "bestFor": {
+        "en": "Exposed, high-use mailboxes that also need the wider code range.",
+        "zh": "露天、使用频繁，又需要更多密码组合的信箱。"
+      },
+      "access": {
+        "en": "Code",
+        "zh": "密码"
+      },
+      "backupKey": {
+        "en": "Backup key retrieves the code only",
+        "zh": "备用钥匙仅用于找回密码"
+      },
+      "features": [
+        {
+          "en": "4-digit code · 10,000 combinations",
+          "zh": "四位数密码 · 一万种组合"
+        },
+        {
+          "en": "Backup key retrieves your code",
+          "zh": "备用钥匙可找回密码"
+        },
+        {
+          "en": "Our most robust build",
+          "zh": "最坚固的用料"
+        }
+      ],
+      "advantages": [
+        {
+          "en": "Combines the zinc-alloy body of P6 with the 4-digit range of P8",
+          "zh": "结合 P6 的锌合金锁体与 P8 的四位数密码"
+        },
+        {
+          "en": "Our longest-lasting model in exposed coastal positions",
+          "zh": "在沿海露天位置最耐久的一款"
+        },
+        {
+          "en": "No battery, so nothing can fail in wet weather",
+          "zh": "免电池，潮湿天气下没有东西会失灵"
+        },
+        {
+          "en": "Code recovery included as standard",
+          "zh": "标准配备密码找回功能"
+        }
+      ],
+      "considerations": [
+        {
+          "en": "Our highest price point — the extra buys durability, not features",
+          "zh": "价格最高 — 多付的是耐久度，而非功能"
+        },
+        {
+          "en": "Silver only",
+          "zh": "仅银色"
+        },
+        {
+          "en": "The backup key retrieves the code rather than opening the door",
+          "zh": "备用钥匙用于找回密码，而非直接开门"
+        }
+      ],
+      "notSuitable": [
+        {
+          "en": "The mailbox is indoors and lightly used — P2 or P8 is better value",
+          "zh": "信箱在室内且使用不多 — P2 或 P8 更划算"
+        }
+      ],
+      "popular": false
+    }
+  ],
+  "upcoming": [
+    {
+      "id": "P10",
+      "name": {
+        "en": "Tell us your need",
+        "zh": "告诉我们您的需求"
+      },
+      "blurb": {
+        "en": "Thinking of something we do not list yet? Tell us what you need and we will source it.",
+        "zh": "想要目前未列出的款式？告诉我们您的需求，我们会为您寻找。"
+      },
+      "features": [
+        {
+          "en": "Tell us the feature you want",
+          "zh": "告诉我们您想要的功能"
+        },
+        {
+          "en": "We check availability and price",
+          "zh": "我们查询供应与价格"
+        },
+        {
+          "en": "Written quote, no obligation",
+          "zh": "书面报价，绝无义务"
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "name": {
+        "en": "Tell us your need",
+        "zh": "告诉我们您的需求"
+      },
+      "blurb": {
+        "en": "Have a specific feature in mind? Describe it and we will tell you what is possible.",
+        "zh": "心中已有特定功能？描述给我们，我们会告诉您可行方案。"
+      },
+      "features": [
+        {
+          "en": "Describe your requirement",
+          "zh": "描述您的需求"
+        },
+        {
+          "en": "We advise what is realistic",
+          "zh": "我们说明可行性"
+        },
+        {
+          "en": "No charge for the enquiry",
+          "zh": "咨询不收费"
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "name": {
+        "en": "Tell us your need",
+        "zh": "告诉我们您的需求"
+      },
+      "blurb": {
+        "en": "Unusual mailbox or an unusual requirement? Send a photo and we will advise.",
+        "zh": "信箱特殊或需求特别？传张照片，我们会给您建议。"
+      },
+      "features": [
+        {
+          "en": "Send a photo of the mailbox",
+          "zh": "传送信箱照片"
+        },
+        {
+          "en": "We confirm what will fit",
+          "zh": "我们确认适合的方案"
+        },
+        {
+          "en": "Sourced and fitted by us",
+          "zh": "由我们采购并安装"
+        }
+      ]
+    }
+  ],
+  "included": [
+    {
+      "en": "Supply of your chosen letterbox lock",
+      "zh": "供应您选择的信箱锁"
+    },
+    {
+      "en": "Removal of the old lock mechanism",
+      "zh": "拆除旧锁结构"
+    },
+    {
+      "en": "Professional fitting, alignment and testing",
+      "zh": "专业安装、校准与测试"
+    },
+    {
+      "en": "Code set up with you, or keys handed over",
+      "zh": "协助设定密码或交付钥匙"
+    },
+    {
+      "en": "Workmanship warranty on the installation",
+      "zh": "安装工艺保固"
+    }
+  ],
+  "extras": [
+    {
+      "value": {
+        "en": "+S$25 per unit",
+        "zh": "每个 +S$25"
+      },
+      "label": {
+        "en": "Lost-key opening",
+        "zh": "钥匙遗失开锁"
+      },
+      "note": {
+        "en": "Only if the mailbox is locked and you have no key. A typical open-and-replace job therefore starts at S$75.",
+        "zh": "仅当信箱上锁且无钥匙时收取。开锁加换锁通常 S$75 起。"
+      }
+    },
+    {
+      "value": {
+        "en": "+S$10 per visit",
+        "zh": "每次 +S$10"
+      },
+      "label": {
+        "en": "Urgent installation",
+        "zh": "紧急安装"
+      },
+      "note": {
+        "en": "Special arrangement outside our planned route. Stated in writing before we travel.",
+        "zh": "在既定路线之外的特别安排。出发前以书面告知。"
+      }
+    },
+    {
+      "value": {
+        "en": "Quoted first",
+        "zh": "先行报价"
+      },
+      "label": {
+        "en": "Damaged or rusted door",
+        "zh": "门板损坏或生锈"
+      },
+      "note": {
+        "en": "Repair may be needed before any lock will seat properly.",
+        "zh": "锁具需先修复门板才能正确安装。"
+      }
+    },
+    {
+      "value": {
+        "en": "Quoted first",
+        "zh": "先行报价"
+      },
+      "label": {
+        "en": "Non-standard enclosure",
+        "zh": "非标准信箱"
+      },
+      "note": {
+        "en": "Custom, imported or landed mailboxes may need a different solution.",
+        "zh": "订制、进口或有地住宅信箱可能需要其他方案。"
+      }
+    },
+    {
+      "value": {
+        "en": "From S$25",
+        "zh": "S$25 起"
+      },
+      "label": {
+        "en": "Jammed or seized lock",
+        "zh": "卡住或锈死的锁"
+      },
+      "note": {
+        "en": "Assessed on site and quoted in writing — often a service job rather than a replacement.",
+        "zh": "现场评估并书面报价 — 通常只需维修而非更换。"
+      }
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "🔒",
+      "title": {
+        "en": "Letterbox locks only",
+        "zh": "只做信箱锁"
+      },
+      "text": {
+        "en": "Not a general locksmith. We do not take door, gate, car or safe work, so we carry the right parts and finish most jobs on the first visit.",
+        "zh": "我们不是一般锁匠。不接大门、闸门、汽车或保险箱，因此备齐正确零件，多数一次到场完成。"
+      }
+    },
+    {
+      "icon": "🕐",
+      "title": {
+        "en": "Open 24 hours",
+        "zh": "24 小时营业"
+      },
+      "text": {
+        "en": "Locked out of your mail at midnight? We answer round the clock, every day of the year, and urgent installation slots are available.",
+        "zh": "半夜取不到信？我们全年无休、24 小时接听，并提供紧急安装时段。"
+      }
+    },
+    {
+      "icon": "🔋",
+      "title": {
+        "en": "No-battery options",
+        "zh": "免电池选择"
+      },
+      "text": {
+        "en": "Our combination models need no battery, ever. Nothing to charge, nothing to fail at the wrong moment.",
+        "zh": "密码款完全不用电池。不必充电，不会在关键时刻失灵。"
+      }
+    },
+    {
+      "icon": "📷",
+      "title": {
+        "en": "Video proof before you pay",
+        "zh": "付款前先看影片"
+      },
+      "text": {
+        "en": "We send you a video of the finished, tested lock. You confirm it is right, then you pay. Nothing is charged before that.",
+        "zh": "我们会传送完工测试影片。您确认无误后才付款，在此之前不收任何费用。"
+      }
+    },
+    {
+      "icon": "✅",
+      "title": {
+        "en": "No-fit, no-fee",
+        "zh": "装不上不收费"
+      },
+      "text": {
+        "en": "If we confirmed a model from your photo and it does not fit, you pay nothing — including no attendance fee.",
+        "zh": "若我们依照片确认的型号装不上，您完全不必付费 — 包括上门费。"
+      }
+    },
+    {
+      "icon": "🗺️",
+      "title": {
+        "en": "Route-planned visits",
+        "zh": "按路线安排"
+      },
+      "text": {
+        "en": "We group jobs by area each day, so you get a confirmed arrival window instead of waiting in all afternoon.",
+        "zh": "每天按区域规划路线，给您确定的到达时段，不必等整个下午。"
+      }
+    },
+    {
+      "icon": "⚡",
+      "title": {
+        "en": "Most jobs done in one visit",
+        "zh": "多数一次上门完成"
+      },
+      "text": {
+        "en": "We carry every model we list, plus the cams and nuts that go with them. No ordering in, no second trip.",
+        "zh": "我们车上备有所列的每款型号与相应五金。不必另外订货，也不用跑第二趟。"
+      }
+    },
+    {
+      "icon": "🛡️",
+      "title": {
+        "en": "Authorised access only",
+        "zh": "仅限授权开启"
+      },
+      "text": {
+        "en": "We verify you are the resident, owner, tenant or authorised person before opening any locked mailbox. ID is sighted only, never copied.",
+        "zh": "开锁前核实您是住户、屋主、租户或授权人。证件只查看，绝不复印或留存。"
+      }
+    }
+  ],
+  "partners": [
+    {
+      "icon": "🏛️",
+      "title": {
+        "en": "Interior designers & renovation firms",
+        "zh": "室内设计与装修公司"
+      },
+      "text": {
+        "en": "Handover-ready locks fitted to your schedule, one consistent model across every unit, and a single consolidated invoice.",
+        "zh": "配合您的工期安装，整个项目使用统一型号，并开立单一整合发票。"
+      }
+    },
+    {
+      "icon": "🏗️",
+      "title": {
+        "en": "New construction & developers",
+        "zh": "新建工程与发展商"
+      },
+      "text": {
+        "en": "Whole-development mailbox bank fit-out before TOP or handover, surveyed first and completed as a scheduled programme.",
+        "zh": "临时入伙准证或交屋前完成整栋信箱安装，先行勘察并按排程完成。"
+      }
+    },
+    {
+      "icon": "🏢",
+      "title": {
+        "en": "MCSTs & managing agents",
+        "zh": "管理机构与物业经理"
+      },
+      "text": {
+        "en": "Block-wide replacement in one coordinated visit, with a written per-unit scope your committee can approve.",
+        "zh": "一次上门完成整栋更换，提供委员会可审批的逐户书面范围。"
+      }
+    },
+    {
+      "icon": "🏙️",
+      "title": {
+        "en": "Town councils",
+        "zh": "市镇理事会"
+      },
+      "text": {
+        "en": "Estate-scale programmes across multiple blocks, sequenced so residents keep access to their mail throughout.",
+        "zh": "跨多栋的全楼盘工程，依序施作，住户全程可取信。"
+      }
+    },
+    {
+      "icon": "🔑",
+      "title": {
+        "en": "Property agents & landlords",
+        "zh": "房产经纪与房东"
+      },
+      "text": {
+        "en": "Between-tenancy lock changes so an outgoing tenant's key or code never opens the next tenant's mail.",
+        "zh": "租客交替时更换锁具，确保前租客无法开启下一位租客的信件。"
+      }
+    },
+    {
+      "icon": "🏠",
+      "title": {
+        "en": "Homeowners & residents",
+        "zh": "屋主与住户"
+      },
+      "text": {
+        "en": "One lock, one visit, one written price — the same service and warranty as our largest projects.",
+        "zh": "一个锁、一次上门、一个书面价格 — 与最大型项目同样的服务与保固。"
+      }
+    },
+    {
+      "icon": "🏬",
+      "title": {
+        "en": "Offices & commercial units",
+        "zh": "办公室与商业单位"
+      },
+      "text": {
+        "en": "Shared mail rooms in shophouses, industrial units and small offices, fitted outside your business hours.",
+        "zh": "店屋、工业单位与小型办公室的共用信件室，可在营业时间外安装。"
+      }
+    },
+    {
+      "icon": "🤝",
+      "title": {
+        "en": "One point of contact",
+        "zh": "单一联络窗口"
+      },
+      "text": {
+        "en": "Whatever the need, it is handled by the same specialist from quote to completion. No subcontractors, no handover.",
+        "zh": "无论何种需求，皆由同一位专家从报价到完工负责。不转包，不交接。"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "tag": {
+        "en": "Free",
+        "zh": "免费"
+      },
+      "name": {
+        "en": "Order & address",
+        "zh": "下单与地址"
+      },
+      "short": {
+        "en": "Pick a model or send a photo. Add your block and unit in the chat.",
+        "zh": "选择型号或传照片，在对话中提供座号与单位。"
+      },
+      "text": {
+        "en": "Pick a model from the list, or just send a photo of your mailbox front and let us recommend one. Add your block and unit in the chat so we can schedule the visit. No deposit and no card details.",
+        "zh": "从列表选择型号，或直接传信箱正面照片让我们推荐。在对话中提供座号与单位以便安排上门。无需订金，不需信用卡资料。"
+      }
+    },
+    {
+      "tag": {
+        "en": "Free",
+        "zh": "免费"
+      },
+      "name": {
+        "en": "We confirm a window",
+        "zh": "确认时段"
+      },
+      "short": {
+        "en": "Standard runs are free. Urgent installation adds S$10.",
+        "zh": "标准行程免费。紧急安装加 S$10。"
+      },
+      "text": {
+        "en": "Your job is slotted into the next run that passes your postal sector, and you get a confirmed arrival window before we set off. Need it sooner? Choose urgent installation and we make a special arrangement to reach you, for S$10.",
+        "zh": "您的工作会排入下一趟经过您邮区的行程，出发前给您确定的到达时段。需要更快？选择紧急安装，我们会为您特别安排，加收 S$10。"
+      }
+    },
+    {
+      "tag": {
+        "en": "Free",
+        "zh": "免费"
+      },
+      "name": {
+        "en": "Install + video",
+        "zh": "安装与录影"
+      },
+      "short": {
+        "en": "We fit, align and test it, then send you a short video.",
+        "zh": "安装、校准、测试，然后传短片给您。"
+      },
+      "text": {
+        "en": "The old mechanism is removed, the new lock fitted and aligned, your code set or keys handed over. We record a short video of the finished lock opening and closing, and send it to you.",
+        "zh": "拆除旧锁、安装校准新锁、设定密码或交付钥匙。我们会录下完工锁具开关的短片并传给您。"
+      }
+    },
+    {
+      "tag": {
+        "en": "Free",
+        "zh": "免费"
+      },
+      "name": {
+        "en": "You confirm",
+        "zh": "您确认"
+      },
+      "short": {
+        "en": "Watch the video or test it yourself. Not right? We fix it first.",
+        "zh": "看影片或自行测试。不满意？我们先修正。"
+      },
+      "text": {
+        "en": "Watch the video, or test it yourself if you are home. If anything is not right, tell us and we put it right before any payment is due.",
+        "zh": "观看影片，或在家自行测试。若有任何不妥，告诉我们，我们会在收款前处理好。"
+      }
+    },
+    {
+      "tag": {
+        "en": "Only now",
+        "zh": "此时才付"
+      },
+      "name": {
+        "en": "You pay",
+        "zh": "您付款"
+      },
+      "short": {
+        "en": "PayNow, cash or transfer — at the written price, never more.",
+        "zh": "PayNow、现金或转账 — 按书面价格，绝不加价。"
+      },
+      "text": {
+        "en": "Once you are satisfied, settle the written price by PayNow, cash or bank transfer. The figure never changes from the written quote unless you asked for extra work.",
+        "zh": "满意后以 PayNow、现金或银行转账支付书面价格。除非您另外要求加工，否则金额绝不会变动。"
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "name": "Wei L.",
+      "initial": "W",
+      "stars": 5,
+      "date": "2025-11-03",
+      "model": "P1",
+      "where": {
+        "en": "Tampines · HDB",
+        "zh": "淡滨尼 · 组屋"
+      },
+      "tag": {
+        "en": "Lost-key opening + keyed replacement",
+        "zh": "钥匙遗失开锁 + 更换钥匙锁"
+      },
+      "text": {
+        "en": "Lost my letterbox key on a Sunday. Sent a photo, got a price, and it was opened and re-keyed within two hours. Very fair rate.",
+        "zh": "星期天弄丢信箱钥匙。传了照片、拿到报价，两小时内就开锁换好了。价格很公道。"
+      }
+    },
+    {
+      "name": "Priya S.",
+      "initial": "P",
+      "stars": 5,
+      "date": "2025-10-21",
+      "model": "P4",
+      "where": {
+        "en": "Bishan · Condo",
+        "zh": "碧山 · 公寓"
+      },
+      "tag": {
+        "en": "Digital touch-PIN upgrade",
+        "zh": "升级数码触控密码锁"
+      },
+      "text": {
+        "en": "Upgraded to a keyless PIN lock. Clean installation, tested everything and showed me how to reset the code. Highly recommend.",
+        "zh": "升级成免钥匙密码锁。安装整齐，全部测试过，还教我怎么重设密码。非常推荐。"
+      }
+    },
+    {
+      "name": "Marcus T.",
+      "initial": "M",
+      "stars": 5,
+      "date": "2025-10-09",
+      "model": "P2",
+      "where": {
+        "en": "Punggol · HDB · MCST",
+        "zh": "榜鹅 · 组屋 · 管理机构"
+      },
+      "tag": {
+        "en": "Block-wide bulk replacement",
+        "zh": "整栋批量更换"
+      },
+      "text": {
+        "en": "Our whole block's MCST used them for a bulk replacement. One appointment, single invoice, no fuss. Good value.",
+        "zh": "我们整栋的管理机构请他们做批量更换。一次预约、单一发票，省心。很划算。"
+      }
+    },
+    {
+      "name": "Aisha R.",
+      "initial": "A",
+      "stars": 5,
+      "date": "2025-09-28",
+      "model": "P2",
+      "where": {
+        "en": "Jurong West · HDB",
+        "zh": "裕廊西 · 组屋"
+      },
+      "tag": {
+        "en": "Urgent jammed lock",
+        "zh": "紧急处理卡住的锁"
+      },
+      "text": {
+        "en": "Jammed lock replaced within hours of calling. Transparent pricing with no hidden charges. Friendly and professional.",
+        "zh": "打电话后几小时内就换好卡住的锁。价格透明没有隐藏费用。态度友善又专业。"
+      }
+    },
+    {
+      "name": "Daniel K.",
+      "initial": "D",
+      "stars": 5,
+      "date": "2025-09-15",
+      "model": "P2",
+      "where": {
+        "en": "Woodlands · Condo",
+        "zh": "兀兰 · 公寓"
+      },
+      "tag": {
+        "en": "Keyless conversion",
+        "zh": "改为免钥匙"
+      },
+      "text": {
+        "en": "Responsive on WhatsApp and arrived on time. The battery-free lock is exactly what I wanted — nothing to charge.",
+        "zh": "WhatsApp 回复很快，准时到达。免电池的锁正是我要的 — 不用充电。"
+      }
+    },
+    {
+      "name": "Serene C.",
+      "initial": "S",
+      "stars": 4,
+      "date": "2025-08-30",
+      "model": "P5",
+      "where": {
+        "en": "Bedok · HDB",
+        "zh": "勿洛 · 组屋"
+      },
+      "tag": {
+        "en": "Ergonomic combination fit",
+        "zh": "安装易握密码锁"
+      },
+      "text": {
+        "en": "Elderly mother kept losing keys, so we went with a keyless code lock. She finds it so much easier now. Thank you!",
+        "zh": "年迈的母亲老是弄丢钥匙，所以换了免钥匙密码锁。她现在觉得方便多了。谢谢！"
+      }
+    }
+  ],
+  "gallery": [
+    {
+      "file": "job-01-keyed-replacement-tampines-hdb.jpg",
+      "title": {
+        "en": "Keyed replacement",
+        "zh": "更换钥匙锁"
+      },
+      "where": {
+        "en": "Tampines · HDB",
+        "zh": "淡滨尼 · 组屋"
+      },
+      "alt": {
+        "en": "Silver keyed lock fitted to a standard HDB letterbox door",
+        "zh": "标准组屋信箱门安装银色钥匙锁"
+      }
+    },
+    {
+      "file": "job-02-block-wide-upgrade-punggol-hdb.jpg",
+      "title": {
+        "en": "Block-wide upgrade",
+        "zh": "整栋更换"
+      },
+      "where": {
+        "en": "Punggol · HDB",
+        "zh": "榜鹅 · 组屋"
+      },
+      "alt": {
+        "en": "Row of HDB letterboxes after a block-wide lock replacement",
+        "zh": "整栋更换锁后的组屋信箱组"
+      }
+    },
+    {
+      "file": "job-03-combination-upgrade-bishan-condo.jpg",
+      "title": {
+        "en": "Combination upgrade",
+        "zh": "升级密码锁"
+      },
+      "where": {
+        "en": "Bishan · Condo",
+        "zh": "碧山 · 公寓"
+      },
+      "alt": {
+        "en": "Condominium mailbox with a new combination lock installed",
+        "zh": "公寓信箱安装新密码锁"
+      }
+    },
+    {
+      "file": "job-04-lost-key-opening-bedok-hdb.jpg",
+      "title": {
+        "en": "Lost-key opening",
+        "zh": "钥匙遗失开锁"
+      },
+      "where": {
+        "en": "Bedok · HDB",
+        "zh": "勿洛 · 组屋"
+      },
+      "alt": {
+        "en": "Close-up of a re-keyed HDB mailbox latch after opening",
+        "zh": "开锁后重新配锁的组屋信箱锁扣特写"
+      }
+    },
+    {
+      "file": "job-05-keyless-conversion-yishun-hdb.jpg",
+      "title": {
+        "en": "Keyless conversion",
+        "zh": "改为免钥匙"
+      },
+      "where": {
+        "en": "Yishun · HDB",
+        "zh": "义顺 · 组屋"
+      },
+      "alt": {
+        "en": "Battery-free code lock fitted after a lost-key call-out",
+        "zh": "钥匙遗失上门后安装的免电池密码锁"
+      }
+    },
+    {
+      "file": "job-06-mcst-bulk-job-woodlands-condo.jpg",
+      "title": {
+        "en": "MCST bulk job",
+        "zh": "管理机构批量工程"
+      },
+      "where": {
+        "en": "Woodlands · Condo",
+        "zh": "兀兰 · 公寓"
+      },
+      "alt": {
+        "en": "Condo mail room after a coordinated MCST bulk upgrade",
+        "zh": "管理机构统筹批量更换后的公寓信件室"
+      }
+    },
+    {
+      "file": "job-07-jammed-lock-jurong-west-hdb.jpg",
+      "title": {
+        "en": "Jammed lock",
+        "zh": "卡住的锁"
+      },
+      "where": {
+        "en": "Jurong West · HDB",
+        "zh": "裕廊西 · 组屋"
+      },
+      "alt": {
+        "en": "Jammed HDB letterbox lock replaced and alignment corrected",
+        "zh": "更换卡住的组屋信箱锁并校正对位"
+      }
+    },
+    {
+      "file": "job-08-digital-install-clementi-condo.jpg",
+      "title": {
+        "en": "Digital install",
+        "zh": "数码锁安装"
+      },
+      "where": {
+        "en": "Clementi · Condo",
+        "zh": "金文泰 · 公寓"
+      },
+      "alt": {
+        "en": "WT touch-PIN digital lock installed on a condominium mailbox",
+        "zh": "公寓信箱安装 WT 触控密码数码锁"
+      }
+    },
+    {
+      "file": "job-09-narrow-door-fit-ang-mo-kio-hdb.jpg",
+      "title": {
+        "en": "Narrow-door fit",
+        "zh": "窄门安装"
+      },
+      "where": {
+        "en": "Ang Mo Kio · HDB",
+        "zh": "宏茂桥 · 组屋"
+      },
+      "alt": {
+        "en": "Narrow HDB mailbox door fitted with a horizontal lock body",
+        "zh": "窄门组屋信箱安装横式锁体"
+      }
+    },
+    {
+      "file": "job-10-outdoor-mailbox-serangoon-landed.jpg",
+      "title": {
+        "en": "Outdoor mailbox",
+        "zh": "户外信箱"
+      },
+      "where": {
+        "en": "Serangoon · Landed",
+        "zh": "实龙岗 · 有地住宅"
+      },
+      "alt": {
+        "en": "Zinc-alloy lock chosen for a weather-exposed outdoor mailbox",
+        "zh": "为露天信箱选用的锌合金锁"
+      }
+    },
+    {
+      "file": "job-11-new-build-handover-tengah-bto.jpg",
+      "title": {
+        "en": "New-build handover",
+        "zh": "新楼交屋"
+      },
+      "where": {
+        "en": "Tengah · New BTO",
+        "zh": "登加 · 新组屋"
+      },
+      "alt": {
+        "en": "New BTO mailbox bank fitted with locks before handover",
+        "zh": "交屋前完成安装的新组屋信箱组"
+      }
+    },
+    {
+      "file": "job-12-designer-fit-out-sengkang-condo.jpg",
+      "title": {
+        "en": "Designer fit-out",
+        "zh": "设计师项目"
+      },
+      "where": {
+        "en": "Sengkang · Condo",
+        "zh": "盛港 · 公寓"
+      },
+      "alt": {
+        "en": "Interior designer project mailbox locks completed and tested",
+        "zh": "室内设计师项目信箱锁完工测试"
+      }
+    },
+    {
+      "file": "job-13-midnight-callout-hougang-hdb.jpg",
+      "title": {
+        "en": "Midnight call-out",
+        "zh": "深夜服务"
+      },
+      "where": {
+        "en": "Hougang · HDB",
+        "zh": "后港 · 组屋"
+      },
+      "alt": {
+        "en": "Late-night lost-key opening completed for an HDB resident",
+        "zh": "为组屋住户完成的深夜钥匙遗失开锁"
+      }
+    },
+    {
+      "file": "job-14-urgent-install-pasir-ris-hdb.jpg",
+      "title": {
+        "en": "Urgent install",
+        "zh": "紧急安装"
+      },
+      "where": {
+        "en": "Pasir Ris · HDB",
+        "zh": "白沙 · 组屋"
+      },
+      "alt": {
+        "en": "Urgent letterbox lock replacement completed after a jam",
+        "zh": "卡住后完成的紧急信箱锁更换"
+      }
+    },
+    {
+      "file": "job-15-ergonomic-fit-toa-payoh-hdb.jpg",
+      "title": {
+        "en": "Ergonomic fit",
+        "zh": "易握款安装"
+      },
+      "where": {
+        "en": "Toa Payoh · HDB",
+        "zh": "大巴窑 · 组屋"
+      },
+      "alt": {
+        "en": "Large-dial ergonomic lock fitted for an elderly resident",
+        "zh": "为年长住户安装的大转盘易握锁"
+      }
+    },
+    {
+      "file": "job-16-landed-gate-post-bukit-timah.jpg",
+      "title": {
+        "en": "Gate-post mailbox",
+        "zh": "门柱信箱"
+      },
+      "where": {
+        "en": "Bukit Timah · Landed",
+        "zh": "武吉知马 · 有地住宅"
+      },
+      "alt": {
+        "en": "Zinc-alloy lock fitted to a landed gate-post mailbox",
+        "zh": "有地住宅门柱信箱安装锌合金锁"
+      }
+    },
+    {
+      "file": "job-17-office-mailroom-kallang.jpg",
+      "title": {
+        "en": "Office mail room",
+        "zh": "办公室信件室"
+      },
+      "where": {
+        "en": "Kallang · Commercial",
+        "zh": "加冷 · 商业单位"
+      },
+      "alt": {
+        "en": "Shared office mail room locks replaced outside business hours",
+        "zh": "营业时间外完成的办公室共用信件室换锁"
+      }
+    },
+    {
+      "file": "job-18-town-council-programme-yishun.jpg",
+      "title": {
+        "en": "Town council programme",
+        "zh": "市镇理事会工程"
+      },
+      "where": {
+        "en": "Yishun · HDB",
+        "zh": "义顺 · 组屋"
+      },
+      "alt": {
+        "en": "Multi-block town council letterbox lock programme completed",
+        "zh": "完成的多栋市镇理事会信箱锁工程"
+      }
+    }
+  ],
+  "towns": [
+    "Ang Mo Kio",
+    "Bedok",
+    "Bishan",
+    "Boon Lay",
+    "Bukit Batok",
+    "Bukit Merah",
+    "Bukit Panjang",
+    "Bukit Timah",
+    "Choa Chu Kang",
+    "Clementi",
+    "Geylang",
+    "Hougang",
+    "Jurong East",
+    "Jurong West",
+    "Kallang",
+    "Marine Parade",
+    "Pasir Ris",
+    "Punggol",
+    "Queenstown",
+    "Sembawang",
+    "Sengkang",
+    "Serangoon",
+    "Tampines",
+    "Tengah",
+    "Toa Payoh",
+    "Woodlands",
+    "Yishun"
+  ],
+  "mrt": [
+    {
+      "code": "NS",
+      "name": {
+        "en": "North–South Line",
+        "zh": "南北线"
+      },
+      "stations": [
+        "Jurong East",
+        "Bukit Batok",
+        "Bukit Gombak",
+        "Choa Chu Kang",
+        "Yew Tee",
+        "Kranji",
+        "Marsiling",
+        "Woodlands",
+        "Admiralty",
+        "Sembawang",
+        "Canberra",
+        "Yishun",
+        "Khatib",
+        "Yio Chu Kang",
+        "Ang Mo Kio",
+        "Bishan",
+        "Braddell",
+        "Toa Payoh",
+        "Novena",
+        "Newton",
+        "Orchard",
+        "Somerset",
+        "Dhoby Ghaut",
+        "City Hall",
+        "Raffles Place",
+        "Marina Bay",
+        "Marina South Pier"
+      ]
+    },
+    {
+      "code": "EW",
+      "name": {
+        "en": "East–West Line",
+        "zh": "东西线"
+      },
+      "stations": [
+        "Pasir Ris",
+        "Tampines",
+        "Simei",
+        "Tanah Merah",
+        "Bedok",
+        "Kembangan",
+        "Eunos",
+        "Paya Lebar",
+        "Aljunied",
+        "Kallang",
+        "Lavender",
+        "Bugis",
+        "City Hall",
+        "Raffles Place",
+        "Tanjong Pagar",
+        "Outram Park",
+        "Tiong Bahru",
+        "Redhill",
+        "Queenstown",
+        "Commonwealth",
+        "Buona Vista",
+        "Dover",
+        "Clementi",
+        "Jurong East",
+        "Chinese Garden",
+        "Lakeside",
+        "Boon Lay",
+        "Pioneer",
+        "Joo Koon",
+        "Gul Circle",
+        "Tuas Crescent",
+        "Tuas West Road",
+        "Tuas Link",
+        "Expo",
+        "Changi Airport"
+      ]
+    },
+    {
+      "code": "NE",
+      "name": {
+        "en": "North East Line",
+        "zh": "东北线"
+      },
+      "stations": [
+        "HarbourFront",
+        "Outram Park",
+        "Chinatown",
+        "Clarke Quay",
+        "Dhoby Ghaut",
+        "Little India",
+        "Farrer Park",
+        "Boon Keng",
+        "Potong Pasir",
+        "Woodleigh",
+        "Serangoon",
+        "Kovan",
+        "Hougang",
+        "Buangkok",
+        "Sengkang",
+        "Punggol"
+      ]
+    },
+    {
+      "code": "CC",
+      "name": {
+        "en": "Circle Line",
+        "zh": "环线"
+      },
+      "stations": [
+        "Dhoby Ghaut",
+        "Bras Basah",
+        "Esplanade",
+        "Promenade",
+        "Nicoll Highway",
+        "Stadium",
+        "Mountbatten",
+        "Dakota",
+        "Paya Lebar",
+        "MacPherson",
+        "Tai Seng",
+        "Bartley",
+        "Serangoon",
+        "Lorong Chuan",
+        "Bishan",
+        "Marymount",
+        "Caldecott",
+        "Botanic Gardens",
+        "Farrer Road",
+        "Holland Village",
+        "Buona Vista",
+        "one-north",
+        "Kent Ridge",
+        "Haw Par Villa",
+        "Pasir Panjang",
+        "Labrador Park",
+        "Telok Blangah",
+        "HarbourFront"
+      ]
+    },
+    {
+      "code": "DT",
+      "name": {
+        "en": "Downtown Line",
+        "zh": "市区线"
+      },
+      "stations": [
+        "Bukit Panjang",
+        "Cashew",
+        "Hillview",
+        "Beauty World",
+        "King Albert Park",
+        "Sixth Avenue",
+        "Tan Kah Kee",
+        "Botanic Gardens",
+        "Stevens",
+        "Newton",
+        "Little India",
+        "Rochor",
+        "Bugis",
+        "Promenade",
+        "Bayfront",
+        "Downtown",
+        "Telok Ayer",
+        "Chinatown",
+        "Fort Canning",
+        "Bencoolen",
+        "Jalan Besar",
+        "Bendemeer",
+        "Geylang Bahru",
+        "Mattar",
+        "MacPherson",
+        "Ubi",
+        "Kaki Bukit",
+        "Bedok North",
+        "Bedok Reservoir",
+        "Tampines West",
+        "Tampines",
+        "Tampines East",
+        "Upper Changi",
+        "Expo"
+      ]
+    },
+    {
+      "code": "TE",
+      "name": {
+        "en": "Thomson–East Coast Line",
+        "zh": "汤申-东海岸线"
+      },
+      "stations": [
+        "Woodlands North",
+        "Woodlands",
+        "Woodlands South",
+        "Springleaf",
+        "Lentor",
+        "Mayflower",
+        "Bright Hill",
+        "Upper Thomson",
+        "Caldecott",
+        "Stevens",
+        "Napier",
+        "Orchard Boulevard",
+        "Orchard",
+        "Great World",
+        "Havelock",
+        "Outram Park",
+        "Maxwell",
+        "Shenton Way",
+        "Marina Bay",
+        "Gardens by the Bay",
+        "Tanjong Rhu",
+        "Katong Park",
+        "Tanjong Katong",
+        "Marine Parade",
+        "Marine Terrace",
+        "Siglap",
+        "Bayshore"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": {
+        "en": "How much does a letterbox lock installation cost in Singapore?",
+        "zh": "新加坡换信箱锁多少钱？"
+      },
+      "a": {
+        "en": "Supply and installation starts from S$50 for a standard HDB or condo letterbox. If the mailbox is locked and the key is lost, opening adds S$25 per unit, so a typical open-and-replace job starts at S$75. Digital touch-PIN models start at S$60 and the range tops out at S$85. Urgent installation adds S$10. The final price is confirmed in writing after we review your photo.",
+        "zh": "标准组屋或公寓信箱，供应加安装 S$50 起。若信箱已上锁且钥匙遗失，每个加收 S$25 开锁费，因此开锁加换锁通常 S$75 起。数码触控密码款 S$60 起，全系列最高 S$85。紧急安装加 S$10。我们看过您的照片后会以书面确认最终价格。"
+      }
+    },
+    {
+      "q": {
+        "en": "Are you really open 24 hours?",
+        "zh": "真的 24 小时营业吗？"
+      },
+      "a": {
+        "en": "Yes. We answer WhatsApp and phone round the clock, every day of the year, including public holidays. Late-night and early-morning lost-key openings are a regular part of what we do. Urgent installation, at any hour, carries a S$10 surcharge, stated in writing before we travel — there is no separate night rate and no emergency multiplier.",
+        "zh": "是的。我们全年无休、24 小时接听 WhatsApp 与电话，公共假期也不例外。深夜与清晨的钥匙遗失开锁是我们日常工作的一部分。紧急安装（任何时间）加收 S$10，出发前以书面告知 — 没有另外的夜间费率，也没有紧急加成。"
+      }
+    },
+    {
+      "q": {
+        "en": "Do you service HDB and condo letterboxes islandwide?",
+        "zh": "全岛的组屋和公寓信箱都服务吗？"
+      },
+      "a": {
+        "en": "Yes. We cover every HDB town and condominium in Singapore, plus landed homes and outdoor mailboxes. We plan routes across the island each day, so your job is slotted into the next run passing your postal sector and you get a confirmed arrival window before we travel.",
+        "zh": "是的。我们涵盖新加坡所有组屋区与公寓，也包括有地住宅与户外信箱。我们每天规划全岛路线，您的工作会排入下一趟经过您邮区的行程，出发前提供确定的到达时段。"
+      }
+    },
+    {
+      "q": {
+        "en": "I lost my letterbox key. Can you help?",
+        "zh": "我弄丢信箱钥匙了，能帮忙吗？"
+      },
+      "a": {
+        "en": "Yes. We open the locked mailbox and fit a replacement lock the same visit. Opening starts from S$25 per unit and we verify on site that you are the resident, owner, tenant or an authorised person before anything is opened.",
+        "zh": "可以。我们会在同一次上门开启上锁的信箱并安装新锁。开锁每个 S$25 起，开启前会在现场核实您是住户、屋主、租户或授权人。"
+      }
+    },
+    {
+      "q": {
+        "en": "When do I pay?",
+        "zh": "什么时候付款？"
+      },
+      "a": {
+        "en": "After the job is done and you have confirmed it. We install the lock, send you a short video of it working, and you only pay once you are satisfied. There is no deposit, nothing to pay online and no card details taken.",
+        "zh": "完工并经您确认后才付款。我们安装好锁、传送运作短片，您满意后才付费。无需订金，不需线上付款，也不收取信用卡资料。"
+      }
+    },
+    {
+      "q": {
+        "en": "Is there a letterbox lock that does not need a battery?",
+        "zh": "有不用电池的信箱锁吗？"
+      },
+      "a": {
+        "en": "Yes — most of our range. Our combination models (P2, P3, P5, P6, P8 and P9) have no battery at all, so there is nothing to charge and nothing to fail. Only the digital touch-PIN models (P4 and P7) use a replaceable battery, and those warn you before it runs low.",
+        "zh": "有 — 我们大部分型号都是。密码款（P2、P3、P5、P6、P8 与 P9）完全不用电池，不必充电也不会失灵。只有数码触控密码款（P4 与 P7）使用可更换电池，且会在电量偏低前提醒您。"
+      }
+    },
+    {
+      "q": {
+        "en": "How long does a letterbox lock replacement take?",
+        "zh": "换一个信箱锁要多久？"
+      },
+      "a": {
+        "en": "Most single replacements take 15 to 30 minutes once we are on site and the mailbox is accessible. Bulk jobs for a whole block are scheduled as one coordinated visit.",
+        "zh": "到场且信箱可接触的情况下，单个更换多数需 15 至 30 分钟。整栋批量工程会安排为一次统筹上门。"
+      }
+    },
+    {
+      "q": {
+        "en": "Do I need HDB or MCST approval to change my letterbox lock?",
+        "zh": "换信箱锁需要建屋局或管理机构批准吗？"
+      },
+      "a": {
+        "en": "For your own unit's letterbox you do not normally need approval — the lock is yours to maintain. For a block-wide or common-area mailbox bank, the MCST, managing agent or town council must approve the works first, and we help prepare that request before anything is scheduled.",
+        "zh": "自己单位的信箱通常不需要批准 — 锁具由您自行维护。若是整栋或公共区域的信箱组，须先经管理机构、物业经理或市镇理事会批准，我们会在排程前协助准备申请。"
+      }
+    },
+    {
+      "q": {
+        "en": "Can you match the existing lock on my letterbox?",
+        "zh": "能配合我信箱原本的锁吗？"
+      },
+      "a": {
+        "en": "In most cases, yes. Send one straight-on photo of the mailbox front and we identify the cut-out, cam type and swivel direction, then confirm in writing which model fits. If we confirm a model and it does not fit on site, you pay nothing — including no attendance fee.",
+        "zh": "多数情况可以。传一张信箱正面的正视照片，我们会辨识开孔、锁舌类型与转向，然后书面确认适合的型号。若我们确认的型号现场装不上，您完全不必付费 — 包括上门费。"
+      }
+    },
+    {
+      "q": {
+        "en": "Do you charge a call-out fee?",
+        "zh": "有上门费吗？"
+      },
+      "a": {
+        "en": "No call-out fee and no attendance fee. Standard visits on our daily route carry no travel charge at all. The only additional charge is S$10 for urgent installation, a special arrangement outside our planned route — and that figure is in your written quote before we travel.",
+        "zh": "没有上门费，也没有出勤费。日常路线上的标准上门完全不收车马费。唯一的额外费用是紧急安装的 S$10，这是既定路线之外的特别安排 — 该金额会在出发前列于书面报价中。"
+      }
+    },
+    {
+      "q": {
+        "en": "Do you work with interior designers and new construction projects?",
+        "zh": "你们接室内设计师与新建工程的项目吗？"
+      },
+      "a": {
+        "en": "Yes. We are a one-stop letterbox lock solution for interior designers, renovation firms, developers, MCSTs, managing agents, town councils, property agents and landlords, as well as individual residents. Projects get one consistent model across every unit, a written per-unit scope, work scheduled around your handover or TOP date, and a single consolidated invoice.",
+        "zh": "接。我们为室内设计师、装修公司、发展商、管理机构、物业经理、市镇理事会、房产经纪与房东，以及个别住户，提供一站式信箱锁解决方案。项目可全数采用统一型号，提供逐户书面范围，配合交屋或临时入伙准证日期排程，并开立单一整合发票。"
+      }
+    }
+  ]
+}
