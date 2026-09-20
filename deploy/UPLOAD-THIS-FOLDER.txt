@@ -1,0 +1,5 @@
+Upload the CONTENTS of this folder to your web host root.
+index.html here must become https://www.letterboxlock.sg/index.html
+
+Do not double-click this index.html — it uses server paths and will
+appear unstyled. Use the index.html one level up for local viewing.

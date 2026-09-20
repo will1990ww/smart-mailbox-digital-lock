@@ -1,0 +1,16 @@
+# robots.txt — Letterbox Lock Singapore
+User-agent: *
+Allow: /
+
+# Keep tracking-parameter duplicates out of the index
+Disallow: /*?utm_
+Disallow: /*?fbclid
+Disallow: /*?gclid
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+Sitemap: https://www.letterboxlock.sg/sitemap.xml
