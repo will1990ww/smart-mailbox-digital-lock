@@ -1,0 +1,51 @@
+{
+  "name": "Letterbox Lock Singapore",
+  "short_name": "Letterbox Lock",
+  "description": "Letterbox and mailbox lock supply, installation and lost-key opening across Singapore, 24 hours.",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#0b1220",
+  "lang": "en-SG",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "/assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "WhatsApp a photo",
+      "url": "https://wa.me/6583417888"
+    },
+    {
+      "name": "All locks & prices",
+      "url": "/products/"
+    },
+    {
+      "name": "Lost letterbox key",
+      "url": "/lost-letterbox-key/"
+    }
+  ]
+}

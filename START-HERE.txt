@@ -1,0 +1,83 @@
+========================================================================
+  LETTERBOX LOCK SINGAPORE — START HERE
+========================================================================
+
+TO LOOK AT THE SITE RIGHT NOW
+-----------------------------
+Double-click:  index.html
+
+English site:  index.html
+Chinese site:  zh/index.html
+(Language button in the header of every page.)
+
+
+TO PUT THE SITE ONLINE
+----------------------
+Upload EVERYTHING inside the  deploy/  folder to your web host.
+
+Upload the CONTENTS of deploy/, not the folder itself, so that
+deploy/index.html becomes https://www.letterboxlock.sg/index.html
+
+  This folder  ->  relative paths  ->  opens by double-click
+  deploy/      ->  absolute paths  ->  correct on a web server
+
+
+WHAT CHANGED IN THIS VERSION
+----------------------------
+  1. FIXED the duplicate 中文 / Call buttons in the desktop header.
+  2. Short blurbs stay on the homepage grid; /products/ now shows the
+     full long-form detail — Advantages / Considerations / Not
+     suitable when — plus an "At a glance" spec table per model.
+  3. NEW red "No fit, no fee" guarantee card in the hero, filling the
+     empty space under the urgent box.
+  4. Trade & project partners: 6 cards -> 8, so the 4-column grid
+     fills exactly. Added Town councils and Offices & commercial.
+  5. Installation gallery: 12 photos -> 18, one extra full row.
+     Grid pinned to 2/3/6 columns so no row is ever part-empty.
+  6. NEW urgent scheduling choice in the order form:
+       Standard — free, next run through your area
+       Same-day urgent — +S$10 transport
+     The estimate updates live and the WhatsApp message states it.
+  7. NOW OPEN 24 HOURS. Every mention of "not a 24-hour service" and
+     "09:00-21:00" is gone. Schema, FAQs, footer and hero all updated,
+     plus a new page: /24-hour-letterbox-locksmith/
+
+  Prices are UNCHANGED (S$50 entry, S$25 unlock, S$85 top).
+
+
+LATEST COPY CHANGES
+-------------------
+  * P3 backup key now reads "Backup key retrieves your code"
+  * P4 code length is 4 to 14 digits
+  * Backup-key wording shortened to "Backup key retrieves the code only"
+  * The three extra models no longer carry names. They now read
+    "Tell us your need" and invite an enquiry instead.
+  * "Same-day" is gone everywhere. The option is now
+    "Urgent installation (+S$10)" — a special arrangement outside
+    our planned route, with no day promised.
+  * "Who actually turns up" is now "How we work", written as a
+    professional specialist rather than a one-person business.
+
+TO EDIT ANYTHING
+----------------
+  src/data/site.json   products, prices, reviews, FAQs, service areas
+  src/data/i18n.mjs    every button and label, English and Chinese
+
+Change a price in site.json and it updates in all five places at once.
+
+  npm run package     rebuild BOTH (this folder + deploy/)
+  npm run all         build + 61 tests + full validation
+  npm run dev         build and serve at http://localhost:8080
+  npm run images      regenerate the 31 sample images
+
+No npm install needed. Zero dependencies.
+
+
+THE PHOTOS
+----------
+All 31 images are branded sample artwork at the exact paths and sizes
+the templates expect. Replacing one with a real photo is a straight
+file swap — no code change. See assets/img/REQUIRED-IMAGES.md
+
+Full documentation: README.md
+========================================================================

@@ -1,0 +1,13 @@
+# 站点基础设置
+title: LetterboxLock
+url: "https://www.letterboxlock.sg"    # 注意：无尾斜杠
+
+# 启用 sitemap 插件
+plugins:
+  - jekyll-sitemap
+
+# （可选）将某些目录或文件排除生成
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
